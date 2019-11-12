@@ -1,0 +1,158 @@
+fileFormatVersion: 2
+guid: 0f4a6985bb00d0b41a6ee195c89e1936
+ModelImporter:
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      74: -8379034830487479200
+    second: Crate|CrateAction
+  - first:
+      74: 7545325847845349660
+    second: Crate|LeftLatchAction
+  - first:
+      74: 7741729368886651449
+    second: Crate|LidAction
+  - first:
+      74: -5586660475699439010
+    second: Crate|RightLatchAction
+  - first:
+      74: 1458915536815134475
+    second: Lid|CrateAction
+  - first:
+      74: -7900317539965538445
+    second: Lid|LeftLatchAction
+  - first:
+      74: 5459680137192636663
+    second: Lid|LidAction
+  - first:
+      74: 6617328880084181361
+    second: Lid|RightLatchAction
+  - first:
+      74: -2935548724107536033
+    second: LeftLatch|CrateAction
+  - first:
+      74: 6729083476773784340
+    second: LeftLatch|LeftLatchAction
+  - first:
+      74: -4597052848920547090
+    second: LeftLatch|LidAction
+  - first:
+      74: -1949347767497443200
+    second: LeftLatch|RightLatchAction
+  - first:
+      74: 2580187745307062870
+    second: RightLatch|CrateAction
+  - first:
+      74: 7532066043505296983
+    second: RightLatch|LeftLatchAction
+  - first:
+      74: 8893158056477451709
+    second: RightLatch|LidAction
+  - first:
+      74: 5960501120245840460
+    second: RightLatch|RightLatchAction
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crate_Mat
+    second: {fileID: 2100000, guid: eaaf1e3369949c14a963903afb071543, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hinge_Mat
+    second: {fileID: 2100000, guid: f6682cb3cee20f048b99220741db0c84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lid_Mat
+    second: {fileID: 2100000, guid: f1244b9b697cb8544a8a9e8af46c7421, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
