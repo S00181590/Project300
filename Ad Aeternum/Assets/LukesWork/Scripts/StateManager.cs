@@ -47,6 +47,8 @@ public class StateManager : MonoBehaviour
 
     public void Init()
     {
+        Application.targetFrameRate = 60;
+
         //SetupAnimator();
         rb = GetComponent<Rigidbody>();
         rb.angularDrag = 1000;

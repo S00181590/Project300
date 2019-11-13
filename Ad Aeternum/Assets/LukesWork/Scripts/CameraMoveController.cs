@@ -23,6 +23,8 @@ public class CameraMoveController : MonoBehaviour
 
     public PlayerMoveController player;
 
+    public StateManager stateManager;
+
     public LayerMask checkLayers;
 
     public Collider cylinderCol;
@@ -34,6 +36,7 @@ public class CameraMoveController : MonoBehaviour
     public GameObject hit = null;
 
     private int count = 0;
+    private bool bowAim = false;
     #endregion
 
     //Essentially a Start method but accepts variables
@@ -74,7 +77,25 @@ public class CameraMoveController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        BowAim();
+        if (Input.GetMouseButton(1))
+        {
+            camTransform.localPosition = new Vector3(1.2f, 0.25f, -2f);
+            player.speed = 3;
+
+            if (stateManager.onGround == false)
+            {
+                Time.timeScale = 2f;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+            }
+        }
+        else
+        {
+            camTransform.localPosition = new Vector3(0, 0.5f, -4);
+            player.speed = 6;
+        }
         //else if (Input.GetMouseButton(1) && count == 1)
         //{
         //    count--;
