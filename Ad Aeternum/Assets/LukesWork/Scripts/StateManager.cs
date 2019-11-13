@@ -43,6 +43,8 @@ public class StateManager : MonoBehaviour
     bool groundTest;
     RaycastHit hitTest;
 
+    int count = 0;
+
     public void Init()
     {
         //SetupAnimator();
@@ -72,6 +74,20 @@ public class StateManager : MonoBehaviour
     public void FixedTick(float d)
     {
         delta = d;
+
+        if (Input.GetMouseButtonDown(1) && count <= 0)
+        {
+            count = 0;
+            count++;
+            speed = 2;
+        }
+
+        if (Input.GetMouseButtonUp(1) && count >= 1)
+        {
+            count = 1;
+            count--;
+            speed = 6;
+        }
 
         rb.isKinematic = false;
 

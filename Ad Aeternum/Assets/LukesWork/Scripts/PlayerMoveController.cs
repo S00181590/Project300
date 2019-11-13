@@ -113,6 +113,15 @@ public class PlayerMoveController : MonoBehaviour
         //    animator.SetInteger("animation", 25);//Idle animation works well here
         //}
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            speed = 4;
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            speed = 10;
+        }
+
         delta = Time.fixedDeltaTime;
         camManager.Tick(delta);
         GetInput();
@@ -144,7 +153,7 @@ public class PlayerMoveController : MonoBehaviour
         states.horizontal = horizontal;
         states.vertical = vertical;
 
-        if (Input.GetKeyDown(KeyCode.Q) || (Input.GetMouseButtonDown(1)))
+        if (Input.GetKeyDown(KeyCode.Q)) //|| (Input.GetMouseButtonDown(1)))
         {
             switchLockOn = !switchLockOn;
             attackRange = !attackRange;

@@ -32,6 +32,8 @@ public class CameraMoveController : MonoBehaviour
     public GameObject[] enemyList;
 
     public GameObject hit = null;
+
+    private int count = 0;
     #endregion
 
     //Essentially a Start method but accepts variables
@@ -72,7 +74,12 @@ public class CameraMoveController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        BowAim();
+        //else if (Input.GetMouseButton(1) && count == 1)
+        //{
+        //    count--;
+        //    camTransform = BowAim2(camTransform);
+        //}
     }
 
     void PivotCamOnPlayer(float d)
@@ -103,7 +110,7 @@ public class CameraMoveController : MonoBehaviour
 
         if (player.switchLockOn)
         {
-            if (Input.GetKey(KeyCode.Q) || (Input.GetMouseButton(1)))
+            if (Input.GetKey(KeyCode.Q)) //|| (Input.GetMouseButton(1)))
             {
                 closestEnemy = FindClosestEnemy();
                 intersectedEnemy = IntersectedEnemy();
@@ -174,6 +181,23 @@ public class CameraMoveController : MonoBehaviour
             tiltAngle -= smoothY * targetSpeed;
             tiltAngle = Mathf.Clamp(tiltAngle, minAngle, maxAngle);
             pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
+        }
+    }
+
+    void BowAim()
+    {
+        if (Input.GetMouseButtonDown(1) && count <= 0)
+        {
+            count = 0;
+            count++;
+            camTransform.localPosition = new Vector3(camTransform.localPosition.x + 0.5f, camTransform.localPosition.y - 0.2f, camTransform.localPosition.z + 1.5f);
+        }
+
+        if (Input.GetMouseButtonUp(1) && count >= 1)
+        {
+            count = 1;
+            count--;
+            camTransform.localPosition = new Vector3(camTransform.localPosition.x - 0.5f, camTransform.localPosition.y + 0.2f, camTransform.localPosition.z - 1.5f);
         }
     }
 
