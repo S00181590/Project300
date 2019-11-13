@@ -40,6 +40,9 @@ public class StateManager : MonoBehaviour
     public float DodgeForce = 500f;
     public float JumpForce = 30f;
 
+    bool groundTest;
+    RaycastHit hitTest;
+
     public void Init()
     {
         //SetupAnimator();
@@ -69,6 +72,15 @@ public class StateManager : MonoBehaviour
     public void FixedTick(float d)
     {
         delta = d;
+
+        rb.isKinematic = false;
+
+        if ((moveDir.x == 0 && moveDir.z == 0) && (Physics.Raycast(transform.position, new Vector3(0, -Vector3.up.y, 0), out hitTest, 0.8f, ignoreLayers)))
+        {
+            rb.isKinematic = true;
+        }
+
+        Debug.DrawRay(transform.position, new Vector3(0, -Vector3.up.y, 0) * 0.8f, Color.red);
 
         if (moveAmount > 0 || onGround == false)
         {
