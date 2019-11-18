@@ -77,30 +77,15 @@ public class CameraMoveController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetMouseButton(1))
-        {
-            camTransform.localPosition = new Vector3(1.2f, 0.25f, -2f);
-            player.speed = 3;
 
-            if (stateManager.onGround == false)
-            {
-                Time.timeScale = 2f;
-            }
-            else
-            {
-                Time.timeScale = 1f;
-            }
-        }
-        else
+    }
+
+    private void LateUpdate()
+    {
+        if (!player.switchLockOn)
         {
-            camTransform.localPosition = new Vector3(0, 0.5f, -4);
-            player.speed = 6;
+            
         }
-        //else if (Input.GetMouseButton(1) && count == 1)
-        //{
-        //    count--;
-        //    camTransform = BowAim2(camTransform);
-        //}
     }
 
     void PivotCamOnPlayer(float d)
@@ -196,6 +181,31 @@ public class CameraMoveController : MonoBehaviour
         }
         else
         {
+            if (Input.GetMouseButton(1))
+            {
+                Vector3 v1 = new Vector3(1.2f, 0.25f, -2f);
+
+                camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1.2f, 0.25f, -2f), 0.1f);
+                player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
+                //pivot.localRotation = Quaternion.Euler(-20, 0, 0);
+                stateManager.speed = 3;
+
+                //if (stateManager.onGround == false)
+                //{
+                //    Time.timeScale = 2f;
+                //}
+                //else
+                //{
+                //    Time.timeScale = 1f;
+                //}
+            }
+            else
+            {
+                camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(0, 0.5f, -4), 0.1f);
+                //pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
+                stateManager.speed = 6;
+            }
+
             lookAngle += smoothX * targetSpeed;
             transform.rotation = Quaternion.Euler(0, lookAngle, 0);
 

@@ -22,7 +22,7 @@ public class PlayerMoveController : MonoBehaviour
     private CapsuleCollider col;
     Transform cam;
 
-    public float speed = 10f;
+    public float speed;
     public float turnSpeed = 100;
 
     public GameObject enemy;
@@ -37,6 +37,9 @@ public class PlayerMoveController : MonoBehaviour
     public float jump = 10.0f;
 
     public LayerMask groundLayers;
+
+    private bool canMove = false;
+    public StateManager stateManager;
 
     void Start()
     {
@@ -71,6 +74,15 @@ public class PlayerMoveController : MonoBehaviour
         //}
 
         //Vector3 movevector = new Vector3(0, verticalVel, 0);
+
+        if (stateManager.onGround)
+        {
+            canMove = true;
+        }
+        else if (!stateManager.onGround || stateManager.attacking || stateManager.dodgeInput)
+        {
+            canMove = false;
+        }
 
         delta = Time.deltaTime;
         states.Tick(delta);
@@ -113,14 +125,14 @@ public class PlayerMoveController : MonoBehaviour
         //    animator.SetInteger("animation", 25);//Idle animation works well here
         //}
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            speed = 4;
-        }
-        else if (Input.GetMouseButtonUp(1))
-        {
-            speed = 10;
-        }
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    speed = 4;
+        //}
+        //else if (Input.GetMouseButtonUp(1))
+        //{
+        //    speed = 10;
+        //}
 
         delta = Time.fixedDeltaTime;
         camManager.Tick(delta);

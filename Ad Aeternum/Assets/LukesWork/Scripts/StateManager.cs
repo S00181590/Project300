@@ -23,7 +23,7 @@ public class StateManager : MonoBehaviour
 
     public LayerMask ignoreLayers;
     public LayerMask deathBar;
-    public bool onGround;
+    public bool onGround, attacking;
     public bool dBarrier;
     public float toGround = 0.75f;
 
@@ -76,20 +76,6 @@ public class StateManager : MonoBehaviour
     public void FixedTick(float d)
     {
         delta = d;
-
-        if (Input.GetMouseButtonDown(1) && count <= 0)
-        {
-            count = 0;
-            count++;
-            speed = 2;
-        }
-
-        if (Input.GetMouseButtonUp(1) && count >= 1)
-        {
-            count = 1;
-            count--;
-            speed = 6;
-        }
 
         rb.isKinematic = false;
 
@@ -154,9 +140,12 @@ public class StateManager : MonoBehaviour
             targetDir = transform.forward;
         }
 
-        Quaternion tr = Quaternion.LookRotation(targetDir);
-        Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, delta * moveAmount * rotateSpeed);
-        transform.rotation = targetRotation;
+        if (!Input.GetMouseButton(1))
+        {
+            Quaternion tr = Quaternion.LookRotation(targetDir);
+            Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, delta * moveAmount * rotateSpeed);
+            transform.rotation = targetRotation;
+        }
 
         HandleMovementAnimations();
     }
