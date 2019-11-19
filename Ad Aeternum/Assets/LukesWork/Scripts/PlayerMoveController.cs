@@ -86,7 +86,7 @@ public class PlayerMoveController : MonoBehaviour
 
         delta = Time.deltaTime;
         states.Tick(delta);
-        LockOn();
+        //LockOn();
     }
 
     private bool IsGrounded()
@@ -96,44 +96,6 @@ public class PlayerMoveController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //right is shorthand for (1,0,0) or the x value            forward is short for (0,0,1) or the z value 
-        //Vector3 dir = (cam.right * Input.GetAxis("Horizontal")) + (cam.forward * Input.GetAxis("Vertical"));
-
-        //dir.y = 0;//Keeps character upright against slight fluctuations
-
-        //if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
-        //{
-        //    //rotate from this /........to this............../.........at this speed 
-        //    rigidBody.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), turnSpeed * Time.deltaTime);
-
-        //    if (Input.GetKey(KeyCode.LeftShift))
-        //    {
-        //        //rigidBody.velocity = transform.forward * speed * 2;
-        //        //rigidBody.transform.position = new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime, 0);
-        //        GetInput();
-        //    }
-        //    else
-        //    {
-        //        //rigidBody.velocity = transform.forward * speed;
-        //        GetInput();
-        //    }
-
-        //    animator.SetInteger("animation", 10);//Walk or run animation works well here
-        //}
-        //else
-        //{
-        //    animator.SetInteger("animation", 25);//Idle animation works well here
-        //}
-
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    speed = 4;
-        //}
-        //else if (Input.GetMouseButtonUp(1))
-        //{
-        //    speed = 10;
-        //}
-
         delta = Time.fixedDeltaTime;
         camManager.Tick(delta);
         GetInput();
@@ -160,26 +122,27 @@ public class PlayerMoveController : MonoBehaviour
         states.moveAmount = Mathf.Clamp01(m);
     }
 
-    void LockOn()
-    {
-        states.horizontal = horizontal;
-        states.vertical = vertical;
+    ////Locks on to enemy
+    //void LockOn()
+    //{
+    //    states.horizontal = horizontal;
+    //    states.vertical = vertical;
 
-        if (Input.GetKeyDown(KeyCode.Q)) //|| (Input.GetMouseButtonDown(1)))
-        {
-            switchLockOn = !switchLockOn;
-            attackRange = !attackRange;
-        }
+    //    if (Input.GetKeyDown(KeyCode.Q)) //|| (Input.GetMouseButtonDown(1)))
+    //    {
+    //        switchLockOn = !switchLockOn;
+    //        attackRange = !attackRange;
+    //    }
 
-        //if (switchLockOn)
-        //{
-        camManager.Init(this.transform);
-        //}
-        //else
-        //{
-        //    camManager.Init(this.transform);
-        //}
-    }
+    //    //if (switchLockOn)
+    //    //{
+    //    camManager.Init(this.transform);
+    //    //}
+    //    //else
+    //    //{
+    //    //    camManager.Init(this.transform);
+    //    //}
+    //}
 
     Transform GetClosestEnemy(Transform[] enemies)
     {

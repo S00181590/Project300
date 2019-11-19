@@ -7,21 +7,19 @@ public class CameraMoveController : MonoBehaviour
     #region Variables
     public bool lockOn = true, switchLockOn = true;
 
-    public Transform target, camTransform,
-        playerObj, playerLocation, enemyObj,
-        pivot, pivotPos;
+    public PlayerMoveController player;
+    public Transform target, camTransform, 
+        enemyObj, pivot;
 
-    public float followSpeed = 15, mouseSpeed = 1, controllerSpeed = 5,
+    private float followSpeed = 10, mouseSpeed = 2, controllerSpeed = 5,
         minAngle = -15.0f, maxAngle = 50.0f, turnSmoothing = 0.1f,
         smoothX, smoothY, smoothXVel, smoothYVel,
         lookAngle, tiltAngle,
         checkRadius;
 
-    public GameObject closestEnemy = null, intersectedEnemy = null;
+    private GameObject closestEnemy = null, intersectedEnemy = null;
 
-    public Vector3 distance, targetPosition, position, diff;
-
-    public PlayerMoveController player;
+    private Vector3 distance, targetPosition, position, diff;
 
     public StateManager stateManager;
 
@@ -44,16 +42,16 @@ public class CameraMoveController : MonoBehaviour
     Vector3 screenPos;
     #endregion
 
-    //Essentially a Start method but accepts variables
+    //Essentially a Start method but accepts variables, e.g: t (the player)
     public void Init(Transform t)
     {
         target = t;
         camTransform = Camera.main.transform;
-        pivot = pivotPos;
 
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    //Essentially an Update method but accepts variables, e.g: d (the deltaTime)
     public void Tick(float d)
     {
         //Mouse Input
@@ -85,14 +83,7 @@ public class CameraMoveController : MonoBehaviour
 
     }
 
-    private void LateUpdate()
-    {
-        if (!player.switchLockOn)
-        {
-            
-        }
-    }
-
+    //Makes the player the pivot for the camera
     void PivotCamOnPlayer(float d)
     {
         float speed = d * followSpeed;
@@ -100,11 +91,9 @@ public class CameraMoveController : MonoBehaviour
         transform.position = targetPosition;
     }
 
+    //Handles all the rotations
     void Rotations(float d, float v, float h, float targetSpeed)
     {
-        //Finds the closest enemy to the player
-
-
         lookAngle += smoothX * targetSpeed;
         transform.rotation = Quaternion.Euler(0, lookAngle, 0);
 
@@ -119,36 +108,21 @@ public class CameraMoveController : MonoBehaviour
             smoothY = v;
         }
 
+        //If the player is locked on to an enemy
         if (player.switchLockOn)
         {
-            if (Input.GetKey(KeyCode.Q)) //|| (Input.GetMouseButton(1)))
+            if (Input.GetKey(KeyCode.Q)  && !Input.GetMouseButton(1)) //|| (Input.GetMouseButton(1)))
             {
                 closestEnemy = FindClosestEnemy();
                 intersectedEnemy = IntersectedEnemy();
-
-
             }
-            //else
-            //{
-            //    closestEnemy = null;
-            //}
 
+            if (Input.GetMouseButton(1))
+            {
+                player.switchLockOn = false;
+            }
 
-
-            //if ((closestEnemy != null) && (intersectedEnemy != null) && (Vector3.Distance(closestEnemy.transform.position, playerObj.position) < 20))
-            //{
-            //    lookOnLook = Quaternion.LookRotation(intersectedEnemy.transform.position - transform.position);
-            //    transform.rotation = Quaternion.Slerp(new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0, lookOnLook.y, 0, lookOnLook.w), d * 5);
-
-            //    tiltAngle -= smoothY * targetSpeed;
-            //    tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 5);
-            //    pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
-
-            //    lookAngle = camTransform.rotation.eulerAngles.y;
-            //}
-            //else 
-
-
+            //Locks on to the enemy you're looking at
             if (intersectedEnemy != null)
             {
                 lookOnLook = Quaternion.LookRotation(intersectedEnemy.transform.position - transform.position);
@@ -163,33 +137,25 @@ public class CameraMoveController : MonoBehaviour
                 lockOnIndicator.SetActive(true);
                 screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
                 lockOnIndicator.transform.position = screenPos;
-                lockOnIndicator.layer = -100;
+                //lockOnIndicator.layer = -100;
             }
-            else if ((closestEnemy != null) && (Vector3.Distance(closestEnemy.transform.position, playerObj.position) < 20))
+            //Locks on to the closest enemy
+            else if ((closestEnemy != null) && (Vector3.Distance(closestEnemy.transform.position, target.position) < 20))
             {
-
-                //LockOnVector = new Vector3(closestEnemy.transform.position.x, playerObj.position.y, closestEnemy.transform.position.z);
-                //Vector3 aaa = new Vector3(camTransform.rotation.x, camTransform.rotation.y, 10);
-                //LockOnLerp = Vector3.Lerp(LockOnVector, aaa, 2 * d);
-
-
-                //else
-                //{
                 lookOnLook = Quaternion.LookRotation(closestEnemy.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0, lookOnLook.y, 0, lookOnLook.w), d * 15);
 
                 tiltAngle -= smoothY * targetSpeed;
                 tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 15);
                 pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
-                //transform.LookAt(LockOnVector);
                 lookAngle = camTransform.rotation.eulerAngles.y;
-                //}
 
                 lockOnIndicator.SetActive(true);
-                screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
+                screenPos = cam.WorldToScreenPoint(closestEnemy.transform.position);
                 lockOnIndicator.transform.position = screenPos;
-                lockOnIndicator.layer = -100;
+                //lockOnIndicator.layer = -100;
             }
+            //Locks off if nobody is nearby
             else
             {
                 lockOnIndicator.SetActive(false);
@@ -198,24 +164,27 @@ public class CameraMoveController : MonoBehaviour
         }
         else
         {
+            //Bow aim in
             if (Input.GetMouseButton(1))
             {
                 Vector3 v1 = new Vector3(1.2f, 0.25f, -2f);
 
                 camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1.2f, 0.25f, -2f), 0.1f);
                 player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
-                //pivot.localRotation = Quaternion.Euler(-20, 0, 0);
+
                 stateManager.speed = 3;
                 lockOnIndicator.SetActive(false);
-                //if (stateManager.onGround == false)
-                //{
-                //    Time.timeScale = 2f;
-                //}
-                //else
-                //{
-                //    Time.timeScale = 1f;
-                //}
+
+                if (stateManager.onGround == false)
+                {
+                    Time.timeScale = 0.2f;
+                }
+                else
+                {
+                    Time.timeScale = 1f;
+                }
             }
+            //Bow aim out
             else
             {
                 camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(0, 0.5f, -4), 0.1f);
@@ -226,7 +195,6 @@ public class CameraMoveController : MonoBehaviour
 
             lookAngle += smoothX * targetSpeed;
             transform.rotation = Quaternion.Euler(0, lookAngle, 0);
-
             tiltAngle -= smoothY * targetSpeed;
             tiltAngle = Mathf.Clamp(tiltAngle, minAngle, maxAngle);
             pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
@@ -235,29 +203,13 @@ public class CameraMoveController : MonoBehaviour
         }
     }
 
-    void BowAim()
-    {
-        if (Input.GetMouseButtonDown(1) && count <= 0)
-        {
-            count = 0;
-            count++;
-            camTransform.localPosition = new Vector3(camTransform.localPosition.x + 0.5f, camTransform.localPosition.y - 0.2f, camTransform.localPosition.z + 1.5f);
-        }
-
-        if (Input.GetMouseButtonUp(1) && count >= 1)
-        {
-            count = 1;
-            count--;
-            camTransform.localPosition = new Vector3(camTransform.localPosition.x - 0.5f, camTransform.localPosition.y + 0.2f, camTransform.localPosition.z - 1.5f);
-        }
-    }
-
+    //Find the closest enemy to the player
     public GameObject FindClosestEnemy()
     {
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
         GameObject closest = null;
         float distance = Mathf.Infinity;
-        position = playerObj.position;
+        position = target.position;
 
         foreach (GameObject go in gos)
         {
@@ -274,6 +226,7 @@ public class CameraMoveController : MonoBehaviour
         return closest;
     }
 
+    //Finds the enemy you're looking at
     public GameObject IntersectedEnemy()
     {
         enemyList = GameObject.FindGameObjectsWithTag("Enemy");
@@ -286,7 +239,7 @@ public class CameraMoveController : MonoBehaviour
             if (cylinderCol.bounds.Intersects(enemyCol.bounds) || enemyCol.bounds.Intersects(cylinderCol.bounds))
             {
                 //float distance = Mathf.Infinity;
-                //position = playerObj.position;
+                //position = target.position;
 
                 //diff = enemyCol.transform.position - position;
                 //float curDistance = diff.sqrMagnitude;

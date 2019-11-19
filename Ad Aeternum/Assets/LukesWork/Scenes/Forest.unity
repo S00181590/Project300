@@ -1284,34 +1284,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lockOn: 0
   switchLockOn: 1
+  player: {fileID: 741437277}
   target: {fileID: 741437278}
   camTransform: {fileID: 1940082927}
-  playerObj: {fileID: 741437278}
-  playerLocation: {fileID: 741437278}
   enemyObj: {fileID: 4260711010600414337, guid: 3d8ff6d59a3ab5747934324b6ee6949a,
     type: 3}
   pivot: {fileID: 763807039}
-  pivotPos: {fileID: 763807039}
-  followSpeed: 10
-  mouseSpeed: 2
-  controllerSpeed: 5
-  minAngle: -15
-  maxAngle: 50
-  turnSmoothing: 0.1
-  smoothX: 0
-  smoothY: 0
-  smoothXVel: 0
-  smoothYVel: 0
-  lookAngle: 0
-  tiltAngle: 0
-  checkRadius: 0
-  closestEnemy: {fileID: 0}
-  intersectedEnemy: {fileID: 0}
-  distance: {x: 0, y: 0, z: 0}
-  targetPosition: {x: 0, y: 0, z: 0}
-  position: {x: 0, y: 0, z: 0}
-  diff: {x: 0, y: 0, z: 0}
-  player: {fileID: 741437277}
   stateManager: {fileID: 1890949301}
   checkLayers:
     serializedVersion: 2
@@ -1547,7 +1525,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2064907980
 MonoBehaviour:
