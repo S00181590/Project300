@@ -38,6 +38,7 @@ public class CameraMoveController : MonoBehaviour
 
     public Camera cam;
     public GameObject lockOnIndicator;
+    public GameObject bowAimCrosshair;
     bool indicatorShowing = false;
     Vector3 screenPos;
     #endregion
@@ -137,13 +138,13 @@ public class CameraMoveController : MonoBehaviour
                 lockOnIndicator.SetActive(true);
                 screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
                 lockOnIndicator.transform.position = screenPos;
-                lockOnIndicator.layer = -100;
+                //lockOnIndicator.layer = -100;
             }
             else if ((closestEnemy != null) && (Vector3.Distance(closestEnemy.transform.position, target.position) < 20))
             {
                 lookOnLook = Quaternion.LookRotation(closestEnemy.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0, lookOnLook.y, 0, lookOnLook.w), d * 15);
-
+                
                 tiltAngle -= smoothY * targetSpeed;
                 tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 15);
                 pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
@@ -152,7 +153,7 @@ public class CameraMoveController : MonoBehaviour
                 lockOnIndicator.SetActive(true);
                 screenPos = cam.WorldToScreenPoint(closestEnemy.transform.position);
                 lockOnIndicator.transform.position = screenPos;
-                lockOnIndicator.layer = -100;
+                //lockOnIndicator.layer = -100;
             }
             else
             {
@@ -165,14 +166,14 @@ public class CameraMoveController : MonoBehaviour
             //Bow aim in
             if (Input.GetMouseButton(1))
             {
-                Vector3 v1 = new Vector3(1.2f, 0.25f, -2f);
+                camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1.2f, -0.2f, -2f), 0.1f);
 
-                camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1.2f, 0.25f, -2f), 0.1f);
-                player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
+                camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(-20, 0, 0), 0.1f);
+                //player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
 
-                stateManager.speed = 3;
+                stateManager.speed = 2;
                 lockOnIndicator.SetActive(false);
-
+                bowAimCrosshair.SetActive(true);
                 //if (stateManager.onGround == false)
                 //{
                 //    Time.timeScale = 0.2f;
@@ -185,9 +186,12 @@ public class CameraMoveController : MonoBehaviour
             //Bow aim out
             else
             {
-                camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(0, 0.5f, -4), 0.1f);
-                pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
+                camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(0, 0.5f, -4f), 0.1f);
+                camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(0, 0, 0), 0.1f);
+
                 stateManager.speed = 6;
+
+                bowAimCrosshair.SetActive(false);
             }
 
             lookAngle += smoothX * targetSpeed;
