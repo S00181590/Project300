@@ -37,6 +37,11 @@ public class CameraMoveController : MonoBehaviour
 
     private int count = 0;
     private bool bowAim = false;
+
+    public Camera cam;
+    public GameObject lockOnIndicator;
+    bool indicatorShowing = false;
+    Vector3 screenPos;
     #endregion
 
     //Essentially a Start method but accepts variables
@@ -121,6 +126,7 @@ public class CameraMoveController : MonoBehaviour
                 closestEnemy = FindClosestEnemy();
                 intersectedEnemy = IntersectedEnemy();
 
+
             }
             //else
             //{
@@ -153,6 +159,11 @@ public class CameraMoveController : MonoBehaviour
                 pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
 
                 lookAngle = camTransform.rotation.eulerAngles.y;
+
+                lockOnIndicator.SetActive(true);
+                screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
+                lockOnIndicator.transform.position = screenPos;
+                lockOnIndicator.layer = -100;
             }
             else if ((closestEnemy != null) && (Vector3.Distance(closestEnemy.transform.position, playerObj.position) < 20))
             {
@@ -173,9 +184,15 @@ public class CameraMoveController : MonoBehaviour
                 //transform.LookAt(LockOnVector);
                 lookAngle = camTransform.rotation.eulerAngles.y;
                 //}
+
+                lockOnIndicator.SetActive(true);
+                screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
+                lockOnIndicator.transform.position = screenPos;
+                lockOnIndicator.layer = -100;
             }
             else
             {
+                lockOnIndicator.SetActive(false);
                 player.switchLockOn = false;
             }
         }
@@ -189,7 +206,7 @@ public class CameraMoveController : MonoBehaviour
                 player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
                 //pivot.localRotation = Quaternion.Euler(-20, 0, 0);
                 stateManager.speed = 3;
-
+                lockOnIndicator.SetActive(false);
                 //if (stateManager.onGround == false)
                 //{
                 //    Time.timeScale = 2f;
@@ -206,12 +223,15 @@ public class CameraMoveController : MonoBehaviour
                 stateManager.speed = 6;
             }
 
+
             lookAngle += smoothX * targetSpeed;
             transform.rotation = Quaternion.Euler(0, lookAngle, 0);
 
             tiltAngle -= smoothY * targetSpeed;
             tiltAngle = Mathf.Clamp(tiltAngle, minAngle, maxAngle);
             pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
+
+            lockOnIndicator.SetActive(false);
         }
     }
 

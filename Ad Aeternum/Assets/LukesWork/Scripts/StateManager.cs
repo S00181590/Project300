@@ -43,7 +43,7 @@ public class StateManager : MonoBehaviour
     bool groundTest;
     RaycastHit hitTest;
 
-    int count = 0;
+    
 
     public void Init()
     {
@@ -97,25 +97,23 @@ public class StateManager : MonoBehaviour
 
         if (onGround)
         {
+            //Sprint
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 rb.velocity = moveDir * (speed * sprintSpeed);
-
-                //if (Input.GetKey(KeyCode.Space))
-                //{
-                //    rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
-                //}
             }
             else
             {
                 rb.velocity = moveDir * (speed * moveAmount);
             }
 
+            //Jump
             if (Input.GetKey(KeyCode.Space))
             {
                 rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
             }
 
+            //Dodging
             if (Input.GetKeyDown(KeyCode.E))
             {
                 //HandleDodging();
@@ -125,10 +123,12 @@ public class StateManager : MonoBehaviour
                 //rb.AddForce(horizontal * 2, 0, vertical * 2);
                 //rb.velocity = moveDir * (speed * (d * 200));
 
-                rb.drag = 0f;
+                //rb.drag = 0f;
 
-                rb.AddForce(new Vector3(0f, JumpForce / 2, 0f), ForceMode.Impulse);
-                rb.AddForce(new Vector3(moveDir.x * DodgeForce, moveDir.y * DodgeForce, moveDir.z * DodgeForce), ForceMode.Impulse);
+                //rb.AddForce(new Vector3(0f, JumpForce / 2, 0f), ForceMode.Impulse);
+                //rb.AddForce(new Vector3(moveDir.x * DodgeForce, moveDir.y * DodgeForce, moveDir.z * DodgeForce), ForceMode.Impulse);
+
+                rb.velocity = moveDir * (50 * moveAmount);
             }
         }
 
@@ -183,7 +183,7 @@ public class StateManager : MonoBehaviour
 
             if (dis != 0)
                 if (Physics.Raycast(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f), out hit, 0.8f, ignoreLayers) ||
-                    Physics.Raycast(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f), out hit, 0.9f, ignoreLayers))
+                    Physics.Raycast(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f), out hit, 0.92f, ignoreLayers))
                 {
                     r = true;
                     Vector3 targetPos = hit.point;
@@ -194,7 +194,7 @@ public class StateManager : MonoBehaviour
 
         Debug.DrawRay(origin, dis * dir);
         Debug.DrawRay(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f) * 0.8f);
-        Debug.DrawRay(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f) * 0.9f);
+        Debug.DrawRay(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f) * 0.92f, Color.green);
 
         return r;
     }
