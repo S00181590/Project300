@@ -111,7 +111,7 @@ public class CameraMoveController : MonoBehaviour
         //If the player is locked on to an enemy
         if (player.switchLockOn)
         {
-            if (Input.GetKey(KeyCode.Q)  && !Input.GetMouseButton(1)) //|| (Input.GetMouseButton(1)))
+            if (Input.GetKey(KeyCode.Q) && !Input.GetMouseButton(1))
             {
                 closestEnemy = FindClosestEnemy();
                 intersectedEnemy = IntersectedEnemy();
@@ -137,9 +137,8 @@ public class CameraMoveController : MonoBehaviour
                 lockOnIndicator.SetActive(true);
                 screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
                 lockOnIndicator.transform.position = screenPos;
-                //lockOnIndicator.layer = -100;
+                lockOnIndicator.layer = -100;
             }
-            //Locks on to the closest enemy
             else if ((closestEnemy != null) && (Vector3.Distance(closestEnemy.transform.position, target.position) < 20))
             {
                 lookOnLook = Quaternion.LookRotation(closestEnemy.transform.position - transform.position);
@@ -153,9 +152,8 @@ public class CameraMoveController : MonoBehaviour
                 lockOnIndicator.SetActive(true);
                 screenPos = cam.WorldToScreenPoint(closestEnemy.transform.position);
                 lockOnIndicator.transform.position = screenPos;
-                //lockOnIndicator.layer = -100;
+                lockOnIndicator.layer = -100;
             }
-            //Locks off if nobody is nearby
             else
             {
                 lockOnIndicator.SetActive(false);
@@ -175,23 +173,22 @@ public class CameraMoveController : MonoBehaviour
                 stateManager.speed = 3;
                 lockOnIndicator.SetActive(false);
 
-                if (stateManager.onGround == false)
-                {
-                    Time.timeScale = 0.2f;
-                }
-                else
-                {
-                    Time.timeScale = 1f;
-                }
+                //if (stateManager.onGround == false)
+                //{
+                //    Time.timeScale = 0.2f;
+                //}
+                //else
+                //{
+                //    Time.timeScale = 1f;
+                //}
             }
             //Bow aim out
             else
             {
                 camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(0, 0.5f, -4), 0.1f);
-                //pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
+                pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
                 stateManager.speed = 6;
             }
-
 
             lookAngle += smoothX * targetSpeed;
             transform.rotation = Quaternion.Euler(0, lookAngle, 0);

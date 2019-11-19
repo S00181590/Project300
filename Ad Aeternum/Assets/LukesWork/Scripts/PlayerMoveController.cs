@@ -86,7 +86,7 @@ public class PlayerMoveController : MonoBehaviour
 
         delta = Time.deltaTime;
         states.Tick(delta);
-        //LockOn();
+        LockOn();
     }
 
     private bool IsGrounded()
@@ -123,26 +123,26 @@ public class PlayerMoveController : MonoBehaviour
     }
 
     ////Locks on to enemy
-    //void LockOn()
-    //{
-    //    states.horizontal = horizontal;
-    //    states.vertical = vertical;
+    void LockOn()
+    {
+        states.horizontal = horizontal;
+        states.vertical = vertical;
 
-    //    if (Input.GetKeyDown(KeyCode.Q)) //|| (Input.GetMouseButtonDown(1)))
-    //    {
-    //        switchLockOn = !switchLockOn;
-    //        attackRange = !attackRange;
-    //    }
+        if (Input.GetKeyDown(KeyCode.Q)) //|| (Input.GetMouseButtonDown(1)))
+        {
+            switchLockOn = !switchLockOn;
+            attackRange = !attackRange;
+        }
 
-    //    //if (switchLockOn)
-    //    //{
-    //    camManager.Init(this.transform);
-    //    //}
-    //    //else
-    //    //{
-    //    //    camManager.Init(this.transform);
-    //    //}
-    //}
+        //if (switchLockOn)
+        //{
+        camManager.Init(this.transform);
+        //}
+        //else
+        //{
+        //    camManager.Init(this.transform);
+        //}
+    }
 
     Transform GetClosestEnemy(Transform[] enemies)
     {
@@ -153,6 +153,7 @@ public class PlayerMoveController : MonoBehaviour
         foreach (Transform t in enemies)
         {
             float dist = Vector3.Distance(t.position, currentPos);
+
             if (dist < minDist)
             {
                 tMin = t;

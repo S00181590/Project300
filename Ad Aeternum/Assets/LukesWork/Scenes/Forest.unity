@@ -329,8 +329,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495176364}
   m_LocalRotation: {x: -0.816264, y: -0, z: -0, w: 0.5776792}
-  m_LocalPosition: {x: 0.08000183, y: 5.44, z: 16.35}
-  m_LocalScale: {x: 0.35324484, y: 17.745363, z: 1.8089392}
+  m_LocalPosition: {x: 0.08000183, y: 5.44, z: 16.350006}
+  m_LocalScale: {x: 0.35324484, y: 17.745417, z: 1.8089448}
   m_Children: []
   m_Father: {fileID: 763807039}
   m_RootOrder: 1
@@ -388,8 +388,8 @@ GameObject:
   - component: {fileID: 672025329}
   - component: {fileID: 672025328}
   - component: {fileID: 672025327}
-  m_Layer: 9
-  m_Name: Plane
+  m_Layer: 12
+  m_Name: DeathBarrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -513,7 +513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763807038}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 915751110}
@@ -747,7 +747,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915751107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.077, y: 0.57, z: -3.43}
+  m_LocalPosition: {x: 0.07700348, y: 0.56999916, z: -3.4299927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 763807039}
@@ -1749,6 +1749,11 @@ PrefabInstance:
         type: 3}
       propertyPath: DodgeForce
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694035341267935938, guid: 8f5bd240c06fb844ca0259c65f4240a3,
+        type: 3}
+      propertyPath: deathBar.m_Bits
+      value: 4096
       objectReference: {fileID: 0}
     - target: {fileID: 1694035341267935939, guid: 8f5bd240c06fb844ca0259c65f4240a3,
         type: 3}
