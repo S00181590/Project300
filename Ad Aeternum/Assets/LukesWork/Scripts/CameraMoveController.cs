@@ -34,7 +34,7 @@ public class CameraMoveController : MonoBehaviour
     public GameObject hit = null;
 
     private int count = 0;
-    private bool bowAim = false;
+    public bool bowAim = false;
 
     public Camera cam;
     public GameObject lockOnIndicator;
@@ -112,6 +112,8 @@ public class CameraMoveController : MonoBehaviour
         //If the player is locked on to an enemy
         if (player.switchLockOn)
         {
+            bowAim = false;
+
             if (Input.GetKey(KeyCode.Q) && !Input.GetMouseButton(1))
             {
                 closestEnemy = FindClosestEnemy();
@@ -121,6 +123,7 @@ public class CameraMoveController : MonoBehaviour
             if (Input.GetMouseButton(1))
             {
                 player.switchLockOn = false;
+                bowAim = true;
             }
 
             //Locks on to the enemy you're looking at
@@ -169,7 +172,7 @@ public class CameraMoveController : MonoBehaviour
                 camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1.2f, -0.2f, -2f), 0.1f);
 
                 camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(-20, 0, 0), 0.1f);
-                //player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
+                player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
 
                 stateManager.speed = 2;
                 lockOnIndicator.SetActive(false);
@@ -182,6 +185,8 @@ public class CameraMoveController : MonoBehaviour
                 //{
                 //    Time.timeScale = 1f;
                 //}
+
+                bowAim = true;
             }
             //Bow aim out
             else
@@ -192,6 +197,7 @@ public class CameraMoveController : MonoBehaviour
                 stateManager.speed = 6;
 
                 bowAimCrosshair.SetActive(false);
+                bowAim = false;
             }
 
             lookAngle += smoothX * targetSpeed;
