@@ -5628,6 +5628,31 @@ Transform:
   m_Father: {fileID: 137300660}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &671313870 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6235712705164569007, guid: d9ff25e6591736c4faa28c000005154c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6235712705498227429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &671313874 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 6235712705164569000, guid: d9ff25e6591736c4faa28c000005154c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6235712705498227429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &671313876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671313870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620c503049f3b4f49b3ed5c96dfcd456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 671313874}
 --- !u!1 &674809108
 GameObject:
   m_ObjectHideFlags: 0
@@ -6049,6 +6074,12 @@ Transform:
   m_Father: {fileID: 137300660}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -11.922001}
+--- !u!1 &907407517 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6235712704795049053, guid: d9ff25e6591736c4faa28c000005154c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6235712705498227429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &949600688
 GameObject:
   m_ObjectHideFlags: 0
@@ -17408,7 +17439,7 @@ PrefabInstance:
     - target: {fileID: 6235712705164569007, guid: d9ff25e6591736c4faa28c000005154c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6235712705164569003, guid: d9ff25e6591736c4faa28c000005154c,
         type: 3}
@@ -17518,27 +17549,27 @@ PrefabInstance:
     - target: {fileID: 6235712705445247739, guid: d9ff25e6591736c4faa28c000005154c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6235712705445247739, guid: d9ff25e6591736c4faa28c000005154c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6235712705445247739, guid: d9ff25e6591736c4faa28c000005154c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6235712706045558527, guid: d9ff25e6591736c4faa28c000005154c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6235712706045558527, guid: d9ff25e6591736c4faa28c000005154c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6235712705538920188, guid: d9ff25e6591736c4faa28c000005154c,
         type: 3}
@@ -17549,6 +17580,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 9.299988
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712705538920188, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.71535
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712705538920188, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.76186
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712704525956849, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712704795049052, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712704795049052, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712704795049052, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712705753302467, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.97126
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712704525956848, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712704525956848, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712704525956848, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712704525956848, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6235712704525956848, guid: d9ff25e6591736c4faa28c000005154c,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9ff25e6591736c4faa28c000005154c, type: 3}
@@ -17701,12 +17792,12 @@ PrefabInstance:
         type: 3}
       propertyPath: RootCanvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 671313874}
     - target: {fileID: 8419481428376435960, guid: 6fce374914f01ae41a3c75a4c6a13b40,
         type: 3}
       propertyPath: PopUpBoxPrefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 907407517}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fce374914f01ae41a3c75a4c6a13b40, type: 3}
 --- !u!1001 &8455356630058471758

@@ -13,7 +13,7 @@ public class InventoryPanel : MonoBehaviour
 
     private void Update()
     {
-        
+       
     }
 
     void Start()

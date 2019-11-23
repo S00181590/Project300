@@ -24,7 +24,7 @@ public class ItemDetailsPanel : MonoBehaviour
 
         if(item != null)
         {
-            imgIcon.sprite = Resources.Load<Sprite>("Inventory" + item.IconName);
+            imgIcon.sprite = Resources.Load<Sprite>("InventoryTxt/" + item.IconName);
             txtName.text = item.Name;
             txtDescription.text = item.Description;
             txtValue.text = "€" + item.Value;

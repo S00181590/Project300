@@ -21,7 +21,7 @@ public class GridButton : MonoBehaviour, IPointerEnterHandler
 
     public void InitializeGridButton(int itemID, string iconName)
     {
-        imgIcon.sprite = Resources.Load<Sprite>("Inventory" + iconName);
+        imgIcon.sprite = Resources.Load<Sprite>("InventoryTxt/" + iconName);
         this.itemID = itemID;
     }
 }
