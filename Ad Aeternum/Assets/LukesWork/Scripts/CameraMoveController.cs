@@ -14,8 +14,10 @@ public class CameraMoveController : MonoBehaviour
     private float followSpeed = 10, mouseSpeed = 2, controllerSpeed = 5,
         minAngle = -15.0f, maxAngle = 50.0f, turnSmoothing = 0.1f,
         smoothX, smoothY, smoothXVel, smoothYVel,
-        lookAngle, tiltAngle,
+        lookAngle,
         checkRadius;
+
+    public float tiltAngle;
 
     private GameObject closestEnemy = null, intersectedEnemy = null;
 
