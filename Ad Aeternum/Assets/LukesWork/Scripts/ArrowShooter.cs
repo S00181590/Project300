@@ -13,9 +13,9 @@ public class ArrowShooter : MonoBehaviour
     public PlayerMoveController player;
     int count = 0;
     GameObject shootingArrow = null;
-    Rigidbody rb;
+    public Rigidbody rb;
 
-    GameObject spawnedArrow;
+    public GameObject spawnedArrow;
     bool active = false;
 
     private void Start()
@@ -105,6 +105,7 @@ public class ArrowShooter : MonoBehaviour
         //rb.velocity = Vector3.zero;
         rb.AddForce(cam.transform.forward.x * speed, cam.camTransform.forward.y + 0.75f + (-cam.tiltAngle * 0.01f), cam.transform.forward.z * speed, ForceMode.Impulse);
         active = false;
+        
     }
 
     void DestroyArrow()

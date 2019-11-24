@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    public ArrowShooter arrow;
+
+    private void Start()
+    {
+        arrow = gameObject.GetComponent<ArrowShooter>();
+        string destroy = "arrow.DestroyArrow";
+    }
+
     private void Update()
     {
         //transform.localEulerAngles += -Vector3.left * 200 * Time.deltaTime;
@@ -20,6 +28,17 @@ public class Arrow : MonoBehaviour
             joint.connectedBody = collision.contacts[0].otherCollider.transform.GetComponentInParent<Rigidbody>();
 
             joint.enableCollision = false;
+
+            Invoke("DestroyArrow", 3);
         }
+
+        arrow.rb.isKinematic = true;
+        
+    }
+
+    public void DestroyArrow()
+    {
+        
+        Destroy(arrow.spawnedArrow);
     }
 }
