@@ -876,7 +876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5ec5f2d8b390140b3204dbbeccad04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 5833754973581468641, guid: 33df9d2b2b6ff85468c626ce7c41cd43, type: 3}
+  arrow: {fileID: 6060035579112468244, guid: 2d6487bab6c5066488e7b3a5b5cbd864, type: 3}
   spawnPoint: {fileID: 324430855}
   cam: {fileID: 1940082926}
   player: {fileID: 741437277}

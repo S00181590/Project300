@@ -19,9 +19,7 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Invoke("DestroyArrow", 30);
-
-        if (collision.collider.tag == "Ground" || collision.collider.tag == "Enemy")
+        if (collision.collider.tag == "Ground")
         {
             FixedJoint joint = gameObject.AddComponent<FixedJoint>();
 
@@ -32,6 +30,22 @@ public class Arrow : MonoBehaviour
             joint.enableCollision = false;
 
             gameObject.transform.parent = collision.gameObject.transform;
+
+            Invoke("DestroyArrow", 30);
+        }
+        else if (collision.collider.tag == "Enemy")
+        {
+            FixedJoint joint = gameObject.AddComponent<FixedJoint>();
+
+            joint.anchor = collision.contacts[0].point;
+
+            joint.connectedBody = collision.contacts[0].otherCollider.transform.GetComponentInParent<Rigidbody>();
+
+            joint.enableCollision = false;
+
+            gameObject.transform.parent = collision.gameObject.transform;
+
+            Invoke("DestroyArrow", 10);
         }
 
         //arrow.rb.isKinematic = true;

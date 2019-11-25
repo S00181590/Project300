@@ -68,7 +68,7 @@ public class ArrowShooter : MonoBehaviour
 
             rb.isKinematic = true;
             spawnedArrow.transform.localPosition = new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, spawnPoint.transform.position.z);
-            spawnedArrow.transform.localRotation = Quaternion.Euler(cam.camTransform.rotation.eulerAngles.x + 90, cam.camTransform.rotation.eulerAngles.y, cam.camTransform.localRotation.z);
+            spawnedArrow.transform.localRotation = Quaternion.Euler(cam.camTransform.rotation.eulerAngles.x + 180, cam.camTransform.rotation.eulerAngles.y, cam.camTransform.localRotation.z);
             //spawnedArrow.transform.localRotation = Quaternion.Euler(0, 0, cam.transform.rotation.eulerAngles.z);
             //spawnedArrow.transform.Rotate(player.transform.position, -cam.transform.rotation.eulerAngles.z);
 
