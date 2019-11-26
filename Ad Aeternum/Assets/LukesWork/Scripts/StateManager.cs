@@ -43,7 +43,11 @@ public class StateManager : MonoBehaviour
     bool groundTest;
     RaycastHit hitTest;
 
-    
+    public float moveSpeed = 2;
+    public float speedModifier = 1.5f;
+    public float dashTime = 2;
+    float internalSpeedModifier;
+    float internalDashTime;
 
     public void Init()
     {
@@ -114,22 +118,24 @@ public class StateManager : MonoBehaviour
             }
 
             //Dodging
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && internalDashTime == 0)
             {
-                //HandleDodging();
-                //Vector3 dash = Vector3.Lerp(playerObj.position, Vector3.forward, 10f);
-                //Vector3 dash = new Vector3(playerObj.position, move, 10f);
-                //rb.AddForce(moveDir.x * (speed * d), 0, moveDir.z * (speed * d));
-                //rb.AddForce(horizontal * 2, 0, vertical * 2);
-                //rb.velocity = moveDir * (speed * (d * 200));
-
-                //rb.drag = 0f;
-
-                //rb.AddForce(new Vector3(0f, JumpForce / 2, 0f), ForceMode.Impulse);
-                //rb.AddForce(new Vector3(moveDir.x * DodgeForce, moveDir.y * DodgeForce, moveDir.z * DodgeForce), ForceMode.Impulse);
-
-                rb.velocity = moveDir * (50 * moveAmount);
+                internalDashTime = dashTime;
+                //rb.velocity = moveDir * moveSpeed * internalSpeedModifier;
             }
+
+            //if (internalDashTime > 0)
+            //{
+            //    internalSpeedModifier = speedModifier;
+            //    internalDashTime--;
+            //}
+
+            //if (internalDashTime <= 0)
+            //{
+            //    internalSpeedModifier = speed;
+            //}
+
+            
         }
 
         Vector3 targetDir = moveDir;
