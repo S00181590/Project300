@@ -184,18 +184,20 @@ public class StateManager : MonoBehaviour
             if (dis != 0)
             {
                 if (Physics.Raycast(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f), out hit, 0.8f, ignoreLayers) ||
-                    Physics.Raycast(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f), out hit, 0.92f, ignoreLayers))
+                    Physics.Raycast(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f), out hit, 0.9f, ignoreLayers))
                 {
                     r = true;
                     Vector3 targetPos = hit.point;
                     transform.position = new Vector3(transform.position.x, targetPos.y + 0.75f, transform.position.z);
+
+                    Debug.DrawRay(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f) * 0.8f);
+                    Debug.DrawRay(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f) * 0.9f, Color.green);
                 }
             }
         }
 
         Debug.DrawRay(origin, dis * dir);
-        Debug.DrawRay(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f) * 0.8f);
-        Debug.DrawRay(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f) * 0.92f, Color.green);
+        
 
         return r;
     }

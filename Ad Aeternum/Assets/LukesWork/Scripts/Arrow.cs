@@ -5,16 +5,18 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public ArrowShooter arrow;
+    public ArrowCount count;
+    public bool collectable;
 
     private void Start()
     {
         arrow = gameObject.GetComponent<ArrowShooter>();
-        string destroy = "arrow.DestroyArrow";
+        collectable = false;
     }
 
     private void Update()
     {
-        //transform.localEulerAngles += -Vector3.left * 200 * Time.deltaTime;
+        //transform.localEulerAngles += Vector3.left * 10 * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -31,6 +33,8 @@ public class Arrow : MonoBehaviour
 
             gameObject.transform.parent = collision.gameObject.transform;
 
+            collectable = true;
+
             Invoke("DestroyArrow", 30);
         }
         else if (collision.collider.tag == "Enemy")
@@ -45,11 +49,26 @@ public class Arrow : MonoBehaviour
 
             gameObject.transform.parent = collision.gameObject.transform;
 
-            Invoke("DestroyArrow", 10);
+            collectable = false;
+
+            Invoke("DestroyArrow", 15);
         }
+        //else
+        //{
+        //    arrow.collectable = false;
+        //}
 
         //arrow.rb.isKinematic = true;
     }
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (Input.GetKey(KeyCode.F) && other.tag == "Interactive")
+    //    {
+    //        count.arrowCount++;
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     public void DestroyArrow()
     {

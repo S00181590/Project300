@@ -128,7 +128,7 @@ public class PlayerMoveController : MonoBehaviour
         states.horizontal = horizontal;
         states.vertical = vertical;
 
-        if (Input.GetKeyDown(KeyCode.Q)) //|| (Input.GetMouseButtonDown(1)))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             switchLockOn = !switchLockOn;
             attackRange = !attackRange;
