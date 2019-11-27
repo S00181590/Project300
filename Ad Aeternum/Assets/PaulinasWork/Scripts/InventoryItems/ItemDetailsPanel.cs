@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class ItemDetailsPanel : MonoBehaviour
 {
     public Text txtName;
@@ -24,7 +25,7 @@ public class ItemDetailsPanel : MonoBehaviour
 
         if(item != null)
         {
-            imgIcon.sprite = Resources.Load<Sprite>("InventoryTxt/" + item.IconName);
+            imgIcon.sprite = Resources.Load<Sprite>(@"Assets/InventoryTxt/test_icon");
             txtName.text = item.Name;
             txtDescription.text = item.Description;
             txtValue.text = "€" + item.Value;

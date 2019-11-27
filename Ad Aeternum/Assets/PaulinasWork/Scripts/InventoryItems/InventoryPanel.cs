@@ -4,17 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class InventoryPanel : MonoBehaviour
 {
 
     public RectTransform lstGridInventory;
     public GameObject GridButtonPrefab;
     public ItemDetailsPanel detailsPanel;
-
-    private void Update()
-    {
-       
-    }
 
     void Start()
     {
