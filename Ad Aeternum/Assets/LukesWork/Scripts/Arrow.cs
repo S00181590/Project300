@@ -7,16 +7,20 @@ public class Arrow : MonoBehaviour
     public ArrowShooter arrow;
     public ArrowCount count;
     public bool collectable;
+    public TrailRenderer trail;
 
     private void Start()
     {
         arrow = gameObject.GetComponent<ArrowShooter>();
         collectable = false;
+        trail = this.gameObject.GetComponent<TrailRenderer>();
+        trail.enabled = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //transform.localEulerAngles += Vector3.left * 10 * Time.deltaTime;
+        //transform.localEulerAngles += Vector3.left * 10 * Time.deltaTime
+        trail.enabled = true;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -35,6 +39,8 @@ public class Arrow : MonoBehaviour
 
             collectable = true;
 
+            trail.enabled = false;
+
             Invoke("DestroyArrow", 30);
         }
         else if (collision.collider.tag == "Enemy")
@@ -51,27 +57,22 @@ public class Arrow : MonoBehaviour
 
             collectable = false;
 
+            trail.enabled = false;
+
             Invoke("DestroyArrow", 15);
         }
-        //else
-        //{
-        //    arrow.collectable = false;
-        //}
-
-        //arrow.rb.isKinematic = true;
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (Input.GetKey(KeyCode.F) && other.tag == "Interactive")
-    //    {
-    //        count.arrowCount++;
-    //        Destroy(gameObject);
-    //    }
-    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Interactive" || other.gameObject.tag == "Ground" || other.gameObject.tag == "Enemy")
+        {
+            trail.enabled = false;
+        }
+    }
 
     public void DestroyArrow()
     {
-        Destroy(gameObject/*arrow.spawnedArrow*/);
+        Destroy(gameObject);
     }
 }

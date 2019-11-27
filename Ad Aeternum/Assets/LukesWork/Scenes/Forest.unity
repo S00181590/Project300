@@ -1657,26 +1657,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 1940082926}
-    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: count
-      value: 
-      objectReference: {fileID: 1920488683}
-    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 741437278}
-    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: speed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2035876333024037701, guid: 70156bdb10c85794eada625c78b77f12,
         type: 3}
       propertyPath: m_Name
@@ -1737,6 +1717,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1940082926}
+    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 1920488683}
+    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 741437278}
+    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
 --- !u!1001 &7031775253671329875
@@ -1751,6 +1751,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArrowCount
       objectReference: {fileID: 0}
+    - target: {fileID: 2933837799569982847, guid: ca83a4f666c0655458454c05d0bc49f4,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031775252825642168, guid: ca83a4f666c0655458454c05d0bc49f4,
+        type: 3}
+      propertyPath: arrowCountText
+      value: 
+      objectReference: {fileID: 1471215284}
     - target: {fileID: 7031775252615653240, guid: ca83a4f666c0655458454c05d0bc49f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1861,11 +1871,6 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7031775252825642168, guid: ca83a4f666c0655458454c05d0bc49f4,
-        type: 3}
-      propertyPath: arrowCountText
-      value: 
-      objectReference: {fileID: 1471215284}
     - target: {fileID: 2996234189938728664, guid: ca83a4f666c0655458454c05d0bc49f4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1875,11 +1880,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.000017166
-      objectReference: {fileID: 0}
-    - target: {fileID: 2933837799569982847, guid: ca83a4f666c0655458454c05d0bc49f4,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8995587983137327022, guid: ca83a4f666c0655458454c05d0bc49f4,
         type: 3}

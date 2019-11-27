@@ -5,23 +5,30 @@ using UnityEngine;
 public class CameraMoveController : MonoBehaviour
 {
     #region Variables
-    public bool lockOn = true, switchLockOn = true;
-
     public PlayerMoveController player;
+    public Camera cam;
+
     public Transform target, camTransform, 
         enemyObj, pivot;
+
+    private int count = 0;
 
     private float followSpeed = 10, mouseSpeed = 2, controllerSpeed = 5,
         minAngle = -15.0f, maxAngle = 50.0f, turnSmoothing = 0.1f,
         smoothX, smoothY, smoothXVel, smoothYVel,
-        lookAngle,
-        checkRadius;
+        lookAngle, checkRadius;
+
+    public bool lockOn = true, switchLockOn = true, bowAim = false, indicatorShowing = false;
 
     public float tiltAngle;
 
     private GameObject closestEnemy = null, intersectedEnemy = null;
 
-    private Vector3 distance, targetPosition, position, diff;
+    public GameObject[] enemyList;
+
+    public GameObject hit = null, lockOnIndicator, bowAimCrosshair;
+
+    private Vector3 distance, targetPosition, position, diff, screenPos;
 
     public StateManager stateManager;
 
@@ -30,19 +37,6 @@ public class CameraMoveController : MonoBehaviour
     public Collider cylinderCol;
 
     Quaternion lookOnLook;
-
-    public GameObject[] enemyList;
-
-    public GameObject hit = null;
-
-    private int count = 0;
-    public bool bowAim = false;
-
-    public Camera cam;
-    public GameObject lockOnIndicator;
-    public GameObject bowAimCrosshair;
-    bool indicatorShowing = false;
-    Vector3 screenPos;
     #endregion
 
     //Essentially a Start method but accepts variables, e.g: t (the player)

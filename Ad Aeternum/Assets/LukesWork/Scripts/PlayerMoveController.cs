@@ -54,27 +54,10 @@ public class PlayerMoveController : MonoBehaviour
         camManager.Init(this.transform);
 
         controller = GetComponent<CharacterController>();
-
-
     }
 
     void Update()
     {
-        //if (controller.isGrounded)
-        //{
-        //    verticalVel = -gravity * Time.deltaTime;
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        verticalVel = jump;
-        //    }
-        //}
-        //else
-        //{
-        //    verticalVel -= gravity * Time.deltaTime;
-        //}
-
-        //Vector3 movevector = new Vector3(0, verticalVel, 0);
-
         if (stateManager.onGround)
         {
             canMove = true;
@@ -134,14 +117,7 @@ public class PlayerMoveController : MonoBehaviour
             attackRange = !attackRange;
         }
 
-        //if (switchLockOn)
-        //{
         camManager.Init(this.transform);
-        //}
-        //else
-        //{
-        //    camManager.Init(this.transform);
-        //}
     }
 
     Transform GetClosestEnemy(Transform[] enemies)

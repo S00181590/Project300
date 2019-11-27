@@ -101,13 +101,15 @@ public class ArrowShooter : MonoBehaviour
 
     void ShootArrow()
     {
+        //arr.trail.enabled = true;
+
         active = false;
         //spawnedArrow = null;
 
         rb.isKinematic = false;
 
         //rb.velocity = Vector3.zero;
-        rb.AddForce(cam.transform.forward.x * speed, cam.camTransform.forward.y + 0.75f + (-cam.tiltAngle * 0.01f), cam.transform.forward.z * speed, ForceMode.Impulse);
+        rb.AddForce(cam.transform.forward.x * speed, cam.camTransform.forward.y + 0.75f + (-cam.tiltAngle * 0.01f), cam.transform.forward.z * speed, ForceMode.Impulse);        
     }
 
     void DestroyArrow()
