@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    public float vertical;
-    public float horizontal;
+    public float vertical, horizontal, rotateSpeed = 5f, speed = 5f, sprintSpeed = 1.5f, jump = 500f, moveAmount;
     public Vector3 moveDir;
-    public float rotateSpeed = 5f;
-
-    public float speed = 5f;
-    public float sprintSpeed = 1.5f;
-    public float jump = 500f;
 
     public GameObject activeModel;
     private Animator anim;
     private Rigidbody rb;
-
-    public float moveAmount;
 
     private float delta;
 
@@ -49,6 +41,8 @@ public class StateManager : MonoBehaviour
     float internalSpeedModifier;
     float internalDashTime;
 
+    bool canClimb = false;
+
     public void Init()
     {
         Application.targetFrameRate = 60;
@@ -73,6 +67,8 @@ public class StateManager : MonoBehaviour
         {
             onGround = OnGround();
         }
+
+        Climb();
 
         dBarrier = DeathBarrier();
     }
@@ -135,7 +131,7 @@ public class StateManager : MonoBehaviour
             //    internalSpeedModifier = speed;
             //}
 
-            
+
         }
 
         Vector3 targetDir = moveDir;
@@ -203,9 +199,46 @@ public class StateManager : MonoBehaviour
         }
 
         Debug.DrawRay(origin, dis * dir);
-        
+
 
         return r;
+    }
+
+    public void Climb()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - 0.7f, player.transform.position.z), moveDir, out hit, 0.8f, ignoreLayers))
+        {
+            canClimb = true;
+            Invoke("Climbing", 1);
+        }
+        else
+        {
+            canClimb = false;
+        }
+
+        Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y - 0.7f, player.transform.position.z), moveDir * 0.8f);
+    }
+
+    public void Climbing()
+    {
+        if (canClimb == true)
+        {
+            RaycastHit hit;
+
+            if (onGround)
+            {
+                rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
+            }
+
+            if (Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - 1f, player.transform.position.z), moveDir, out hit, 0.8f, ignoreLayers))
+            {
+                rb.AddForce(moveDir * 200, ForceMode.Impulse);
+            }
+
+            rb.velocity = Vector3.up * moveSpeed;
+        }
     }
 
     public bool DeathBarrier()
