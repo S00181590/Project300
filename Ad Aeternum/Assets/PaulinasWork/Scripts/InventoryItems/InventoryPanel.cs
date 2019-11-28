@@ -8,31 +8,18 @@ using UnityEngine.UI;
 public class InventoryPanel : MonoBehaviour
 {
 
-    public RectTransform lstGridInventory;
+    public Transform Content;
     public GameObject GridButtonPrefab;
-    public ItemDetailsPanel detailsPanel;
 
-    void Start()
-    {
-        LoadList(GameManager.MasterCollection);
-    }
-
-    public void LoadList(List<Item> items)
+    public void SetInventory(List<int> items)
     {
 
-        for(int i =0; i < items.Count;i++)
+        GameObject button;
+        foreach(int id in items)
         {
-            GameObject button = Instantiate(GridButtonPrefab, lstGridInventory);
-
-            GridButton gridButton = button.GetComponent<GridButton>();
-            gridButton.InitializeGridButton(items[i].ID, items[i].IconName);
-
-            gridButton.Selected += GridButton_OnSelected;
+            button = Instantiate(GridButtonPrefab, Content);
+            button.GetComponent<GridButton>().SetItem(id);
         }
-    }
 
-    private void GridButton_OnSelected(int itemID)
-    {
-        detailsPanel.SetItem(itemID);
     }
 }

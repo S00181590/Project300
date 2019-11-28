@@ -4,24 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public delegate void InventoryItemDelegate(int itemID);
-
-public class GridButton : MonoBehaviour, IPointerEnterHandler
-{
+public class GridButton : MonoBehaviour
+{ 
     public Image imgIcon;
-    int itemID;
+    public Text txtName;
+    public int itemID;
 
-    public event InventoryItemDelegate Selected;
-
-    public void OnPointerEnter(PointerEventData eventData)
+    public void SetItem(int itemID)
     {
-        if (Selected != null)
-            Selected(itemID);
-    }
+        Item foundItem = GameManager.Instance.AllItemsInTheGame.GetItem(itemID);
 
-    public void InitializeGridButton(int itemID, string iconName)
-    {
-        imgIcon.sprite = Resources.Load<Sprite>(@"Assets/InventoryTxt" + iconName);
-        this.itemID = itemID;
+        imgIcon.sprite = foundItem.Icon;
+        imgIcon.color = foundItem.Tint;
+        txtName.text = foundItem.Name;
+
+        itemID = itemID;
+        
     }
 }
