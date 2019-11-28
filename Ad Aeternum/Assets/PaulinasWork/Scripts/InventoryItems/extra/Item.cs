@@ -10,10 +10,7 @@ public class Item
     public string Name;
     public string Description;
     public float Value;
-    public string IconName;
     public Color Tint = Color.white;
-
-    [NonSerialized]//wont be saved to JSON
     public Sprite Icon;
 
     public GameObject Prefab;
