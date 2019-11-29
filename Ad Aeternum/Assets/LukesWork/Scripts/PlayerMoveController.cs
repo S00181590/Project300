@@ -38,7 +38,7 @@ public class PlayerMoveController : MonoBehaviour
 
     public LayerMask groundLayers;
 
-    private bool canMove = false;
+    public bool canMove = true;
     public StateManager stateManager;
 
     void Start()
@@ -84,7 +84,6 @@ public class PlayerMoveController : MonoBehaviour
         GetInput();
         UpdateState();
         states.FixedTick(delta);
-
     }
 
     void GetInput()
@@ -95,13 +94,16 @@ public class PlayerMoveController : MonoBehaviour
 
     void UpdateState()
     {
+
         states.horizontal = horizontal;
         states.vertical = vertical;
 
         Vector3 v = vertical * camManager.transform.forward;
         Vector3 h = horizontal * camManager.transform.right;
+
         states.moveDir = (v + h).normalized;
         float m = Mathf.Abs(horizontal) + Mathf.Abs(vertical);
+
         states.moveAmount = Mathf.Clamp01(m);
     }
 

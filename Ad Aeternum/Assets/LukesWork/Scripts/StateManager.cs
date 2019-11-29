@@ -14,6 +14,7 @@ public class StateManager : MonoBehaviour
     private float delta;
 
     public LayerMask ignoreLayers;
+    public LayerMask climbableLayers;
     public LayerMask deathBar;
     public bool onGround, attacking;
     public bool dBarrier;
@@ -42,6 +43,7 @@ public class StateManager : MonoBehaviour
     float internalDashTime;
 
     bool canClimb = false;
+    bool canMove = true;
 
     public void Init()
     {
@@ -68,7 +70,7 @@ public class StateManager : MonoBehaviour
             onGround = OnGround();
         }
 
-        Climb();
+        
 
         dBarrier = DeathBarrier();
     }
@@ -149,6 +151,7 @@ public class StateManager : MonoBehaviour
             transform.rotation = targetRotation;
         }
 
+        Climb();
         HandleMovementAnimations();
     }
 
@@ -208,7 +211,7 @@ public class StateManager : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - 0.7f, player.transform.position.z), moveDir, out hit, 0.8f, ignoreLayers))
+        if (Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - 0.7f, player.transform.position.z), moveDir, out hit, 0.8f, climbableLayers))
         {
             canClimb = true;
             Invoke("Climbing", 1);
@@ -219,6 +222,8 @@ public class StateManager : MonoBehaviour
         }
 
         Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y - 0.7f, player.transform.position.z), moveDir * 0.8f);
+        Debug.DrawRay(new Vector3(player.transform.position.x * 0.2f, player.transform.position.y, player.transform.position.z * 0.2f), moveDir * 0.8f);
+        Debug.DrawRay(new Vector3(player.transform.position.x * -0.2f, player.transform.position.y, player.transform.position.z * -0.2f), moveDir * 0.8f);
     }
 
     public void Climbing()
@@ -232,9 +237,13 @@ public class StateManager : MonoBehaviour
                 rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
             }
 
-            if (Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - 1f, player.transform.position.z), moveDir, out hit, 0.8f, ignoreLayers))
+            if (Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - 1f, player.transform.position.z), moveDir, out hit, 0.8f, climbableLayers)
+                || Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - 1f * 0.2f, player.transform.position.z), moveDir, out hit, 0.8f, climbableLayers)
+                || Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - 1f * -0.2f, player.transform.position.z), moveDir, out hit, 0.8f, climbableLayers))
             {
                 rb.AddForce(moveDir * 200, ForceMode.Impulse);
+
+                player.canMove = false;
             }
 
             rb.velocity = Vector3.up * moveSpeed;
