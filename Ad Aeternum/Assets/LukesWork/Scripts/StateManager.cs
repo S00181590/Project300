@@ -50,7 +50,7 @@ public class StateManager : MonoBehaviour
 
         gameObject.layer = 8;
         //ignoreLayers = ~(1 << 9);
-        Cursor.visible = false;
+        //Cursor.visible = false;
     }
 
     public void Tick(float d)
