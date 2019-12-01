@@ -5254,7 +5254,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!195 &277848991
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5354,7 +5354,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!195 &321167630
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5487,7 +5487,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!195 &363343848
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6186,7 +6186,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!195 &612362256
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6401,7 +6401,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!195 &709267958
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6522,7 +6522,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fad908d9f4f794f43b01c744d4c65bc8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.6
+      value: 3.73
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fad908d9f4f794f43b01c744d4c65bc8,
         type: 3}
@@ -7356,7 +7356,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &949600688
 GameObject:
   m_ObjectHideFlags: 0
@@ -13225,7 +13225,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!195 &1261981126
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13627,7 +13627,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!195 &1332888399
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13733,7 +13733,7 @@ PrefabInstance:
     - target: {fileID: -5771388618562717207, guid: fad908d9f4f794f43b01c744d4c65bc8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.156
+      value: 0.206
       objectReference: {fileID: 0}
     - target: {fileID: -5771388618562717207, guid: fad908d9f4f794f43b01c744d4c65bc8,
         type: 3}
@@ -13753,7 +13753,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: fad908d9f4f794f43b01c744d4c65bc8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.2756405
+      value: -2.54
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: fad908d9f4f794f43b01c744d4c65bc8,
         type: 3}
@@ -13836,7 +13836,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!195 &1451740138
 NavMeshAgent:
   m_ObjectHideFlags: 0
