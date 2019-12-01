@@ -19,7 +19,7 @@ public class PlayerMoveController : MonoBehaviour
     public bool attackRange = false;
     public enum attackRangeType { shortRange, longRange };
 
-    private CapsuleCollider col;
+    private CapsuleCollider col = null;
     Transform cam;
 
     public float speed;
@@ -33,7 +33,6 @@ public class PlayerMoveController : MonoBehaviour
     private CharacterController controller;
 
     private float verticalVel;
-    private float gravity = 14.0f;
     public float jump = 10.0f;
 
     public LayerMask groundLayers;

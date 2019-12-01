@@ -11,8 +11,6 @@ public class CameraMoveController : MonoBehaviour
     public Transform target, camTransform, 
         enemyObj, pivot;
 
-    private int count = 0;
-
     private float followSpeed = 10, mouseSpeed = 2, controllerSpeed = 5,
         minAngle = -15.0f, maxAngle = 50.0f, turnSmoothing = 0.1f,
         smoothX, smoothY, smoothXVel, smoothYVel,

@@ -28,7 +28,7 @@ public class StateManager : MonoBehaviour
     public PlayerMoveController player;
     public Transform playerObj;
 
-    private CameraMoveController cam;
+    private CameraMoveController cam = null;
     public bool dodgeInput;
     public float DodgeForce = 500f;
     public float JumpForce = 30f;
@@ -69,8 +69,6 @@ public class StateManager : MonoBehaviour
         {
             onGround = OnGround();
         }
-
-        
 
         dBarrier = DeathBarrier();
     }
@@ -214,6 +212,7 @@ public class StateManager : MonoBehaviour
         if (Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - 0.7f, player.transform.position.z), moveDir, out hit, 0.8f, climbableLayers))
         {
             canClimb = true;
+            Invoke("JumpClimb", 0.5f);
             Invoke("Climbing", 1);
         }
         else
@@ -224,6 +223,14 @@ public class StateManager : MonoBehaviour
         Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y - 0.7f, player.transform.position.z), moveDir * 0.8f);
         Debug.DrawRay(new Vector3(player.transform.position.x * 0.2f, player.transform.position.y, player.transform.position.z * 0.2f), moveDir * 0.8f);
         Debug.DrawRay(new Vector3(player.transform.position.x * -0.2f, player.transform.position.y, player.transform.position.z * -0.2f), moveDir * 0.8f);
+    }
+
+    public void JumpClimb()
+    {
+        if (onGround && canClimb)
+        {
+            rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
+        }
     }
 
     public void Climbing()

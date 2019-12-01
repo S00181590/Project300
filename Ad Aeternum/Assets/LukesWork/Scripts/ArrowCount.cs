@@ -10,11 +10,11 @@ public class ArrowCount : MonoBehaviour
 
     void Start()
     {
-        arrowCount = 10;
+        arrowCount = 30;
     }
 
     void Update()
     {
-        arrowCountText.text = "Arrows: " + arrowCount.ToString();
+        arrowCountText.text = "x " + arrowCount.ToString();
     }
 }

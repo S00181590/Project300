@@ -11,21 +11,20 @@ public class ArrowShooter : MonoBehaviour
     public GameObject spawnPoint;
     public CameraMoveController cam;
     public PlayerMoveController player;
-    GameObject shootingArrow = null;
-    public Rigidbody rb;
+    public Rigidbody rb = null;
     public ArrowCount count;
     public Arrow arr;
 
     private Vector3 position, diff;
     public Transform target;
 
-    public GameObject spawnedArrow;
+    public GameObject spawnedArrow = null;
     bool active = false;
-    public GameObject obj;
+    public GameObject obj = null;
 
     private void Start()
     {
-        rb = null;
+        
     }
 
     private void Update()
@@ -40,17 +39,22 @@ public class ArrowShooter : MonoBehaviour
             else if (Input.GetMouseButtonUp(1))
             {
                 Destroy(spawnedArrow);
+                spawnedArrow = null;
+                active = false;
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (spawnedArrow != null)
             {
-                //Invoke("DestroyArrow", 1);
-                count.arrowCount--;
-                ShootArrow();
-
-                if (Input.GetMouseButton(1))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    SpawnArrow();
+                    //Invoke("DestroyArrow", 1);
+                    count.arrowCount--;
+                    ShootArrow();
+
+                    if (Input.GetMouseButton(1))
+                    {
+                        SpawnArrow();
+                    }
                 }
             }
 
@@ -89,7 +93,8 @@ public class ArrowShooter : MonoBehaviour
         }
         else
         {
-            rb.isKinematic = false;
+            rb = null;
+            //rb.isKinematic = false;
         }
     }
 
@@ -105,11 +110,14 @@ public class ArrowShooter : MonoBehaviour
 
         active = false;
         //spawnedArrow = null;
+        if (rb != null)
+        {
+            rb.isKinematic = false;
 
-        rb.isKinematic = false;
+            //rb.velocity = Vector3.zero;
+            rb.AddForce(cam.transform.forward.x * speed, cam.camTransform.forward.y + 0.75f + (-cam.tiltAngle * 0.01f), cam.transform.forward.z * speed, ForceMode.Impulse);
 
-        //rb.velocity = Vector3.zero;
-        rb.AddForce(cam.transform.forward.x * speed, cam.camTransform.forward.y + 0.75f + (-cam.tiltAngle * 0.01f), cam.transform.forward.z * speed, ForceMode.Impulse);        
+        }
     }
 
     void DestroyArrow()
