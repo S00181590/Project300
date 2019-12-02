@@ -37,13 +37,20 @@ public class CameraMoveController : MonoBehaviour
     Quaternion lookOnLook;
     #endregion
 
+    private void Start()
+    {
+        camTransform = Camera.main.transform;
+
+        pivot.localPosition = Vector3.zero;
+        camTransform.localPosition = new Vector3(0, 0.5f, -4f);
+
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     //Essentially a Start method but accepts variables, e.g: t (the player)
     public void Init(Transform t)
     {
         target = t;
-        camTransform = Camera.main.transform;
-
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     //Essentially an Update method but accepts variables, e.g: d (the deltaTime)
@@ -126,37 +133,29 @@ public class CameraMoveController : MonoBehaviour
                 lookOnLook = Quaternion.LookRotation(intersectedEnemy.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0, lookOnLook.y, 0, lookOnLook.w), d * 15);
 
-                tiltAngle -= smoothY * targetSpeed;
-                tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 15);
-                pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
-
-                lookAngle = camTransform.rotation.eulerAngles.y;
-
                 lockOnIndicator.SetActive(true);
                 screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
                 lockOnIndicator.transform.position = screenPos;
-                //lockOnIndicator.layer = -100;
             }
             else if ((closestEnemy != null) && (Vector3.Distance(closestEnemy.transform.position, target.position) < 20))
             {
                 lookOnLook = Quaternion.LookRotation(closestEnemy.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0, lookOnLook.y, 0, lookOnLook.w), d * 15);
                 
-                tiltAngle -= smoothY * targetSpeed;
-                tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 15);
-                pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
-                lookAngle = camTransform.rotation.eulerAngles.y;
-
                 lockOnIndicator.SetActive(true);
                 screenPos = cam.WorldToScreenPoint(closestEnemy.transform.position);
                 lockOnIndicator.transform.position = screenPos;
-                //lockOnIndicator.layer = -100;
             }
             else
             {
                 lockOnIndicator.SetActive(false);
                 player.switchLockOn = false;
             }
+
+            tiltAngle -= smoothY * targetSpeed;
+            tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 15);
+            pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
+            lookAngle = camTransform.rotation.eulerAngles.y;
         }
         else
         {
@@ -164,13 +163,17 @@ public class CameraMoveController : MonoBehaviour
             if (Input.GetMouseButton(1))
             {
                 camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1.2f, -0.2f, -2f), 0.1f);
-
                 camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(-20, 0, 0), 0.1f);
+
                 player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
 
                 stateManager.speed = 2;
-                lockOnIndicator.SetActive(false);
+
                 bowAimCrosshair.SetActive(true);
+                bowAim = true;
+
+                lockOnIndicator.SetActive(false);
+
                 //if (stateManager.onGround == false)
                 //{
                 //    Time.timeScale = 0.2f;
@@ -179,8 +182,6 @@ public class CameraMoveController : MonoBehaviour
                 //{
                 //    Time.timeScale = 1f;
                 //}
-
-                bowAim = true;
             }
             //Bow aim out
             else
@@ -239,27 +240,8 @@ public class CameraMoveController : MonoBehaviour
 
             if (cylinderCol.bounds.Intersects(enemyCol.bounds) || enemyCol.bounds.Intersects(cylinderCol.bounds))
             {
-                //float distance = Mathf.Infinity;
-                //position = target.position;
-
-                //diff = enemyCol.transform.position - position;
-                //float curDistance = diff.sqrMagnitude;
-
-                //if (curDistance < distance)
-                //{
-                //hit = enemyCol.GetComponent<GameObject>();
                 hit = enemyCol.gameObject;
-                //    distance = curDistance;
-                //}
             }
-            //else
-            //{
-            //    hit = null;
-            //}
-            //else
-            //{
-            //    enemy = hit;
-            //}
         }
 
         return hit;

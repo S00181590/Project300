@@ -25,25 +25,7 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Ground")
-        {
-            FixedJoint joint = gameObject.AddComponent<FixedJoint>();
-
-            joint.anchor = collision.contacts[0].point;
-
-            joint.connectedBody = collision.contacts[0].otherCollider.transform.GetComponentInParent<Rigidbody>();
-
-            joint.enableCollision = false;
-
-            gameObject.transform.parent = collision.gameObject.transform;
-
-            collectable = true;
-
-            trail.enabled = false;
-
-            Invoke("DestroyArrow", 30);
-        }
-        else if (collision.collider.tag == "Enemy")
+        if (collision.collider.tag == "Enemy")
         {
             FixedJoint joint = gameObject.AddComponent<FixedJoint>();
 
@@ -60,6 +42,24 @@ public class Arrow : MonoBehaviour
             trail.enabled = false;
 
             Invoke("DestroyArrow", 15);
+        }
+        else //if (collision.collider.tag == "Ground")
+        {
+            FixedJoint joint = gameObject.AddComponent<FixedJoint>();
+
+            joint.anchor = collision.contacts[0].point;
+
+            joint.connectedBody = collision.contacts[0].otherCollider.transform.GetComponentInParent<Rigidbody>();
+
+            joint.enableCollision = false;
+
+            gameObject.transform.parent = collision.gameObject.transform;
+
+            collectable = true;
+
+            trail.enabled = false;
+
+            Invoke("DestroyArrow", 30);
         }
     }
 
