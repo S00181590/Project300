@@ -42,7 +42,7 @@ public class PauseMenu : MonoBehaviour
             Options.SetActive(true);
             Time.timeScale = 0f;
         }
-        else if (!OptionsOpen)
+        if (!OptionsOpen)
         {
             Options.SetActive(false);
             Time.timeScale = 1f;
