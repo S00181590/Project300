@@ -8,17 +8,18 @@ public class GridButton : MonoBehaviour
 { 
     public Image imgIcon;
     public Text txtName;
-    public int itemID;
+    public int ItemID;
 
     public void SetItem(int itemID)
     {
         Item foundItem = GameManager.Instance.AllItemsInTheGame.GetItem(itemID);
 
+        txtName.text = foundItem.Name;
         imgIcon.sprite = foundItem.Icon;
         imgIcon.color = foundItem.Tint;
-        txtName.text = foundItem.Name;
+        
 
-        itemID = itemID;
+        ItemID = itemID;
         
     }
 }

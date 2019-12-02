@@ -38,7 +38,7 @@ public class SavableInventory : MonoBehaviour
 
     public void Load(string filename)
     {
-        if(File.Exists(Application.persistentDataPath + "/" + filename + ".json"))
+        if (File.Exists(Application.persistentDataPath + "/" + filename + ".json"))
         {
             string json = File.ReadAllText(Application.persistentDataPath + "/" + filename + ".json");
             Items = JsonUtility.FromJson<SavableInventory>(json).Items;

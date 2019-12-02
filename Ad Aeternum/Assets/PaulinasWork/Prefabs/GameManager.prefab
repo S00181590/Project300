@@ -43,5 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9227994523d878749a091f87bbd9578d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PopUpBoxPrefab: {fileID: 0}
-  RootCanvas: {fileID: 0}
+  AllItemsInTheGame: {fileID: 11400000, guid: 149899f61f01cbb45aa94076034f97b0, type: 2}
