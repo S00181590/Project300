@@ -8,8 +8,6 @@ public class Climbing : MonoBehaviour
     StateManager state;
 
     bool canClimb = false;
-    bool canMove = true;
-    bool inAir = false;
 
     public LayerMask climbableLayers;
 

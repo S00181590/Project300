@@ -133,6 +133,11 @@ public class CameraMoveController : MonoBehaviour
                 lookOnLook = Quaternion.LookRotation(intersectedEnemy.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0, lookOnLook.y, 0, lookOnLook.w), d * 15);
 
+                tiltAngle -= smoothY * targetSpeed;
+                tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 15);
+                pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
+                lookAngle = camTransform.rotation.eulerAngles.y;
+
                 lockOnIndicator.SetActive(true);
                 screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
                 lockOnIndicator.transform.position = screenPos;
@@ -141,7 +146,12 @@ public class CameraMoveController : MonoBehaviour
             {
                 lookOnLook = Quaternion.LookRotation(closestEnemy.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0, lookOnLook.y, 0, lookOnLook.w), d * 15);
-                
+
+                tiltAngle -= smoothY * targetSpeed;
+                tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 15);
+                pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
+                lookAngle = camTransform.rotation.eulerAngles.y;
+
                 lockOnIndicator.SetActive(true);
                 screenPos = cam.WorldToScreenPoint(closestEnemy.transform.position);
                 lockOnIndicator.transform.position = screenPos;
@@ -152,10 +162,7 @@ public class CameraMoveController : MonoBehaviour
                 player.switchLockOn = false;
             }
 
-            tiltAngle -= smoothY * targetSpeed;
-            tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 15);
-            pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
-            lookAngle = camTransform.rotation.eulerAngles.y;
+            
         }
         else
         {

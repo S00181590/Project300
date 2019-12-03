@@ -25,8 +25,6 @@ public class PlayerMoveController : MonoBehaviour
     public float speed;
     public float turnSpeed = 100;
 
-    public GameObject enemy;
-
     Animator animator;
     Rigidbody rigidBody;
 

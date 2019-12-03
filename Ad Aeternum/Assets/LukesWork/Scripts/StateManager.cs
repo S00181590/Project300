@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    public float vertical, horizontal, rotateSpeed = 5f, speed = 5f, sprintSpeed = 1.5f, jump = 500f, moveAmount;
+    public float vertical, horizontal, rotateSpeed = 5f, speed = 6f, sprintSpeed = 1.5f, jump = 600, moveAmount = 20;
     public Vector3 moveDir;
 
-    public GameObject activeModel;
+    //public GameObject activeModel;
     private Animator anim;
     private Rigidbody rb;
 
     private float delta;
 
-    public LayerMask ignoreLayers;
-    public LayerMask climbableLayers;
-    public LayerMask deathBar;
+    public LayerMask ignoreLayers, climbableLayers, deathBar;
+
+    [HideInInspector]
     public bool onGround, attacking;
-    public bool dBarrier;
-    public float toGround = 0.75f;
+
+    bool dBarrier;
+    float toGround = 0.76f;
 
     Vector3 origin = Vector3.zero;
     Vector3 origin3 = Vector3.zero;
     Vector3 targetPos;
-    public int death = 0;
+    int death = 0;
 
-    public PlayerMoveController player;
-    public Transform playerObj;
+    PlayerMoveController player;
+    Transform playerObj;
 
     private CameraMoveController cam = null;
     public bool dodgeInput;
@@ -45,6 +46,9 @@ public class StateManager : MonoBehaviour
     public void Init()
     {
         Application.targetFrameRate = 60;
+
+        player = GetComponent<PlayerMoveController>();
+        playerObj = GetComponent<Transform>();
 
         //SetupAnimator();
         rb = GetComponent<Rigidbody>();
