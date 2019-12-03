@@ -4,44 +4,52 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    public float vertical;
-    public float horizontal;
+    public float vertical, horizontal, rotateSpeed = 5f, speed = 6f, sprintSpeed = 1.5f, jump = 600, moveAmount = 20;
     public Vector3 moveDir;
-    public float rotateSpeed = 5f;
 
-    public float speed = 5f;
-    public float sprintSpeed = 1.5f;
-    public float jump = 500f;
-
-    public GameObject activeModel;
+    //public GameObject activeModel;
     private Animator anim;
     private Rigidbody rb;
 
-    public float moveAmount;
-
     private float delta;
 
-    public LayerMask ignoreLayers;
-    public LayerMask deathBar;
-    public bool onGround;
-    public bool dBarrier;
-    public float toGround = 0.75f;
+    public LayerMask ignoreLayers, climbableLayers, deathBar;
+
+    [HideInInspector]
+    public bool onGround, attacking;
+
+    bool dBarrier;
+    float toGround = 0.76f;
 
     Vector3 origin = Vector3.zero;
     Vector3 origin3 = Vector3.zero;
     Vector3 targetPos;
-    public int death = 0;
+    int death = 0;
 
-    public PlayerMoveController player;
-    public Transform playerObj;
+    PlayerMoveController player;
+    Transform playerObj;
 
-    private CameraMoveController cam;
+    private CameraMoveController cam = null;
     public bool dodgeInput;
     public float DodgeForce = 500f;
     public float JumpForce = 30f;
 
+    bool groundTest;
+    RaycastHit hitTest;
+
+    public float moveSpeed = 2;
+    public float speedModifier = 1.5f;
+    public float dashTime = 2;
+    float internalSpeedModifier;
+    float internalDashTime;
+
     public void Init()
     {
+        Application.targetFrameRate = 60;
+
+        player = GetComponent<PlayerMoveController>();
+        playerObj = GetComponent<Transform>();
+
         //SetupAnimator();
         rb = GetComponent<Rigidbody>();
         rb.angularDrag = 1000;
@@ -70,6 +78,15 @@ public class StateManager : MonoBehaviour
     {
         delta = d;
 
+        rb.isKinematic = false;
+
+        if ((moveDir.x == 0 && moveDir.z == 0) && (Physics.Raycast(transform.position, new Vector3(0, -Vector3.up.y, 0), out hitTest, 0.81f, ignoreLayers)))
+        {
+            rb.isKinematic = true;
+        }
+
+        Debug.DrawRay(transform.position, new Vector3(0, -Vector3.up.y, 0) * 0.8f, Color.red);
+
         if (moveAmount > 0 || onGround == false)
         {
             rb.drag = 0;
@@ -81,39 +98,41 @@ public class StateManager : MonoBehaviour
 
         if (onGround)
         {
+            //Sprint
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 rb.velocity = moveDir * (speed * sprintSpeed);
-
-                //if (Input.GetKey(KeyCode.Space))
-                //{
-                //    rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
-                //}
             }
             else
             {
                 rb.velocity = moveDir * (speed * moveAmount);
             }
 
+            //Jump
             if (Input.GetKey(KeyCode.Space))
             {
                 rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
             }
 
-            if (Input.GetKeyDown(KeyCode.E))
+            //Dodging
+            if (Input.GetKeyDown(KeyCode.E) && internalDashTime == 0)
             {
-                //HandleDodging();
-                //Vector3 dash = Vector3.Lerp(playerObj.position, Vector3.forward, 10f);
-                //Vector3 dash = new Vector3(playerObj.position, move, 10f);
-                //rb.AddForce(moveDir.x * (speed * d), 0, moveDir.z * (speed * d));
-                //rb.AddForce(horizontal * 2, 0, vertical * 2);
-                //rb.velocity = moveDir * (speed * (d * 200));
-
-                rb.drag = 0f;
-
-                rb.AddForce(new Vector3(0f, JumpForce / 2, 0f), ForceMode.Impulse);
-                rb.AddForce(new Vector3(moveDir.x * DodgeForce, moveDir.y * DodgeForce, moveDir.z * DodgeForce), ForceMode.Impulse);
+                internalDashTime = dashTime;
+                //rb.velocity = moveDir * moveSpeed * internalSpeedModifier;
             }
+
+            //if (internalDashTime > 0)
+            //{
+            //    internalSpeedModifier = speedModifier;
+            //    internalDashTime--;
+            //}
+
+            //if (internalDashTime <= 0)
+            //{
+            //    internalSpeedModifier = speed;
+            //}
+
+
         }
 
         Vector3 targetDir = moveDir;
@@ -124,9 +143,12 @@ public class StateManager : MonoBehaviour
             targetDir = transform.forward;
         }
 
-        Quaternion tr = Quaternion.LookRotation(targetDir);
-        Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, delta * moveAmount * rotateSpeed);
-        transform.rotation = targetRotation;
+        if (!Input.GetMouseButton(1))
+        {
+            Quaternion tr = Quaternion.LookRotation(targetDir);
+            Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, delta * moveAmount * rotateSpeed);
+            transform.rotation = targetRotation;
+        }
 
         HandleMovementAnimations();
     }
@@ -163,22 +185,27 @@ public class StateManager : MonoBehaviour
             }
 
             if (dis != 0)
+            {
                 if (Physics.Raycast(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f), out hit, 0.8f, ignoreLayers) ||
                     Physics.Raycast(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f), out hit, 0.9f, ignoreLayers))
                 {
                     r = true;
                     Vector3 targetPos = hit.point;
                     transform.position = new Vector3(transform.position.x, targetPos.y + 0.75f, transform.position.z);
+
+                    Debug.DrawRay(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f) * 0.8f);
+                    Debug.DrawRay(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f) * 0.9f, Color.green);
                 }
+            }
         }
 
-
         Debug.DrawRay(origin, dis * dir);
-        Debug.DrawRay(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f) * 0.8f);
-        Debug.DrawRay(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f) * 0.9f);
+
 
         return r;
     }
+
+    
 
     public bool DeathBarrier()
     {
