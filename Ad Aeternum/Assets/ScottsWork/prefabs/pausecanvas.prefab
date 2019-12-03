@@ -269,7 +269,7 @@ MonoBehaviour:
   sceneName: MainMenu
   pauseMenu: {fileID: 3594773190477379910}
   IsPaused: 0
-  Options: {fileID: 0}
+  Options: {fileID: 7301148036698282220, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b, type: 3}
   OptionsOpen: 0
 --- !u!1 &3594773190477379910
 GameObject:
