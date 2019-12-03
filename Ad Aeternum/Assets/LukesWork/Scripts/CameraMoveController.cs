@@ -41,7 +41,7 @@ public class CameraMoveController : MonoBehaviour
         camTransform = Camera.main.transform;
         pivot = pivotPos;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Tick(float d)
