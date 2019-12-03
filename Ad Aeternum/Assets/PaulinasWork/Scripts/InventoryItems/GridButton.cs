@@ -17,9 +17,9 @@ public class GridButton : MonoBehaviour
         txtName.text = foundItem.Name;
         imgIcon.sprite = foundItem.Icon;
         imgIcon.color = foundItem.Tint;
-        
 
-        ItemID = itemID;
-        
+        Debug.Log(foundItem.Tint);
+       
+        ItemID = itemID;        
     }
 }
