@@ -7,9 +7,10 @@ public class ChestController : MonoBehaviour
 {
     float mDistance;
     private GameObject Player;
-    private Canvas canvas;
+    private GameObject canvas;
     private Animator animator;
-    public bool isOpened;
+    public bool isOpened, InRange;
+    public GameObject InventoryPanel;
     
 
     // Start is called before the first frame update
@@ -17,9 +18,11 @@ public class ChestController : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
 
-        canvas = Camera.main.GetComponent<Canvas>();
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
 
         isOpened = false;
+
+        InRange = false;
 
         animator = GetComponent<Animator>();
     }
@@ -29,19 +32,52 @@ public class ChestController : MonoBehaviour
     {
         mDistance = Vector3.Distance(gameObject.transform.position, Player.transform.position);
 
-        if(mDistance < 4)
+        if(InRange == true)
         {
             if(Input.GetKeyDown(KeyCode.E))
             {
                 isOpened = !isOpened;
-
-                animator.SetBool("IsOpened", isOpened);
+                if(isOpened == true)
+                {
+                    animator.SetBool("IsOpened", isOpened);
+           
+                    Instantiate(InventoryPanel, canvas.transform);
+                
+                }
+                else if(isOpened == false)
+                {
+                    animator.SetBool("IsOpened", isOpened);
+                    Destroy(GameObject.FindGameObjectWithTag("ChestInventoryUI"));
+                }
             }
+
+            
         }
         else
         {
             isOpened = false;
             animator.SetBool("IsOpened", isOpened);
+
+            Destroy(GameObject.FindGameObjectWithTag("ChestInventoryUI"));
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            InRange = true;
+        }
+        
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            InRange = false;
+
+            Destroy(GameObject.FindGameObjectWithTag("ChestInventoryUI"));
         }
     }
 }
