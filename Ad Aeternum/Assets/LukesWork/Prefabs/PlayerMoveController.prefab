@@ -236,11 +236,10 @@ MonoBehaviour:
   attackRange: 0
   speed: 10
   turnSpeed: 100
-  enemy: {fileID: 4260711010600414346, guid: 3d8ff6d59a3ab5747934324b6ee6949a, type: 3}
   jump: 400
   groundLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1025
   canMove: 1
   stateManager: {fileID: 2035876333417287411}
 --- !u!114 &2035876333417287411
@@ -263,7 +262,6 @@ MonoBehaviour:
   jump: 600
   moveAmount: 20
   moveDir: {x: 0, y: 0, z: 1}
-  activeModel: {fileID: 2035876335041560376}
   ignoreLayers:
     serializedVersion: 2
     m_Bits: 9271
@@ -275,11 +273,6 @@ MonoBehaviour:
     m_Bits: 2048
   onGround: 0
   attacking: 0
-  dBarrier: 0
-  toGround: 0.76
-  death: 0
-  player: {fileID: 2035876334146861339}
-  playerObj: {fileID: 2035876334146861336}
   dodgeInput: 0
   DodgeForce: 1000
   JumpForce: 30
@@ -321,8 +314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ff51bb2e09bf44a08195fefac4f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2035876334146861339}
-  state: {fileID: 2035876333417287411}
   climbableLayers:
     serializedVersion: 2
     m_Bits: 8192

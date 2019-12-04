@@ -141,6 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitIndicator: {fileID: 0}
+  hitInst: {fileID: 0}
+  parent: {fileID: 0}
   cam: {fileID: 0}
   damageAmountText: {fileID: 0}
   damageAmount: 0
