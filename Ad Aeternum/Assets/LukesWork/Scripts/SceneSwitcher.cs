@@ -37,4 +37,12 @@ public class SceneSwitcher : MonoBehaviour
             SceneManager.LoadScene(3);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
 }
