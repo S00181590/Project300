@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss : SmallBallMover
+public class Boss : NavMeshMover
 {
     // Start is called before the first frame update
     void Start()

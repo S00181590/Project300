@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class flyingskull : SmallBallMover
+public class flyingskull : NavMeshMover
 {
     // Start is called before the first frame update
     void Start()
