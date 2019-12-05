@@ -14,7 +14,7 @@ public class MusicLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoopPointMinutes = (barsLength * timesignature) / musicBPM;
+        LoopPointMinutes = (barsLength * timesignature);// / musicBPM;
 
         LoopPointSeconds = LoopPointMinutes * 60;
 

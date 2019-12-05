@@ -8,7 +8,7 @@ public class CameraMoveController : MonoBehaviour
     public PlayerMoveController player;
     public Camera cam;
 
-    public Transform target, camTransform, 
+    public Transform target, camTransform,
         enemyObj, pivot;
 
     private float followSpeed = 10, mouseSpeed = 2, controllerSpeed = 5,
@@ -44,18 +44,13 @@ public class CameraMoveController : MonoBehaviour
         pivot.localPosition = Vector3.zero;
         camTransform.localPosition = new Vector3(0, 0.5f, -4f);
 
-        
+
     }
 
     //Essentially a Start method but accepts variables, e.g: t (the player)
     public void Init(Transform t)
     {
         target = t;
-
-        camTransform = Camera.main.transform;
-        pivot = pivotPos;
-
-        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     //Essentially an Update method but accepts variables, e.g: d (the deltaTime)
@@ -167,7 +162,7 @@ public class CameraMoveController : MonoBehaviour
                 player.switchLockOn = false;
             }
 
-            
+
         }
         else
         {
