@@ -6,15 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ScottsWork/Scenes/MainMenu.unity
-    guid: 626e00a153b75c741b887ec8f8d9ec4c
-  - enabled: 1
-    path: Assets/ScottsWork/Scenes/Mines.unity
-    guid: 731c999d826aece448791136b1099210
-  - enabled: 1
-    path: Assets/ScottsWork/Scenes/Settings.unity
-    guid: c00cec66dd4ad54438db7198a11e3b96
-  - enabled: 1
     path: Assets/LukesWork/Scenes/Forest.unity
     guid: f44ce13e396f59640ad843d7b08e68b0
   - enabled: 1
@@ -23,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PaulinasWork/Scenes/CoastSea.unity
     guid: d4cfc0c5e2bf3ff4db629a466cf99b04
+  - enabled: 1
+    path: Assets/ScottsWork/Scenes/Mines.unity
+    guid: 731c999d826aece448791136b1099210
   m_configObjects: {}

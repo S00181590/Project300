@@ -4,9 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Interactive
   - PathNode
-  - Enemy
   - ShowOnPause
+  - Enemy
+  - Arrow
+  - Ground
+  - Canvas
+  - ChestInventoryUI
   layers:
   - Default
   - TransparentFX
@@ -17,8 +22,13 @@ TagManager:
   - 
   - 
   - Player
+  - Enemy
   - Ground
-  - DeathBarrier
+  - deathBar
+  - Arrow
+  - Climbable
+  - InvisibleBarrier
+  - Ignorables
   - 
   - 
   - 
@@ -32,12 +42,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PostProcessing
   - 
   - 
   m_SortingLayers:

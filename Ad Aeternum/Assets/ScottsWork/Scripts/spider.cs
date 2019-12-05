@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spider : SmallBallMover
+public class spider : NavMeshMover
 {
     // Start is called before the first frame update
     void Start()
