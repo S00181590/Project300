@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOptions
+public class GameOptions : MonoBehavior
 {
     public bool FullScreen;
     public int TextureQualtity; //int because handle form 0 to 2 being low 1 medium and 2 high
