@@ -160,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2035876334146861336}
   - component: {fileID: 2035876333024037699}
+  - component: {fileID: 1752912559679220535}
   - component: {fileID: 2035876333024037698}
   - component: {fileID: 2035876334146861339}
   - component: {fileID: 2035876333417287411}
@@ -205,6 +206,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1752912559679220535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035876333024037701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f9dc6859d74a6468cb1c79bb09a225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory: {fileID: 0}
+  TestDisplay: {fileID: 0}
 --- !u!136 &2035876333024037698
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -403,11 +418,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2035876335041560519}
     m_Modifications:
-    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
-        type: 3}
-      propertyPath: m_Name
-      value: ArrowSpawn
-      objectReference: {fileID: 0}
     - target: {fileID: 7411944992729990714, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -477,6 +487,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
+        type: 3}
+      propertyPath: m_Name
+      value: ArrowSpawn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d9cf72bbc4d38248bca0d0c08aaec67, type: 3}

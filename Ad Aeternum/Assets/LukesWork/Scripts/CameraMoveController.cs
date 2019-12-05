@@ -44,7 +44,7 @@ public class CameraMoveController : MonoBehaviour
         pivot.localPosition = Vector3.zero;
         camTransform.localPosition = new Vector3(0, 0.5f, -4f);
 
-        //Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     //Essentially a Start method but accepts variables, e.g: t (the player)

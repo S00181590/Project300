@@ -18,7 +18,7 @@ public class PickupScript : MonoBehaviour
 
             Destroy(closestArrow);
 
-            count.arrowCount++;
+            count.arrowCount += 1;
         }
     }
 

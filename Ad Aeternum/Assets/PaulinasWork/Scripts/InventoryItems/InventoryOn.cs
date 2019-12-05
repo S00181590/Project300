@@ -9,7 +9,6 @@ public class InventoryOn : MonoBehaviour
     void Start()
     {
         canvas.enabled = false;
-        
     }
 
     void Update()
@@ -17,8 +16,6 @@ public class InventoryOn : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             canvas.enabled = !canvas.enabled;
-            Cursor.visible = true;
         }
-        
     }
 }
