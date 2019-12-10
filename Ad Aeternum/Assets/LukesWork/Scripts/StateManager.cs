@@ -43,6 +43,8 @@ public class StateManager : MonoBehaviour
     float internalSpeedModifier;
     float internalDashTime;
 
+    public bool isSprinting = false;
+
     public void Init()
     {
         Application.targetFrameRate = 60;
@@ -102,10 +104,12 @@ public class StateManager : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 rb.velocity = moveDir * (speed * sprintSpeed);
+                isSprinting = true;
             }
             else
             {
                 rb.velocity = moveDir * (speed * moveAmount);
+                isSprinting = false;
             }
 
             //Jump
@@ -179,13 +183,13 @@ public class StateManager : MonoBehaviour
 
         if (moveDir.x != 0 || moveDir.z != 0)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                dis = 0;
-            }
+            //if (Input.GetKeyDown(KeyCode.Space))
+            //{
+            //    dis = 0;
+            //}
 
-            if (dis != 0)
-            {
+            //if (dis != 0)
+            //{
                 if (Physics.Raycast(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f), out hit, 0.8f, ignoreLayers) ||
                     Physics.Raycast(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f), out hit, 0.9f, ignoreLayers))
                 {
@@ -196,7 +200,7 @@ public class StateManager : MonoBehaviour
                     Debug.DrawRay(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f) * 0.8f);
                     Debug.DrawRay(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f) * 0.9f, Color.green);
                 }
-            }
+            //}
         }
 
         Debug.DrawRay(origin, dis * dir);

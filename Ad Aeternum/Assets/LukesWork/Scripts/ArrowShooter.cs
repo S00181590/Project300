@@ -22,9 +22,13 @@ public class ArrowShooter : MonoBehaviour
     bool active = false;
     public GameObject obj = null;
 
+    public Camera camera;
+    public CameraCollision movecam;
+    bool moveCamBool = false;
+
     private void Start()
     {
-        
+        movecam = camera.gameObject.GetComponent<CameraCollision>();
     }
 
     private void Update()
@@ -35,12 +39,16 @@ public class ArrowShooter : MonoBehaviour
             {
                 spawnedArrow = Instantiate(arrow, spawnPoint.transform.position, Quaternion.identity);
                 active = true;
+                moveCamBool = false;
+                movecam.enabled = false;
             }
             else if (Input.GetMouseButtonUp(1))
             {
                 Destroy(spawnedArrow);
                 spawnedArrow = null;
                 active = false;
+                moveCamBool = true;
+                Invoke("MoveCam", 1);
             }
 
             if (spawnedArrow != null)
@@ -76,6 +84,12 @@ public class ArrowShooter : MonoBehaviour
         //    //collectable = false;
         //    Destroy(obj);
         //}
+    }
+
+    void MoveCam()
+    {
+        if (moveCamBool)
+            movecam.enabled = true;
     }
 
     public void MakeArrow()

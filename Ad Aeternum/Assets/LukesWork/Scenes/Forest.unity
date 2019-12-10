@@ -5533,14 +5533,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250401583}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 708f47f70f578874ea2f09730535f468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LayerMask:
     serializedVersion: 2
-    m_Bits: 75265
+    m_Bits: 256
+  player: {fileID: 394619262}
 --- !u!1 &278830966
 GameObject:
   m_ObjectHideFlags: 0
@@ -15369,6 +15370,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2035876334747768390}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &394619266
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394619262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &432086879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3908852230207250415, guid: ccec6d0baf93da04fb5d8642ed81254b,
@@ -43843,7 +43858,7 @@ Terrain:
   m_ShadowCastingMode: 2
   m_DrawHeightmap: 1
   m_DrawInstanced: 0
-  m_DrawTreesAndFoliage: 1
+  m_DrawTreesAndFoliage: 0
   m_ReflectionProbeUsage: 1
   m_MaterialTemplate: {fileID: 2100000, guid: 6d2c1abc4b8103e4d9aad92af333750c, type: 2}
   m_BakeLightProbesForTrees: 1
@@ -43884,6 +43899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerMoveController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035876335041560376, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2035876334146861336, guid: 70156bdb10c85794eada625c78b77f12,
         type: 3}
@@ -43962,6 +43982,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -3020706730090524790, guid: 2d6487bab6c5066488e7b3a5b5cbd864,
         type: 3}
+    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 915751109}
     - target: {fileID: 1752912559679220535, guid: 70156bdb10c85794eada625c78b77f12,
         type: 3}
       propertyPath: Inventory
@@ -43977,6 +44002,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1920488683}
     - target: {fileID: 205367306, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 205367306, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 537671315, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035876333024037698, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2035876334445942661, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
@@ -44062,6 +44105,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CameraMoveController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778989935898128427, guid: 71550d5ca3981454daf48cdbdb27f447,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
         type: 3}

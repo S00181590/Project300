@@ -12,7 +12,7 @@ public class CameraMoveController : MonoBehaviour
         enemyObj, pivot;
 
     private float followSpeed = 10, mouseSpeed = 2, controllerSpeed = 5,
-        minAngle = -15.0f, maxAngle = 50.0f, turnSmoothing = 0.1f,
+        minAngle = -30.0f, maxAngle = 50.0f, turnSmoothing = 0.1f,
         smoothX, smoothY, smoothXVel, smoothYVel,
         lookAngle, checkRadius;
 
@@ -43,8 +43,6 @@ public class CameraMoveController : MonoBehaviour
 
         pivot.localPosition = Vector3.zero;
         camTransform.localPosition = new Vector3(0, 0.5f, -4f);
-
-
     }
 
     //Essentially a Start method but accepts variables, e.g: t (the player)
@@ -71,6 +69,15 @@ public class CameraMoveController : MonoBehaviour
             horizontal = controllerH;
             vertical = controllerV;
             targetSpeed = controllerSpeed;
+        }
+
+        if (stateManager.isSprinting)
+        {
+            followSpeed = 20;
+        }
+        else
+        {
+            followSpeed = 15;
         }
 
         //Pivot the camera on the player, muliplied by Time.deltaTime

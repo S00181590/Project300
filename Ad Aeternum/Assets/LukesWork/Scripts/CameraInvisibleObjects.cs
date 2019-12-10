@@ -7,10 +7,11 @@ public class CameraInvisibleObjects : MonoBehaviour
     public LayerMask LayerMask;
     RaycastHit[] hitResults;
     List<string> objectsBlockingView = new List<string>();
+    public GameObject player;
 
     void Update()
     {
-        hitResults = Physics.RaycastAll(Camera.main.transform.position, Camera.main.transform.forward, 4, LayerMask);
+        hitResults = Physics.RaycastAll(Camera.main.transform.position, Camera.main.transform.forward, 1.5f, LayerMask);
 
         if (hitResults.Length > 0)
         {
@@ -52,6 +53,8 @@ public class CameraInvisibleObjects : MonoBehaviour
         Color originalColour = renderer.material.color;
         originalColour.a = 0.1f;
         renderer.material.color = originalColour;
+
+        Debug.Log("AAAAAAAAAAAAAAAAAAAA");
     }
 
     private void ShowObject(string name)
@@ -66,6 +69,6 @@ public class CameraInvisibleObjects : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        //Gizmos.DrawLine(Camera.main.transform.position, Camera.main.transform.position + (Camera.main.transform.forward * 4));
+        Gizmos.DrawLine(Camera.main.transform.position, Camera.main.transform.position + (Camera.main.transform.forward * 1.5f));
     }
 }

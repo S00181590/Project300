@@ -91,7 +91,6 @@ public class PlayerMoveController : MonoBehaviour
 
     void UpdateState()
     {
-
         states.horizontal = horizontal;
         states.vertical = vertical;
 
