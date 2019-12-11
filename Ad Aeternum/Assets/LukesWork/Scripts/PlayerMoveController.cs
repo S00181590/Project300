@@ -64,23 +64,23 @@ public class PlayerMoveController : MonoBehaviour
             canMove = false;
         }
 
-        delta = Time.deltaTime;
-        states.Tick(delta);
+        //delta = Time.deltaTime;
+        //camManager.Tick(delta);
+        GetInput();
+        UpdateState();
         LockOn();
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * 1.5f, groundLayers);
     }
 
     void FixedUpdate()
     {
         delta = Time.fixedDeltaTime;
-        camManager.Tick(delta);
-        GetInput();
-        UpdateState();
-        states.FixedTick(delta);
+        
+        //states.FixedTick(delta);
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * 1.5f, groundLayers);
     }
 
     void GetInput()

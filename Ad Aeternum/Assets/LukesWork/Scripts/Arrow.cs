@@ -65,6 +65,8 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        trail.enabled = false;
+
         if (other.gameObject.tag == "Interactive" || other.gameObject.tag == "Ground" || other.gameObject.tag == "Enemy")
         {
             trail.enabled = false;

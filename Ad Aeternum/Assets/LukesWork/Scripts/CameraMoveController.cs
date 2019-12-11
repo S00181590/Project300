@@ -52,7 +52,12 @@ public class CameraMoveController : MonoBehaviour
     }
 
     //Essentially an Update method but accepts variables, e.g: d (the deltaTime)
-    public void Tick(float d)
+    public void Update()
+    {
+        
+    }
+
+    private void FixedUpdate()
     {
         //Mouse Input
         float horizontal = Input.GetAxis("Mouse X");
@@ -81,15 +86,10 @@ public class CameraMoveController : MonoBehaviour
         }
 
         //Pivot the camera on the player, muliplied by Time.deltaTime
-        PivotCamOnPlayer(d);
+        PivotCamOnPlayer(Time.deltaTime);
 
         //Handles rotations of the camera
-        Rotations(d, vertical, horizontal, targetSpeed);
-    }
-
-    private void FixedUpdate()
-    {
-
+        Rotations(Time.deltaTime, vertical, horizontal, targetSpeed);
     }
 
     //Makes the player the pivot for the camera

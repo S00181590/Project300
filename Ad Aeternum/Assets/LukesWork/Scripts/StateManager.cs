@@ -63,9 +63,8 @@ public class StateManager : MonoBehaviour
         //Cursor.visible = false;
     }
 
-    public void Tick(float d)
+    public void Update()
     {
-        delta = d;
         onGround = OnGround();
 
         if (!Input.GetKeyDown(KeyCode.Space))
@@ -76,10 +75,8 @@ public class StateManager : MonoBehaviour
         dBarrier = DeathBarrier();
     }
 
-    public void FixedTick(float d)
+    public void FixedUpdate()
     {
-        delta = d;
-
         rb.isKinematic = false;
 
         if ((moveDir.x == 0 && moveDir.z == 0) && (Physics.Raycast(transform.position, new Vector3(0, -Vector3.up.y, 0), out hitTest, 0.81f, ignoreLayers)))
@@ -150,7 +147,7 @@ public class StateManager : MonoBehaviour
         if (!Input.GetMouseButton(1))
         {
             Quaternion tr = Quaternion.LookRotation(targetDir);
-            Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, delta * moveAmount * rotateSpeed);
+            Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, Time.deltaTime * moveAmount * rotateSpeed);
             transform.rotation = targetRotation;
         }
 

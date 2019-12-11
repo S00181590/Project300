@@ -86,6 +86,11 @@ public class ArrowShooter : MonoBehaviour
         //}
     }
 
+    private void FixedUpdate()
+    {
+        spawnPoint = spawnPoint;
+    }
+
     void MoveCam()
     {
         if (moveCamBool)
