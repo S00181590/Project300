@@ -109,7 +109,7 @@ public class PlayerMoveController : MonoBehaviour
         states.horizontal = horizontal;
         states.vertical = vertical;
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || (Input.GetKeyDown(KeyCode.JoystickButton8)))
         {
             switchLockOn = !switchLockOn;
             attackRange = !attackRange;
