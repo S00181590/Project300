@@ -11,17 +11,16 @@ public class PickupScript : MonoBehaviour
     private Vector3 position, diff;
     public Transform target;
 
-    public Text arrowPickupText;
+    public Text arrowPickupText = null;
     public Camera cam;
 
     private void Update()
     {
-        arrowPickupText.text = "Press F To Pick Up " + FindClosestArrow().gameObject.tag;
-
         if (!Input.GetKey(KeyCode.Mouse1))
         {
-            arrowPickupText.enabled = true;
             arrowPickupText.transform.position = cam.WorldToScreenPoint(FindClosestArrow().transform.position);
+            arrowPickupText.text = "Press F To Pick Up " + FindClosestArrow().gameObject.tag;
+            arrowPickupText.enabled = true;
         }
         else
         {

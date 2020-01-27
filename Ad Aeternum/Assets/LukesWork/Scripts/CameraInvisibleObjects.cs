@@ -53,8 +53,6 @@ public class CameraInvisibleObjects : MonoBehaviour
         Color originalColour = renderer.material.color;
         originalColour.a = 0.1f;
         renderer.material.color = originalColour;
-
-        Debug.Log("AAAAAAAAAAAAAAAAAAAA");
     }
 
     private void ShowObject(string name)

@@ -47,7 +47,7 @@ public class HitIndicator : MonoBehaviour
             //hitInst.transform.position = Vector3.Lerp(hitIndicator.transform.position, new Vector3(hitIndicator.transform.position.x, hitIndicator.transform.position.y, hitIndicator.transform.position.z), 0.1f);
 
             Destroy(hitInst, 3);
-            Invoke("SetUnactive", 3);
+            //Invoke("SetUnactive", 3);
         }
     }
 
