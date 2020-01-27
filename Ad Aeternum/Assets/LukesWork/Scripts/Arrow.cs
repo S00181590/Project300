@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Arrow : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class Arrow : MonoBehaviour
     public ArrowCount count;
     public bool collectable;
     public TrailRenderer trail;
+
+    public Camera cam;
+    public GameObject arrowObj;
+    public Text arrowPickupText;
 
     private void Start()
     {
@@ -58,6 +63,8 @@ public class Arrow : MonoBehaviour
             collectable = true;
 
             trail.enabled = false;
+
+            arrowPickupText.transform.position = cam.WorldToScreenPoint(arrowObj.transform.position);
 
             Invoke("DestroyArrow", 30);
         }
