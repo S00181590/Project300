@@ -168,8 +168,6 @@ public class CameraMoveController : MonoBehaviour
                 lockOnIndicator.SetActive(false);
                 player.switchLockOn = false;
             }
-
-
         }
         else
         {

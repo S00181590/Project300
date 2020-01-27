@@ -37,15 +37,14 @@ public class Climbing : MonoBehaviour
             new Vector3(state.moveDir.x, state.moveDir.y + 0.2f, state.moveDir.z), 
             out hit, 0.8f, climbableLayers))
         {
-
+            canClimb = true;
             Invoke("JumpClimb", 1);
             Invoke("WhileClimbing", 1.5f);
-            canClimb = true;
-
         }
         else
         {
             canClimb = false;
+            CancelInvoke();
         }
 
         Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y - 0.4f, player.transform.position.z), 
