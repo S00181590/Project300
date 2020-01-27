@@ -64,8 +64,6 @@ public class Arrow : MonoBehaviour
 
             trail.enabled = false;
 
-            arrowPickupText.transform.position = cam.WorldToScreenPoint(arrowObj.transform.position);
-
             Invoke("DestroyArrow", 30);
         }
     }
