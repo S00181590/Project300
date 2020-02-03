@@ -108,8 +108,8 @@ public class CameraMoveController : MonoBehaviour
 
         if (turnSmoothing > 0)
         {
-            smoothX = Mathf.SmoothDamp(smoothX, h, ref smoothXVel, turnSmoothing);
-            smoothY = Mathf.SmoothDamp(smoothY, v, ref smoothYVel, turnSmoothing);
+            smoothX = h * 0.5f;//Mathf.SmoothDamp(smoothX, h, ref smoothXVel, turnSmoothing);
+            smoothY = v * 0.5f;// Mathf.SmoothDamp(smoothY, v, ref smoothYVel, turnSmoothing);
         }
         else
         {
