@@ -18,25 +18,32 @@ public class PickupScript : MonoBehaviour
     {
         if (!Input.GetKey(KeyCode.Mouse1))
         {
-            arrowPickupText.transform.position = cam.WorldToScreenPoint(FindClosestArrow().transform.position);
-            arrowPickupText.text = "Press F To Pick Up " + FindClosestArrow().gameObject.tag;
-            arrowPickupText.enabled = true;
+            if (FindClosestArrow() != null && FindClosestArrow().gameObject.GetComponent<Arrow>().collectable == true)
+            {
+                arrowPickupText.transform.position = cam.WorldToScreenPoint(FindClosestArrow().transform.position);
+                arrowPickupText.text = "Press F To Pick Up " + FindClosestArrow().gameObject.tag;
+                arrowPickupText.enabled = true;
+            }
+            else
+            {
+                arrowPickupText.enabled = false;
+            }
         }
         else
         {
             arrowPickupText.enabled = false;
         }
-    }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (Input.GetKeyDown(KeyCode.F) && other.tag == "Arrow")
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            closestArrow = FindClosestArrow();
+            if (FindClosestArrow() != null)
+            {
+                closestArrow = FindClosestArrow();
 
-            Destroy(closestArrow);
+                Destroy(closestArrow);
 
-            count.arrowCount += 1;
+                count.arrowCount += 1;
+            }
         }
     }
 
@@ -44,7 +51,7 @@ public class PickupScript : MonoBehaviour
     {
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Arrow");
         GameObject closest = null;
-        float distance = Mathf.Infinity;
+        float distance = 5;
         position = target.position;
 
         foreach (GameObject go in gos)

@@ -14,7 +14,7 @@ public class CameraMoveController : MonoBehaviour
     private float followSpeed = 10, mouseSpeed = 2, controllerSpeed = 5,
         minAngle = -30.0f, maxAngle = 50.0f, turnSmoothing = 0.1f,
         smoothX, smoothY, smoothXVel, smoothYVel,
-        lookAngle, checkRadius;
+        lookAngle, checkRadius, cameraAimSpeed;
 
     public bool lockOn = true, switchLockOn = true, bowAim = false, indicatorShowing = false;
 
@@ -49,12 +49,6 @@ public class CameraMoveController : MonoBehaviour
     public void Init(Transform t)
     {
         target = t;
-    }
-
-    //Essentially an Update method but accepts variables, e.g: d (the deltaTime)
-    public void Update()
-    {
-        
     }
 
     private void FixedUpdate()
@@ -108,8 +102,8 @@ public class CameraMoveController : MonoBehaviour
 
         if (turnSmoothing > 0)
         {
-            smoothX = h * 0.5f;//Mathf.SmoothDamp(smoothX, h, ref smoothXVel, turnSmoothing);
-            smoothY = v * 0.5f;// Mathf.SmoothDamp(smoothY, v, ref smoothYVel, turnSmoothing);
+            smoothX = h * cameraAimSpeed;//Mathf.SmoothDamp(smoothX, h, ref smoothXVel, turnSmoothing);
+            smoothY = v * cameraAimSpeed;// Mathf.SmoothDamp(smoothY, v, ref smoothYVel, turnSmoothing);
         }
         else
         {
@@ -122,7 +116,7 @@ public class CameraMoveController : MonoBehaviour
         {
             bowAim = false;
 
-            if ((Input.GetKey(KeyCode.Q) && !Input.GetMouseButton(1)) || (Input.GetKey(KeyCode.JoystickButton8) && !Input.GetMouseButton(1)))
+            if ((Input.GetKey(KeyCode.Q) && !Input.GetMouseButton(1)) || (Input.GetKey(KeyCode.JoystickButton9) && !Input.GetMouseButton(1)))
             {
                 closestEnemy = FindClosestEnemy();
                 intersectedEnemy = IntersectedEnemy();
@@ -135,7 +129,7 @@ public class CameraMoveController : MonoBehaviour
             }
 
             //Locks on to the enemy you're looking at
-            if (intersectedEnemy != null)
+            if ((intersectedEnemy != null || closestEnemy != null) && (Vector3.Distance(closestEnemy.transform.position, target.position) < 20))
             {
                 lookOnLook = Quaternion.LookRotation(intersectedEnemy.transform.position - transform.position);
                 transform.rotation = Quaternion.Slerp(new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0, lookOnLook.y, 0, lookOnLook.w), d * 15);
@@ -146,23 +140,32 @@ public class CameraMoveController : MonoBehaviour
                 lookAngle = camTransform.rotation.eulerAngles.y;
 
                 lockOnIndicator.SetActive(true);
-                screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
+                
+                if (intersectedEnemy != null)
+                {
+                    screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
+                }
+                else if(closestEnemy != null)
+                {
+                    screenPos = cam.WorldToScreenPoint(closestEnemy.transform.position);
+                }
+
                 lockOnIndicator.transform.position = screenPos;
             }
-            else if ((closestEnemy != null) && (Vector3.Distance(closestEnemy.transform.position, target.position) < 20))
-            {
-                lookOnLook = Quaternion.LookRotation(closestEnemy.transform.position - transform.position);
-                transform.rotation = Quaternion.Slerp(new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0, lookOnLook.y, 0, lookOnLook.w), d * 15);
+            //else if ((closestEnemy != null) && (Vector3.Distance(closestEnemy.transform.position, target.position) < 20))
+            //{
+            //    lookOnLook = Quaternion.LookRotation(closestEnemy.transform.position - transform.position);
+            //    transform.rotation = Quaternion.Slerp(new Quaternion(0, transform.rotation.y, 0, transform.rotation.w), new Quaternion(0, lookOnLook.y, 0, lookOnLook.w), d * 15);
 
-                tiltAngle -= smoothY * targetSpeed;
-                tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 15);
-                pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
-                lookAngle = camTransform.rotation.eulerAngles.y;
+            //    tiltAngle -= smoothY * targetSpeed;
+            //    tiltAngle = Mathf.Lerp(tiltAngle, 20, d * 15);
+            //    pivot.localRotation = Quaternion.Euler(tiltAngle, 0, 0);
+            //    lookAngle = camTransform.rotation.eulerAngles.y;
 
-                lockOnIndicator.SetActive(true);
-                screenPos = cam.WorldToScreenPoint(closestEnemy.transform.position);
-                lockOnIndicator.transform.position = screenPos;
-            }
+            //    lockOnIndicator.SetActive(true);
+                
+            //    lockOnIndicator.transform.position = screenPos;
+            //}
             else
             {
                 lockOnIndicator.SetActive(false);
@@ -174,12 +177,14 @@ public class CameraMoveController : MonoBehaviour
             //Bow aim in
             if (Input.GetMouseButton(1))
             {
-                camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1.2f, -0.2f, -2f), 0.1f);
-                camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(-20, 0, 0), 0.1f);
+                camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1, 0.5f, -3f), 0.1f);
+                //camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(-20, 0, 0), 0.1f);
+                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 35, 0.1f);
 
                 player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
 
                 stateManager.speed = 2;
+                cameraAimSpeed = 0.15f;
 
                 bowAimCrosshair.SetActive(true);
                 bowAim = true;
@@ -199,9 +204,11 @@ public class CameraMoveController : MonoBehaviour
             else
             {
                 camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(0, 0.5f, -4f), 0.1f);
-                camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(0, 0, 0), 0.1f);
+                //camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(0, 0, 0), 0.1f);
+                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 70, 0.1f);
 
                 stateManager.speed = 6;
+                cameraAimSpeed = 0.3f;
 
                 bowAimCrosshair.SetActive(false);
                 bowAim = false;

@@ -39,12 +39,12 @@ public class Climbing : MonoBehaviour
         {
             canClimb = true;
             Invoke("JumpClimb", 1);
-            Invoke("WhileClimbing", 1.5f);
+            
         }
         else
         {
             canClimb = false;
-            CancelInvoke();
+            //CancelInvoke();
         }
 
         Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y - 0.4f, player.transform.position.z), 
@@ -53,9 +53,11 @@ public class Climbing : MonoBehaviour
 
     public void JumpClimb()
     {
+        Invoke("WhileClimbing", 0.5f);
+        rb.AddForce(Vector3.up * 600, ForceMode.Impulse);
         if (state.onGround && canClimb)
         {
-            rb.AddForce(Vector3.up * 600, ForceMode.Impulse);
+            
             rb.AddForce(state.moveDir * 200, ForceMode.Impulse);
         }
     }

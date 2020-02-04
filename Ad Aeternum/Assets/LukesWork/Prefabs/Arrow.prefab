@@ -314,10 +314,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.01
+  m_Radius: 0.03
   m_Height: 1.5
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.25}
 --- !u!54 &-4684077017342722416
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -326,9 +326,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6060035579112468244}
   serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 0.05
+  m_Drag: 3
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -350,6 +350,9 @@ MonoBehaviour:
   count: {fileID: 1572848496751877584, guid: ca83a4f666c0655458454c05d0bc49f4, type: 3}
   collectable: 0
   trail: {fileID: 0}
+  cam: {fileID: 0}
+  arrowObj: {fileID: 0}
+  arrowPickupText: {fileID: 0}
 --- !u!114 &6292814924976576265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,7 +486,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.05
-  m_Height: 1.9
+  m_Radius: 0.04
+  m_Height: 1.8
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0.05}

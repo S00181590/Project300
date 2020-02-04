@@ -7,7 +7,6 @@ public class ArrowShooter : MonoBehaviour
 {
     public float speed = 2f;
     public GameObject arrow;
-    //public GameObject arrowSpawn;
     public GameObject spawnPoint;
     public CameraMoveController cam;
     public PlayerMoveController player;
@@ -41,6 +40,7 @@ public class ArrowShooter : MonoBehaviour
                 active = true;
                 moveCamBool = false;
                 movecam.enabled = false;
+                CancelInvoke();
             }
             else if (Input.GetMouseButtonUp(1))
             {
@@ -55,7 +55,6 @@ public class ArrowShooter : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    //Invoke("DestroyArrow", 1);
                     count.arrowCount--;
                     ShootArrow();
 
@@ -75,15 +74,6 @@ public class ArrowShooter : MonoBehaviour
                 Destroy(spawnedArrow);
             }
         }
-
-        //obj = FindClosestArrow();
-
-        //if (arr.collectable/* && Input.GetKey(KeyCode.F)*/)
-        //{
-        //    count.arrowCount++;
-        //    //collectable = false;
-        //    Destroy(obj);
-        //}
     }
 
     private void FixedUpdate()
@@ -106,14 +96,10 @@ public class ArrowShooter : MonoBehaviour
             rb.isKinematic = true;
             spawnedArrow.transform.localPosition = new Vector3(spawnPoint.transform.position.x, spawnPoint.transform.position.y, spawnPoint.transform.position.z);
             spawnedArrow.transform.localRotation = Quaternion.Euler(cam.camTransform.rotation.eulerAngles.x + 180, cam.camTransform.rotation.eulerAngles.y, cam.camTransform.localRotation.z);
-
-            //spawnedArrow.transform.localRotation = Quaternion.Euler(0, 0, cam.transform.rotation.eulerAngles.z);
-            //spawnedArrow.transform.Rotate(player.transform.position, -cam.transform.rotation.eulerAngles.z);
         }
         else
         {
             rb = null;
-            //rb.isKinematic = false;
         }
     }
 
@@ -125,17 +111,12 @@ public class ArrowShooter : MonoBehaviour
 
     void ShootArrow()
     {
-        //arr.trail.enabled = true;
-
         active = false;
-        //spawnedArrow = null;
+
         if (rb != null)
         {
             rb.isKinematic = false;
-
-            //rb.velocity = Vector3.zero;
-            rb.AddForce(cam.transform.forward.x * speed, cam.camTransform.forward.y + 0.75f + (-cam.tiltAngle * 0.01f), cam.transform.forward.z * speed, ForceMode.Impulse);
-
+            rb.AddForce(cam.transform.forward.x * speed * 2f, cam.camTransform.forward.y + (-cam.tiltAngle * 0.05f), cam.transform.forward.z * speed * 2f, ForceMode.Impulse);
         }
     }
 
