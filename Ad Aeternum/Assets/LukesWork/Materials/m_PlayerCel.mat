@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: m_PlayerCel
-  m_Shader: {fileID: -6465566751694194690, guid: e0b98de7de38a4c40ae4e6ffc48b5f82,
+  m_Shader: {fileID: -6465566751694194690, guid: b16850cedbbe0ce4a8ee82a837619a5c,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_359A268E:
+        m_Texture: {fileID: 2800000, guid: 067980581353559448a8e80017d5ad6d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_415B72C3:
         m_Texture: {fileID: 2800000, guid: 000a90706356bb3489dd897fe50e4d17, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -62,9 +66,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_3017AD8A: 0
+    - Vector1_5B23024B: 0
+    - Vector1_6F266DA4: 0.75
     - Vector1_A15278CC: -0.5
     - Vector1_AD5FF0E6: 0.75
-    - Vector1_FA25938: -0.04
+    - Vector1_B3A7FDBD: 0
+    - Vector1_C811BC8A: 0
+    - Vector1_FA25938: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -87,6 +95,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_8E59B7F8: {r: 0, g: 0, b: 0, a: 1}
+    - Color_AA7556AA: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - Color_F73332B9: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 0}
     - Vector2_4090C80: {r: 1, g: 1, b: 0, a: 0}
     - Vector2_CA241E86: {r: 1, g: 1, b: 0, a: 0}
