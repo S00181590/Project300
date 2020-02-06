@@ -36,7 +36,7 @@ public class PowerUpIconSwitch : MonoBehaviour
             iconImage.color = colourList[i];
             glowImage.color = colourList[i];
 
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f/* || (Input.GetAxis("Horizontal DPad") > 0f && (Input.GetAxis("Horizontal DPad") < 1f))*/)
             {
                 if (i < colourList.Count - 1)
                     i++;
@@ -44,7 +44,7 @@ public class PowerUpIconSwitch : MonoBehaviour
                     i = 0;
             }
 
-            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f/* || (Input.GetAxis("Horizontal DPad") < 0f && (Input.GetAxis("Horizontal DPad") > -1f))*/)
             {
                 if (i > 0)
                     i--;
@@ -55,10 +55,11 @@ public class PowerUpIconSwitch : MonoBehaviour
             iconImage.transform.localScale = Vector3.Lerp(iconImage.transform.localScale, new Vector3(n, n, n), 20 * Time.deltaTime);
             glowImage.transform.localScale = Vector3.Lerp(glowImage.transform.localScale, new Vector3(n * 3, n * 3, n * 3), 5 * Time.deltaTime);
 
-            if (Input.GetKeyDown(KeyCode.Mouse2))
+            if (Input.GetKeyDown(KeyCode.Mouse2) || Input.GetKeyDown(KeyCode.Joystick1Button1))
             {
                 numBool = !numBool;
-                InvokeRepeating("Resize", 0.2f, 100000);
+                InvokeRepeating("Resize", 0.2f, 10);
+                InvokeRepeating("Deactivate", 0.3f, 10);
             }
 
             if (numBool == true)
@@ -70,7 +71,7 @@ public class PowerUpIconSwitch : MonoBehaviour
                 n = 0.75f;
             }
 
-            iconImage.transform.Rotate(new Vector3(0, 0, 2));
+            iconImage.transform.Rotate(new Vector3(0, 0, 50 * Time.deltaTime));
         }
     }
 
@@ -83,6 +84,12 @@ public class PowerUpIconSwitch : MonoBehaviour
     void Activate()
     {
         active = true;
+        CancelInvoke();
+    }
+
+    void Deactivate()
+    {
+        active = false;
         CancelInvoke();
     }
 }

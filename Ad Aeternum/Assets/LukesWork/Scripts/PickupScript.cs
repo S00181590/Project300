@@ -16,7 +16,7 @@ public class PickupScript : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.GetKey(KeyCode.Mouse1))
+        if (!Input.GetKey(KeyCode.Mouse1) || (!Input.GetKey(KeyCode.Joystick1Button6)))
         {
             if (FindClosestArrow() != null && FindClosestArrow().gameObject.GetComponent<Arrow>().collectable == true)
             {
@@ -34,7 +34,7 @@ public class PickupScript : MonoBehaviour
             arrowPickupText.enabled = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || (Input.GetKeyDown(KeyCode.Joystick1Button0)))
         {
             if (FindClosestArrow() != null)
             {

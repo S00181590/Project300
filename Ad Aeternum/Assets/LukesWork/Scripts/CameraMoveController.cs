@@ -116,13 +116,13 @@ public class CameraMoveController : MonoBehaviour
         {
             bowAim = false;
 
-            if ((Input.GetKey(KeyCode.Q) && !Input.GetMouseButton(1)) || (Input.GetKey(KeyCode.JoystickButton9) && !Input.GetMouseButton(1)))
+            if ((Input.GetKey(KeyCode.Q) && !Input.GetMouseButton(1)) || (Input.GetKey(KeyCode.JoystickButton11)) && !Input.GetMouseButton(1))
             {
                 closestEnemy = FindClosestEnemy();
                 intersectedEnemy = IntersectedEnemy();
             }
 
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(1) || (Input.GetKey(KeyCode.JoystickButton6)))
             {
                 player.switchLockOn = false;
                 bowAim = true;
@@ -175,7 +175,7 @@ public class CameraMoveController : MonoBehaviour
         else
         {
             //Bow aim in
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(1) || (Input.GetKey(KeyCode.JoystickButton6)))
             {
                 camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1, 0.5f, -3f), 0.1f);
                 //camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(-20, 0, 0), 0.1f);

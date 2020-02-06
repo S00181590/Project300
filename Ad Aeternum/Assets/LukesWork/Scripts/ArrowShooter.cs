@@ -34,7 +34,7 @@ public class ArrowShooter : MonoBehaviour
     {
         if (count.arrowCount > 0)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Joystick1Button6))
             {
                 spawnedArrow = Instantiate(arrow, spawnPoint.transform.position, Quaternion.identity);
                 active = true;
@@ -42,7 +42,7 @@ public class ArrowShooter : MonoBehaviour
                 movecam.enabled = false;
                 CancelInvoke();
             }
-            else if (Input.GetMouseButtonUp(1))
+            else if (Input.GetMouseButtonUp(1) || Input.GetKeyUp(KeyCode.Joystick1Button6))
             {
                 Destroy(spawnedArrow);
                 spawnedArrow = null;
@@ -53,12 +53,12 @@ public class ArrowShooter : MonoBehaviour
 
             if (spawnedArrow != null)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Joystick1Button7))
                 {
                     count.arrowCount--;
                     ShootArrow();
 
-                    if (Input.GetMouseButton(1))
+                    if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.Joystick1Button6))
                     {
                         SpawnArrow();
                     }

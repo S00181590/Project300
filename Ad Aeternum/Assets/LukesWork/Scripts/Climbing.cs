@@ -54,10 +54,10 @@ public class Climbing : MonoBehaviour
     public void JumpClimb()
     {
         Invoke("WhileClimbing", 0.5f);
-        rb.AddForce(Vector3.up * 600, ForceMode.Impulse);
+
         if (state.onGround && canClimb)
         {
-            
+            rb.AddForce(Vector3.up * 600, ForceMode.Impulse);
             rb.AddForce(state.moveDir * 200, ForceMode.Impulse);
         }
     }

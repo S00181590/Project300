@@ -15,7 +15,6 @@ public class StateManager : MonoBehaviour
 
     public LayerMask ignoreLayers, climbableLayers, deathBar;
 
-    [HideInInspector]
     public bool onGround, attacking;
 
     bool dBarrier;
@@ -45,6 +44,9 @@ public class StateManager : MonoBehaviour
 
     public bool isSprinting = false;
 
+    float leftTrigger;
+    float rightTrigger;
+
     public void Init()
     {
         Application.targetFrameRate = 60;
@@ -67,12 +69,15 @@ public class StateManager : MonoBehaviour
     {
         onGround = OnGround();
 
-        if (!Input.GetKeyDown(KeyCode.Space))
+        if (!Input.GetKeyDown(KeyCode.Space) || !Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             onGround = OnGround();
         }
 
         dBarrier = DeathBarrier();
+
+        leftTrigger = Input.GetAxis("Left Trigger");
+        rightTrigger = Input.GetAxis("Right Trigger");
     }
 
     public void FixedUpdate()
@@ -98,7 +103,7 @@ public class StateManager : MonoBehaviour
         if (onGround)
         {
             //Sprint
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Joystick1Button10))
             {
                 rb.velocity = moveDir * (speed * sprintSpeed);
                 isSprinting = true;
@@ -110,7 +115,7 @@ public class StateManager : MonoBehaviour
             }
 
             //Jump
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button1))
             {
                 rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
             }
@@ -144,7 +149,7 @@ public class StateManager : MonoBehaviour
             targetDir = transform.forward;
         }
 
-        if (!Input.GetMouseButton(1))
+        if (!Input.GetMouseButton(1) || !Input.GetKeyDown(KeyCode.Joystick1Button6))
         {
             Quaternion tr = Quaternion.LookRotation(targetDir);
             Quaternion targetRotation = Quaternion.Slerp(transform.rotation, tr, Time.deltaTime * moveAmount * rotateSpeed);
@@ -168,7 +173,7 @@ public class StateManager : MonoBehaviour
         float dis = toGround;
         RaycastHit hit;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             dis = 0;
         }
@@ -180,24 +185,26 @@ public class StateManager : MonoBehaviour
 
         if (moveDir.x != 0 || moveDir.z != 0)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                dis = 0;
-            }
+            //if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
+            //{
+            //    dis = 0;
+            //}
 
-            if (dis != 0)
-            {
-                if (Physics.Raycast(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f), out hit, 0.8f, ignoreLayers) ||
+            //if (dis != 0)
+            //{
+                
+            //}
+        }
+
+        if (Physics.Raycast(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f), out hit, 0.8f, ignoreLayers) ||
                     Physics.Raycast(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f), out hit, 0.9f, ignoreLayers))
-                {
-                    r = true;
-                    Vector3 targetPos = hit.point;
-                    transform.position = new Vector3(transform.position.x, targetPos.y + 0.75f, transform.position.z);
+        {
+            r = true;
+            Vector3 targetPos = hit.point;
+            transform.position = new Vector3(transform.position.x, targetPos.y + 0.75f, transform.position.z);
 
-                    Debug.DrawRay(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f) * 0.8f);
-                    Debug.DrawRay(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f) * 0.9f, Color.green);
-                }
-            }
+            Debug.DrawRay(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f) * 0.8f);
+            Debug.DrawRay(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f) * 0.9f, Color.green);
         }
 
         Debug.DrawRay(origin, dis * dir);
