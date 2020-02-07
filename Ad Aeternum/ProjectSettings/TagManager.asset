@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - Canvas
   - ChestInventoryUI
+  - Projectile
   layers:
   - Default
   - TransparentFX

@@ -10,12 +10,13 @@ public class PowerUpIconSwitch : MonoBehaviour
     public AudioSource iconBlipSFX;
     public AudioSource poweredUpSFX;
     float rotateSpeed = 50;
+    public int colourListAmount;
 
-    List<Color> colourList = new List<Color>()
+    public List<Color> colourList = new List<Color>()
     {
-        new Color(1, 0.18f, 0.81f),
-        new Color(1, 0.55f, 0.18f),
-        new Color(0, 0.5f, 0.05f)
+        //new Color(1, 0.18f, 0.81f),
+        //new Color(1, 0.55f, 0.18f),
+        //new Color(0, 0.5f, 0.05f)
     };
 
     public int i = 0;

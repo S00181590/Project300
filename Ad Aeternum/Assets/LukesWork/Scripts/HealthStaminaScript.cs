@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthStaminaScript : MonoBehaviour
 {
-    float value = 0;
+    public float value;
     public float icreaseValue;
     public float decreaseValue;
     GameObject gameObj;
@@ -16,6 +16,7 @@ public class HealthStaminaScript : MonoBehaviour
     void Start()
     {
         gameObj = this.gameObject;
+        value = gameObj.GetComponent<Slider>().maxValue;
     }
 
     void Update()
@@ -24,9 +25,14 @@ public class HealthStaminaScript : MonoBehaviour
 
         if (isHealth == true)
         {
-            if (value < gameObj.GetComponent<Slider>().maxValue)
+            if (value < gameObj.GetComponent<Slider>().maxValue && canIncrease)
             {
                 value += icreaseValue;
+            }
+
+            if (value <= 0)
+            {
+                value = 0;
             }
         }
         else
@@ -62,9 +68,6 @@ public class HealthStaminaScript : MonoBehaviour
         {
             canSprint = false;
         }
-
-        if (value == 0)
-            canIncrease = false;
     }
 
     void Increase()
