@@ -47,6 +47,10 @@ public class StateManager : MonoBehaviour
     float leftTrigger;
     float rightTrigger;
 
+    public HealthStaminaScript healthStamina;
+
+    public AudioSource stepSFX;
+
     public void Init()
     {
         Application.targetFrameRate = 60;
@@ -103,7 +107,7 @@ public class StateManager : MonoBehaviour
         if (onGround)
         {
             //Sprint
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Joystick1Button10))
+            if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Joystick1Button10)) && healthStamina.canSprint)
             {
                 rb.velocity = moveDir * (speed * sprintSpeed);
                 isSprinting = true;
@@ -138,7 +142,34 @@ public class StateManager : MonoBehaviour
             //    internalSpeedModifier = speed;
             //}
 
+            stepSFX.UnPause();
 
+            if (moveDir.x != 0 && moveDir.z != 0)
+            {
+                if (stepSFX.isPlaying == false)
+                {
+                    if (Input.GetKey(KeyCode.LeftShift))
+                    {
+                        stepSFX.volume = Random.Range(0.15f, 0.2f);
+                        stepSFX.pitch = Random.Range(0.65f, 0.85f);
+                        stepSFX.Play();
+                    }
+                    else
+                    {
+                        stepSFX.volume = Random.Range(0.1f, 0.15f);
+                        stepSFX.pitch = Random.Range(0.55f, 0.75f);
+                        stepSFX.Play();
+                    }
+                }
+            }
+            else
+            {
+                stepSFX.Pause();
+            }
+        }
+        else
+        {
+            stepSFX.Pause();
         }
 
         Vector3 targetDir = moveDir;
@@ -192,7 +223,7 @@ public class StateManager : MonoBehaviour
 
             //if (dis != 0)
             //{
-                
+
             //}
         }
 
@@ -213,7 +244,7 @@ public class StateManager : MonoBehaviour
         return r;
     }
 
-    
+
 
     public bool DeathBarrier()
     {

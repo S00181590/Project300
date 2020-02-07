@@ -7,6 +7,9 @@ public class PowerUpIconSwitch : MonoBehaviour
 {
     public Image iconImage;
     public Image glowImage;
+    public AudioSource iconBlipSFX;
+    public AudioSource poweredUpSFX;
+    float rotateSpeed = 50;
 
     List<Color> colourList = new List<Color>()
     {
@@ -20,21 +23,25 @@ public class PowerUpIconSwitch : MonoBehaviour
     bool numBool = true;
     float n;
 
-    bool active = false;
+    bool active = true;
 
     void Update()
     {
         if (active == false)
         {
-            iconImage.color = new Color(0.2f, 0.2f, 0.2f);
-            glowImage.color = new Color(0, 0, 0);
+            iconImage.color = Color.Lerp(iconImage.color, new Color(0.2f, 0.2f, 0.2f), Time.deltaTime);
+            glowImage.color = Color.Lerp(glowImage.color, new Color(0, 0, 0), Time.deltaTime);
+
+            rotateSpeed = Mathf.Lerp(rotateSpeed, 10, Time.deltaTime * 1);
 
             Invoke("Activate", 5);
         }
         else
         {
-            iconImage.color = colourList[i];
-            glowImage.color = colourList[i];
+            iconImage.color = Color.Lerp(iconImage.color, colourList[i], Time.deltaTime * 5);
+            glowImage.color = Color.Lerp(glowImage.color, colourList[i], Time.deltaTime * 5);
+
+            rotateSpeed = Mathf.Lerp(rotateSpeed, 250, Time.deltaTime * 1);
 
             if (Input.GetAxis("Mouse ScrollWheel") > 0f/* || (Input.GetAxis("Horizontal DPad") > 0f && (Input.GetAxis("Horizontal DPad") < 1f))*/)
             {
@@ -42,6 +49,8 @@ public class PowerUpIconSwitch : MonoBehaviour
                     i++;
                 else
                     i = 0;
+
+                iconBlipSFX.Play();
             }
 
             if (Input.GetAxis("Mouse ScrollWheel") < 0f/* || (Input.GetAxis("Horizontal DPad") < 0f && (Input.GetAxis("Horizontal DPad") > -1f))*/)
@@ -50,6 +59,8 @@ public class PowerUpIconSwitch : MonoBehaviour
                     i--;
                 else
                     i = colourList.Count - 1;
+
+                iconBlipSFX.Play();
             }
 
             iconImage.transform.localScale = Vector3.Lerp(iconImage.transform.localScale, new Vector3(n, n, n), 20 * Time.deltaTime);
@@ -59,26 +70,31 @@ public class PowerUpIconSwitch : MonoBehaviour
             {
                 numBool = !numBool;
                 InvokeRepeating("Resize", 0.2f, 10);
-                InvokeRepeating("Deactivate", 0.3f, 10);
+                
+                poweredUpSFX.Play();
             }
 
             if (numBool == true)
             {
-                n = 0.5f;
+                n = Mathf.Lerp(n, 0.25f, Time.deltaTime);
             }
             else
             {
-                n = 0.75f;
+                n = Mathf.Lerp(n, 0.5f, Time.deltaTime); ;
             }
 
-            iconImage.transform.Rotate(new Vector3(0, 0, 50 * Time.deltaTime));
+            iconImage.transform.localScale = Vector3.Lerp(iconImage.transform.localScale, 
+                new Vector3(Mathf.PingPong(Time.time, 1f), Mathf.PingPong(Time.time, 1f), Mathf.PingPong(Time.time, 1f)), Time.deltaTime * 5);
         }
+
+        iconImage.transform.Rotate(new Vector3(0, 0, rotateSpeed * Time.deltaTime));
     }
 
     void Resize()
     {
         numBool = !numBool;
-        CancelInvoke();
+        rotateSpeed = Mathf.Lerp(rotateSpeed, 2000, Time.deltaTime * 100);
+        InvokeRepeating("Deactivate", 0.3f, 10);
     }
 
     void Activate()
