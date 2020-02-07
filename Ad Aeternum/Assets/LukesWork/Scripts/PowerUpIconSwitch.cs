@@ -81,7 +81,7 @@ public class PowerUpIconSwitch : MonoBehaviour
             }
             else
             {
-                n = Mathf.Lerp(n, 0.5f, Time.deltaTime); ;
+                n = Mathf.Lerp(n, 0.5f, Time.deltaTime);
             }
 
             iconImage.transform.localScale = Vector3.Lerp(iconImage.transform.localScale, 
