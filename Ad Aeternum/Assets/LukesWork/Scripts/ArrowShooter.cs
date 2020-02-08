@@ -25,6 +25,8 @@ public class ArrowShooter : MonoBehaviour
     public CameraCollision movecam;
     bool moveCamBool = false;
 
+    public AudioSource arrowScream;
+
     private void Start()
     {
         movecam = camera.gameObject.GetComponent<CameraCollision>();
@@ -57,6 +59,7 @@ public class ArrowShooter : MonoBehaviour
                 {
                     count.arrowCount--;
                     ShootArrow();
+                    arrowScream.Play();
 
                     if (Input.GetMouseButton(1) || Input.GetKey(KeyCode.Joystick1Button6))
                     {

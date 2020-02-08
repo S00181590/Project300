@@ -4921,7 +4921,6 @@ GameObject:
   - component: {fileID: 2035876333417287411}
   - component: {fileID: 2035876333204841529}
   - component: {fileID: -8636210500579299839}
-  - component: {fileID: 1004825380}
   m_Layer: 8
   m_Name: PlayerMoveController
   m_TagString: Player
@@ -5078,6 +5077,7 @@ MonoBehaviour:
   obj: {fileID: 0}
   camera: {fileID: 0}
   movecam: {fileID: 0}
+  arrowScream: {fileID: 0}
 --- !u!114 &-8636210500579299839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5093,20 +5093,6 @@ MonoBehaviour:
   climbableLayers:
     serializedVersion: 2
     m_Bits: 8192
---- !u!114 &1004825380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035876333024037701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23f399546b8f0214e8d91818b20d94c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  damage: 50
 --- !u!1 &2035876335041560376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5119,6 +5105,8 @@ GameObject:
   - component: {fileID: 2035876335041560518}
   - component: {fileID: 2035876335041560377}
   - component: {fileID: 394619266}
+  - component: {fileID: 394619268}
+  - component: {fileID: 394619267}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -5202,6 +5190,34 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &394619268
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035876335041560376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.8
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &394619267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035876335041560376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f399546b8f0214e8d91818b20d94c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 0}
+  damage: 100
 --- !u!1001 &8835048780302537144
 PrefabInstance:
   m_ObjectHideFlags: 0

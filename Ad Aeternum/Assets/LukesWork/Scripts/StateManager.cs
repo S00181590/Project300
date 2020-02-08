@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    public float vertical, horizontal, rotateSpeed = 5f, speed = 6f, sprintSpeed = 1.5f, jump = 600, moveAmount = 20;
+    public float vertical, horizontal, rotateSpeed = 5f, speed = 5f, sprintSpeed = 1.8f, jump = 600, moveAmount = 20;
     public Vector3 moveDir;
 
     //public GameObject activeModel;
@@ -15,7 +15,7 @@ public class StateManager : MonoBehaviour
 
     public LayerMask ignoreLayers, climbableLayers, deathBar;
 
-    public bool onGround, attacking;
+    public bool onGround, attacking, controllerSprint = false;
 
     bool dBarrier;
     float toGround = 0.76f;
@@ -104,10 +104,22 @@ public class StateManager : MonoBehaviour
             rb.drag = 4;
         }
 
+        if (/*healthStamina.value > 0 && */moveAmount > 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Joystick1Button10))
+            {
+                controllerSprint = true;
+            }
+        }
+        else
+        {
+            controllerSprint = false;
+        }
+
         if (onGround)
         {
             //Sprint
-            if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Joystick1Button10)) && healthStamina.canSprint)
+            if ((Input.GetKey(KeyCode.LeftShift) || controllerSprint == true) && healthStamina.canSprint)
             {
                 rb.velocity = moveDir * (speed * sprintSpeed);
                 isSprinting = true;
@@ -148,17 +160,35 @@ public class StateManager : MonoBehaviour
             {
                 if (stepSFX.isPlaying == false)
                 {
-                    if (Input.GetKey(KeyCode.LeftShift))
+                    if (Input.GetKey(KeyCode.LeftShift) && healthStamina.value > 0)
                     {
-                        stepSFX.volume = Random.Range(0.15f, 0.2f);
-                        stepSFX.pitch = Random.Range(0.65f, 0.85f);
-                        stepSFX.Play();
+                        if (Input.GetKey(KeyCode.Mouse1))
+                        {
+                            stepSFX.volume = Random.Range(0.05f, 0.1f);
+                            stepSFX.pitch = Random.Range(0.3f, 0.4f);
+                            stepSFX.Play();
+                        }
+                        else
+                        {
+                            stepSFX.volume = Random.Range(0.15f, 0.2f);
+                            stepSFX.pitch = Random.Range(0.65f, 0.85f);
+                            stepSFX.Play();
+                        }
                     }
                     else
                     {
-                        stepSFX.volume = Random.Range(0.1f, 0.15f);
-                        stepSFX.pitch = Random.Range(0.55f, 0.75f);
-                        stepSFX.Play();
+                        if (Input.GetKey(KeyCode.Mouse1))
+                        {
+                            stepSFX.volume = Random.Range(0.05f, 0.1f);
+                            stepSFX.pitch = Random.Range(0.2f, 0.3f);
+                            stepSFX.Play();
+                        }
+                        else
+                        {
+                            stepSFX.volume = Random.Range(0.1f, 0.15f);
+                            stepSFX.pitch = Random.Range(0.55f, 0.75f);
+                            stepSFX.Play();
+                        }
                     }
                 }
             }

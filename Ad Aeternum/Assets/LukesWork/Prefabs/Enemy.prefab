@@ -110,7 +110,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 20
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &4260711010600414341
 Rigidbody:
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugColor: {r: 0.8867924, g: 0.12967247, b: 0.12967247, a: 1}
-  FollowDistance: 20
+  FollowDistance: 10
   startPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &-4037300984864543194
 MonoBehaviour:
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 9075946584649198681, guid: b192ece218c95b949a5ddca990f42554,
     type: 3}
-  player: {fileID: 2035876333024037701, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
+  player: {fileID: 0}
 --- !u!195 &-1474514091351540016
 NavMeshAgent:
   m_ObjectHideFlags: 0

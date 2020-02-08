@@ -18,8 +18,6 @@ public class EnemyShootScript : MonoBehaviour
 
     void Update()
     {
-
-
         playerVelocity = player.GetComponent<Rigidbody>().velocity;
         playerSpeed = playerVelocity.magnitude;
 
@@ -31,7 +29,8 @@ public class EnemyShootScript : MonoBehaviour
         if (other.tag == "Player")
         {
             enemy.transform.LookAt(Vector3.Lerp(Vector3.forward, player.transform.position + player.transform.forward * (playerSpeed * (distance * 0.02f)), 1));
-            Invoke("Shoot", 3);
+
+            Invoke("Shoot", Random.Range(2.0F, 4.0F));
         }
     }
 

@@ -43,17 +43,20 @@ public class GameOverScript : MonoBehaviour
 
     public void Continue()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Quit()
     {
+        Time.timeScale = 1;
         Application.Quit();
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("ScottsWork/Scenes/MainMenu");
+        Time.timeScale = 1;
+        SceneManager.LoadScene(4);
     }
 
     public static float gameOverDeltaTime

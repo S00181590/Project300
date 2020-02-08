@@ -52,6 +52,9 @@ MonoBehaviour:
     m_Handle: 0
   mine:
     m_Handle: 0
+  transition: {fileID: 3899768710964747673, guid: a64205f0ff950f04886e263614d9053b,
+    type: 3}
+  transitionTime: 1
 --- !u!65 &8855074693209770664
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -351,7 +351,7 @@ MonoBehaviour:
   collectable: 0
   trail: {fileID: 0}
   cam: {fileID: 0}
-  arrowObj: {fileID: 0}
+  arrowObj: {fileID: 6060035579112468244}
   arrowPickupText: {fileID: 0}
 --- !u!114 &6292814924976576265
 MonoBehaviour:

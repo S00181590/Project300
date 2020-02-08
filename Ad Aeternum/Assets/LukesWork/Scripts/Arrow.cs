@@ -65,6 +65,8 @@ public class Arrow : MonoBehaviour
 
             Invoke("DestroyArrow", 15);
         }
+
+        gameObject.GetComponent<ArrowShooter>().arrowScream.Stop();
     }
 
     private void OnTriggerStay(Collider other)
@@ -75,6 +77,8 @@ public class Arrow : MonoBehaviour
         {
             trail.enabled = false;
         }
+
+        gameObject.GetComponent<ArrowShooter>().arrowScream.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -85,6 +89,8 @@ public class Arrow : MonoBehaviour
         {
             trail.enabled = false;
         }
+
+        gameObject.GetComponent<ArrowShooter>().arrowScream.Stop();
     }
 
     public void DestroyArrow()

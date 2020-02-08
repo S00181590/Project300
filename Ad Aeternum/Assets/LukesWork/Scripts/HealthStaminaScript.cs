@@ -10,6 +10,7 @@ public class HealthStaminaScript : MonoBehaviour
     public float decreaseValue;
     GameObject gameObj;
     public bool isHealth = false, canSprint, canIncrease = true;
+    public StateManager state;
 
     public GameObject player;
 
@@ -52,10 +53,20 @@ public class HealthStaminaScript : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyUp(KeyCode.LeftShift))
+            if (Input.GetKeyUp(KeyCode.LeftShift) || state.moveAmount == 0)
             {
                 CancelInvoke();
                 canIncrease = false;
+                InvokeRepeating("Increase", 2, 2000);
+            }
+
+            if (state.controllerSprint == true)
+            {
+                canIncrease = false;
+                value -= decreaseValue;
+            }
+            else
+            {
                 InvokeRepeating("Increase", 2, 2000);
             }
         }

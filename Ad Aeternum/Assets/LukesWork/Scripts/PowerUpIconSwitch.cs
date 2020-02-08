@@ -11,6 +11,7 @@ public class PowerUpIconSwitch : MonoBehaviour
     public AudioSource poweredUpSFX;
     float rotateSpeed = 50;
     public int colourListAmount;
+    bool dpadActive = false;
 
     public List<Color> colourList = new List<Color>()
     {
@@ -35,7 +36,7 @@ public class PowerUpIconSwitch : MonoBehaviour
 
             rotateSpeed = Mathf.Lerp(rotateSpeed, 10, Time.deltaTime * 1);
 
-            Invoke("Activate", 5);
+            Invoke("Activate", 10);
         }
         else
         {
@@ -44,7 +45,12 @@ public class PowerUpIconSwitch : MonoBehaviour
 
             rotateSpeed = Mathf.Lerp(rotateSpeed, 250, Time.deltaTime * 1);
 
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f/* || (Input.GetAxis("Horizontal DPad") > 0f && (Input.GetAxis("Horizontal DPad") < 1f))*/)
+            if (Input.GetAxisRaw("Horizontal DPad") == 0f)
+            {
+                dpadActive = false;
+            }
+
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
                 if (i < colourList.Count - 1)
                     i++;
@@ -53,8 +59,22 @@ public class PowerUpIconSwitch : MonoBehaviour
 
                 iconBlipSFX.Play();
             }
+            else if (Input.GetAxisRaw("Horizontal DPad") > 0f)
+            {
+                if (dpadActive == false)
+                {
+                    dpadActive = true;
 
-            if (Input.GetAxis("Mouse ScrollWheel") < 0f/* || (Input.GetAxis("Horizontal DPad") < 0f && (Input.GetAxis("Horizontal DPad") > -1f))*/)
+                    if (i < colourList.Count - 1)
+                        i++;
+                    else
+                        i = 0;
+
+                    iconBlipSFX.Play();
+                }
+            }
+
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
             {
                 if (i > 0)
                     i--;
@@ -63,15 +83,29 @@ public class PowerUpIconSwitch : MonoBehaviour
 
                 iconBlipSFX.Play();
             }
+            else if (Input.GetAxisRaw("Horizontal DPad") < 0f)
+            {
+                if (dpadActive == false)
+                {
+                    dpadActive = true;
+
+                    if (i < colourList.Count - 1)
+                        i++;
+                    else
+                        i = 0;
+
+                    iconBlipSFX.Play();
+                }
+            }
 
             iconImage.transform.localScale = Vector3.Lerp(iconImage.transform.localScale, new Vector3(n, n, n), 20 * Time.deltaTime);
             glowImage.transform.localScale = Vector3.Lerp(glowImage.transform.localScale, new Vector3(n * 3, n * 3, n * 3), 5 * Time.deltaTime);
 
-            if (Input.GetKeyDown(KeyCode.Mouse2) || Input.GetKeyDown(KeyCode.Joystick1Button1))
+            if (Input.GetKeyDown(KeyCode.Mouse2) || Input.GetKeyDown(KeyCode.Joystick1Button3))
             {
                 numBool = !numBool;
                 InvokeRepeating("Resize", 0.2f, 10);
-                
+
                 poweredUpSFX.Play();
             }
 
@@ -84,7 +118,7 @@ public class PowerUpIconSwitch : MonoBehaviour
                 n = Mathf.Lerp(n, 0.5f, Time.deltaTime);
             }
 
-            iconImage.transform.localScale = Vector3.Lerp(iconImage.transform.localScale, 
+            iconImage.transform.localScale = Vector3.Lerp(iconImage.transform.localScale,
                 new Vector3(Mathf.PingPong(Time.time, 1f), Mathf.PingPong(Time.time, 1f), Mathf.PingPong(Time.time, 1f)), Time.deltaTime * 5);
         }
 

@@ -5,36 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public Scene forest;
-    public Scene sea;
-    public Scene mountain;
-    public Scene mine;
-
-    private void Start()
-    {
-        
-    }
+    public Animator transition;
+    public float transitionTime = 1f;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SceneManager.LoadScene(0);
+            StartCoroutine(LoadLevel(0));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SceneManager.LoadScene(1);
+            StartCoroutine(LoadLevel(1));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SceneManager.LoadScene(2);
+            StartCoroutine(LoadLevel(2));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            SceneManager.LoadScene(3);
+            StartCoroutine(LoadLevel(3));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            StartCoroutine(LoadLevel(4));
         }
     }
 
@@ -42,7 +40,18 @@ public class SceneSwitcher : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
         }
+    }
+
+    IEnumerator LoadLevel(int levelIndex)
+    {
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(levelIndex);
     }
 }
