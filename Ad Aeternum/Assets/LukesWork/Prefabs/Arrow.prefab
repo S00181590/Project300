@@ -353,6 +353,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   arrowObj: {fileID: 6060035579112468244}
   arrowPickupText: {fileID: 0}
+  player: {fileID: 2035876333024037701, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
 --- !u!114 &6292814924976576265
 MonoBehaviour:
   m_ObjectHideFlags: 0

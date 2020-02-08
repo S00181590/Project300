@@ -5043,6 +5043,7 @@ MonoBehaviour:
     m_Bits: 2048
   onGround: 0
   attacking: 0
+  controllerSprint: 0
   dodgeInput: 0
   DodgeForce: 1000
   JumpForce: 30

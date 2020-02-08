@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class HealthStaminaScript : MonoBehaviour
 {
     public float value;
-    public float icreaseValue;
-    public float decreaseValue;
+    float icreaseValue = 3;
+    float decreaseValue = 5;
     GameObject gameObj;
     public bool isHealth = false, canSprint, canIncrease = true;
     public StateManager state;
@@ -38,26 +38,41 @@ public class HealthStaminaScript : MonoBehaviour
         }
         else
         {
-            if (player.GetComponent<StateManager>().moveAmount > 0 && Input.GetKey(KeyCode.LeftShift))
+            //if (Input.GetKey(KeyCode.LeftShift))
+            //{
+            //    if (state.moveAmount == 0)
+            //    {
+            //        CancelInvoke();
+            //        InvokeRepeating("Increase", 2, 2000);
+            //    }
+            //    else
+            //    {
+            //        if (value > gameObj.GetComponent<Slider>().minValue)
+            //        {
+            //            canIncrease = false;
+            //            value -= decreaseValue;
+            //        }
+            //    }
+            //}
+
+            if (state.moveAmount > 0)
             {
-                if (value > gameObj.GetComponent<Slider>().minValue)
+                if (Input.GetKey(KeyCode.LeftShift))
                 {
+                    CancelInvoke();
+                    canIncrease = false;
                     value -= decreaseValue;
-                }
-            }
-            else
-            {
-                if (value < gameObj.GetComponent<Slider>().maxValue && canIncrease)
-                {
-                    value += icreaseValue;
                 }
             }
 
             if (Input.GetKeyUp(KeyCode.LeftShift) || state.moveAmount == 0)
             {
-                CancelInvoke();
-                canIncrease = false;
                 InvokeRepeating("Increase", 2, 2000);
+            }
+
+            if (value < gameObj.GetComponent<Slider>().maxValue && canIncrease)
+            {
+                value += icreaseValue;
             }
 
             if (state.controllerSprint == true)

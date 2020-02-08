@@ -47,7 +47,7 @@ public class StateManager : MonoBehaviour
     float leftTrigger;
     float rightTrigger;
 
-    public HealthStaminaScript healthStamina;
+    public HealthStaminaScript stamina;
 
     public AudioSource stepSFX;
 
@@ -119,7 +119,7 @@ public class StateManager : MonoBehaviour
         if (onGround)
         {
             //Sprint
-            if ((Input.GetKey(KeyCode.LeftShift) || controllerSprint == true) && healthStamina.canSprint)
+            if ((Input.GetKey(KeyCode.LeftShift) || controllerSprint == true) && stamina.canSprint)
             {
                 rb.velocity = moveDir * (speed * sprintSpeed);
                 isSprinting = true;
@@ -160,7 +160,7 @@ public class StateManager : MonoBehaviour
             {
                 if (stepSFX.isPlaying == false)
                 {
-                    if (Input.GetKey(KeyCode.LeftShift) && healthStamina.value > 0)
+                    if (Input.GetKey(KeyCode.LeftShift) && stamina.value > 0)
                     {
                         if (Input.GetKey(KeyCode.Mouse1))
                         {

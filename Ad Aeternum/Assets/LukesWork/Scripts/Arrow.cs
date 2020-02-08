@@ -14,6 +14,8 @@ public class Arrow : MonoBehaviour
     public GameObject arrowObj;
     public Text arrowPickupText;
 
+    public GameObject player;
+
     private void Start()
     {
         arrow = gameObject.GetComponent<ArrowShooter>();
@@ -66,7 +68,7 @@ public class Arrow : MonoBehaviour
             Invoke("DestroyArrow", 15);
         }
 
-        gameObject.GetComponent<ArrowShooter>().arrowScream.Stop();
+        //player.GetComponent<ArrowShooter>().arrowScream.Stop();
     }
 
     private void OnTriggerStay(Collider other)
@@ -78,7 +80,7 @@ public class Arrow : MonoBehaviour
             trail.enabled = false;
         }
 
-        gameObject.GetComponent<ArrowShooter>().arrowScream.Stop();
+        //player.GetComponent<ArrowShooter>().arrowScream.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -90,7 +92,7 @@ public class Arrow : MonoBehaviour
             trail.enabled = false;
         }
 
-        gameObject.GetComponent<ArrowShooter>().arrowScream.Stop();
+        //player.GetComponent<ArrowShooter>().arrowScream.Stop();
     }
 
     public void DestroyArrow()
