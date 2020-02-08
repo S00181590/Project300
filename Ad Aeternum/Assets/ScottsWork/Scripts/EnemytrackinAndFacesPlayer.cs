@@ -10,7 +10,6 @@ public class EnemytrackinAndFacesPlayer : NavMeshMover
 
     Transform target;
 
-
     public override void Start()
     {
         startPoistion = transform.position;

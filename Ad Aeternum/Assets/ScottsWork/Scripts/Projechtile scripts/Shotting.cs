@@ -1,0 +1,116 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Shotting : MonoBehaviour
+{
+    public float attackrate;
+    public bool beam;
+    public GameObject projechtile;
+    public float fielOfView;
+    public GameObject Target;
+    public int damage;
+    public List<GameObject> ProjechtileSpawner;
+    
+    List<GameObject> lastProjechtiles = new List<GameObject>();
+
+    float fireTimer = 0.0f;
+    // Update is called once per frame
+    void Update()
+    {
+
+        if(!Target)
+        {
+            if (beam)
+                removeLastProjetiles();
+            return;
+                
+        }
+
+
+        if(beam && lastProjechtiles.Count <= 0)
+        {
+            float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(Target.transform.position - transform.position));
+            //if (angle < fielOfView)
+            //{
+            //    SpawnProjectiles();
+            //}
+            if (angle> fielOfView)
+            {
+                removeLastProjetiles();
+            }
+        }
+
+        else if (beam && lastProjechtiles.Count > 0)
+        {
+            float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(Target.transform.position - transform.position));
+
+            //if (angle > fielOfView)
+            //{
+            //    while(lastProjechtiles.Count > 0) //checking if we are in line of sitr if not wont fire the projecthile 
+            //    {
+            //        Destroy(lastProjechtiles[0]);lastProjechtiles.RemoveAt(0);
+            //    }
+            //}
+            if (angle < fielOfView)
+            {
+                //checking if we are in line of sitr if not wont fire the projecthile 
+
+                SpawnProjectiles();
+                fireTimer = 0.0f;
+                
+            }
+
+        }
+        else
+        {
+            fireTimer += Time.deltaTime;
+            if (fireTimer >= attackrate)
+            {
+
+                float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(Target.transform.position - transform.position));
+
+                if (angle < fielOfView)
+                {
+                    SpawnProjectiles();
+
+                    fireTimer = 0.0f;
+                }
+            }
+        }
+    }
+
+    void SpawnProjectiles()
+    {
+        if (!projechtile)
+        {
+            return;
+        }
+
+        lastProjechtiles.Clear();
+        for (int i = 0; i < ProjechtileSpawner.Count; i++)
+        {
+            if (ProjechtileSpawner[i])
+            {
+                GameObject proj = Instantiate(projechtile, ProjechtileSpawner[i].transform.position,
+                    Quaternion.Euler(ProjechtileSpawner[i].transform.forward)) as GameObject;
+                proj.GetComponent<BaseProjectile>().fireProjechtile(ProjechtileSpawner[i], Target, damage , attackrate);//used in the tracking script 
+
+                lastProjechtiles.Add(proj);
+            }
+        }
+    }
+
+    public void SetTheTarget(GameObject target)
+    {
+        Target = target;
+    }
+    void removeLastProjetiles ()
+    {
+        while(lastProjechtiles.Count>0)
+        {
+            Destroy(lastProjechtiles[0]);
+            lastProjechtiles.RemoveAt(0);
+        }
+    }
+}
