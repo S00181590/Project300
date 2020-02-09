@@ -51,7 +51,7 @@ public class StateManager : MonoBehaviour
 
     public AudioSource stepSFX;
 
-    public void Init()
+    public void Start()
     {
         Application.targetFrameRate = 60;
 
