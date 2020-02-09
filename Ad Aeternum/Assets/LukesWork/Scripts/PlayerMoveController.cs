@@ -41,7 +41,7 @@ public class PlayerMoveController : MonoBehaviour
     void Start()
     {
         states = GetComponent<StateManager>();
-        //states.Init();
+        states.Init();
 
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
