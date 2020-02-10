@@ -8,14 +8,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: m_Cloak
-  m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
+  m_Shader: {fileID: 4800000, guid: f607e2ea9e80a214480407c50718635f, type: 3}
   m_ShaderKeywords: _EMISSION _GLOSSINESS_FROM_BASE_ALPHA _SPECULAR_COLOR
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -60,7 +59,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Ramp:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ToonShade:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -79,6 +86,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Outline: 0.0089
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -94,8 +102,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.103773594, g: 0.1023051, b: 0.1023051, a: 0}
-    - _Color: {r: 0.103773594, g: 0.1023051, b: 0.1023051, a: 1}
+    - _Color: {r: 0.03773582, g: 0.03755782, b: 0.03755782, a: 1}
     - _EmissionColor: {r: 0.008915979, g: 0.0014859966, b: 0.02080395, a: 1}
+    - _OutlineColor: {r: 0.43031406, g: 0.20024922, b: 0.5660378, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
 --- !u!114 &6752659204760391869
 MonoBehaviour:
