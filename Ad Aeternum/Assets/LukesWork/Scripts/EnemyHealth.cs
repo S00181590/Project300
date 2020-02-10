@@ -1,46 +1,61 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public Vector3 position, diff;
-    public Transform target;
+    public float health = 1000, damage = 50;
+    public GameObject healthSlider;
+    bool letPlay = false;
+    public ParticleSystem prticleSystem;
+    ParticleSystem instantiate;
+    public GameObject particleObj;
 
-    public GameObject healthBar;
-    List<GameObject> enemies;
-    public Canvas canvas;
+    private void Start()
+    {
+        prticleSystem.Stop();
+    }
 
     void Update()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        healthSlider.GetComponent<Slider>().value = health;
 
-        foreach (GameObject enemy in enemies)
+        if (healthSlider.GetComponent<Slider>().value <= 0)
         {
-            GameObject instantiate;
+            letPlay = true;
 
-            if (enemy.GetComponent<Renderer>().isVisible)
+            if (gameObject != null)
             {
-                instantiate = Instantiate(healthBar, canvas.transform);
-                instantiate.transform.localPosition = new Vector3(0, 1, 0);
+                particleObj.transform.position = gameObject.transform.position;
+            }
+
+            Destroy(this.gameObject, 1.5f);
+        }
+
+        if (letPlay)
+        {
+            if (!prticleSystem.isPlaying)
+            {
+                instantiate = Instantiate(prticleSystem);
+                instantiate.transform.position = gameObject.transform.position;
+                prticleSystem.Play();
             }
         }
+        //else
+        //{
+        //    if (prticleSystem.isPlaying)
+        //    {
+        //        prticleSystem.Stop();
+        //    }
+        //}
     }
 
-    //public GameObject GetNearbyEnemies()
-    //{
-    //    GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
-    //    float distance = Mathf.Infinity;
-    //    position = target.position;
-
-    //    foreach (GameObject go in gos)
-    //    {
-    //        diff = go.transform.position - position;
-    //        float curDistance = diff.sqrMagnitude;
-
-            
-    //    }
-
-    //    return closest;
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Arrow")
+        {
+            health -= damage;
+        }
+    }
 }

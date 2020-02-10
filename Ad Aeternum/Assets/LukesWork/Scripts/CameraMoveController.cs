@@ -116,7 +116,7 @@ public class CameraMoveController : MonoBehaviour
         {
             bowAim = false;
 
-            if ((Input.GetKey(KeyCode.Q) && !Input.GetMouseButton(1)) || (Input.GetKey(KeyCode.JoystickButton11)) && !Input.GetMouseButton(1))
+            if ((Input.GetKey(KeyCode.Q) && !Input.GetMouseButton(1)) || (Input.GetKey(KeyCode.Joystick1Button11)) && !Input.GetKey(KeyCode.Joystick1Button6))
             {
                 closestEnemy = FindClosestEnemy();
                 intersectedEnemy = IntersectedEnemy();
