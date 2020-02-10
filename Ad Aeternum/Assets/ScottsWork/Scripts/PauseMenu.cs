@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour
 
         if (IsPaused)
         {
-            Instantiate(pauseMenu, transform);
+            //Instantiate(pauseMenu, transform);
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
         }

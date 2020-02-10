@@ -6,8 +6,9 @@ public class AiPathFollow : NavMeshMover
 {
 
     public PathNode CurrentNode;
+    public float FollowDistance;
 
-   public override void Start()
+    public override void Start()
    {
         base.Start();
         MoveToPathNode();
@@ -27,5 +28,10 @@ public class AiPathFollow : NavMeshMover
             CurrentNode = other.gameObject.GetComponent<PathNode>().NextNode;
             MoveToPathNode();
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;//color for the enemy follow distance raidus 
+        Gizmos.DrawWireSphere(transform.position, FollowDistance);//shows the size of the enemys dection 
     }
 }
