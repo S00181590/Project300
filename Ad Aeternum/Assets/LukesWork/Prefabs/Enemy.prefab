@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 7750461360727568158}
   - component: {fileID: 7750461360727568156}
   - component: {fileID: 7750461360727568132}
+  - component: {fileID: -3364570855708554442}
   - component: {fileID: 7750461360727568157}
   m_Layer: 9
   m_Name: Enemy
@@ -147,7 +148,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 15
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!54 &7750461360727568153
 Rigidbody:
@@ -207,12 +208,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e190c7cd8900f3243bb5086c698073f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
-  damage: 50
+  health: 500
+  damage: 100
   healthSlider: {fileID: 7750461361525663372}
   prticleSystem: {fileID: 0}
   particleObj: {fileID: 2857353944166210611, guid: 0d06f92a1b0367d449f307ccac071862,
     type: 3}
+--- !u!114 &-3364570855708554442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7750461360727568146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e22373a68d3224a898b38f8efe621f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &7750461360727568157
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -520,7 +533,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7750461361525663375}
   - component: {fileID: 7750461361525663369}
-  - component: {fileID: 7750461361525663374}
   m_Layer: 5
   m_Name: EnemyHealthSlider (1)
   m_TagString: Untagged
@@ -593,27 +605,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1000
+  m_MaxValue: 500
   m_WholeNumbers: 0
-  m_Value: 500
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7750461361525663374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7750461361525663372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54bb041bc212f304c8103b4a166909af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  value: 0
-  isHealth: 1
-  canSprint: 1
-  canIncrease: 1
-  state: {fileID: 0}
-  player: {fileID: 0}

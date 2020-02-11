@@ -31,26 +31,10 @@ public class Arrow : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag != "Enemy")
+        if (collision.collider.tag == "Enemy")
         {
-            FixedJoint joint = gameObject.AddComponent<FixedJoint>();
-
-            joint.anchor = collision.contacts[0].point;
-
-            joint.connectedBody = collision.contacts[0].otherCollider.transform.GetComponentInParent<Rigidbody>();
-
-            joint.enableCollision = false;
-
-            gameObject.transform.parent = collision.gameObject.transform;
-
-            collectable = true;
-
             trail.enabled = false;
 
-            Invoke("DestroyArrow", 30);
-        }
-        else if (collision.collider.tag == "Enemy")
-        {
             FixedJoint joint = gameObject.AddComponent<FixedJoint>();
 
             joint.anchor = collision.contacts[0].point;
@@ -63,9 +47,25 @@ public class Arrow : MonoBehaviour
 
             collectable = false;
 
+            Invoke("DestroyArrow", 15);
+        }
+        else
+        {
             trail.enabled = false;
 
-            Invoke("DestroyArrow", 15);
+            FixedJoint joint = gameObject.AddComponent<FixedJoint>();
+
+            joint.anchor = collision.contacts[0].point;
+
+            joint.connectedBody = collision.contacts[0].otherCollider.transform.GetComponentInParent<Rigidbody>();
+
+            joint.enableCollision = false;
+
+            gameObject.transform.parent = collision.gameObject.transform;
+
+            collectable = true;
+
+            Invoke("DestroyArrow", 30);
         }
 
         //player.GetComponent<ArrowShooter>().arrowScream.Stop();
@@ -73,21 +73,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        trail.enabled = false;
-
-        if (other.gameObject.tag == "Interactive" || other.gameObject.tag == "Ground" || other.gameObject.tag == "Enemy")
-        {
-            trail.enabled = false;
-        }
-
-        //player.GetComponent<ArrowShooter>().arrowScream.Stop();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        trail.enabled = false;
-
-        if (other.gameObject.tag == "Interactive" || other.gameObject.tag == "Ground" || other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "ArrowArea")
         {
             trail.enabled = false;
         }

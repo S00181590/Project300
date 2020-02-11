@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ArrowShooter : MonoBehaviour
 {
-    public float speed = 2f;
+    float speed = 2f;
     public GameObject arrow;
     public GameObject spawnPoint;
     public CameraMoveController cam;
     public PlayerMoveController player;
-    public Rigidbody rb = null;
+    Rigidbody rb = null;
     public ArrowCount count;
     public Arrow arr;
 

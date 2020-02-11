@@ -13,6 +13,7 @@ TagManager:
   - Canvas
   - ChestInventoryUI
   - Projectile
+  - ArrowArea
   layers:
   - Default
   - TransparentFX
