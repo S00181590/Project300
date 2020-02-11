@@ -4,52 +4,37 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    public float vertical, horizontal, rotateSpeed = 5f, speed = 5f, sprintSpeed = 1.8f, jump = 600, moveAmount = 20;
-    public Vector3 moveDir;
+    #region Variables
+    [HideInInspector]
+    public float vertical, horizontal, rotateSpeed = 50f, speed = 5f, sprintSpeed = 1.8f, jump = 600, moveAmount = 20,
+        DodgeForce = 1000f, JumpForce = 30f, moveSpeed = 2, speedModifier = 1.5f, dashTime = 2;
+    float toGround = 0.76f, internalSpeedModifier, internalDashTime = 3, delta, leftTrigger, rightTrigger;
+
+    [HideInInspector]
+    public bool onGround, attacking, controllerSprint = false, dBarrier, dodgeInput, isSprinting = false, groundTest;
+
+    [HideInInspector]
+    public Vector3 moveDir, origin = Vector3.zero, origin3 = Vector3.zero, targetPos;
 
     //public GameObject activeModel;
+
+    int death = 0;
+
+    Transform playerObj;
+
+    PlayerMoveController player;
+    public Camera cam;
+    public CameraMoveController camMove;
+    public HealthStaminaScript stamina;
+    public AudioSource stepSFX;
+
     private Animator anim;
     private Rigidbody rb;
 
-    private float delta;
-
     public LayerMask ignoreLayers, climbableLayers, deathBar;
 
-    public bool onGround, attacking, controllerSprint = false;
-
-    bool dBarrier;
-    float toGround = 0.76f;
-
-    Vector3 origin = Vector3.zero;
-    Vector3 origin3 = Vector3.zero;
-    Vector3 targetPos;
-    int death = 0;
-
-    PlayerMoveController player;
-    Transform playerObj;
-
-    private CameraMoveController cam = null;
-    public bool dodgeInput;
-    public float DodgeForce = 500f;
-    public float JumpForce = 30f;
-
-    bool groundTest;
     RaycastHit hitTest;
-
-    public float moveSpeed = 2;
-    public float speedModifier = 1.5f;
-    public float dashTime = 2;
-    float internalSpeedModifier;
-    float internalDashTime;
-
-    public bool isSprinting = false;
-
-    float leftTrigger;
-    float rightTrigger;
-
-    public HealthStaminaScript stamina;
-
-    public AudioSource stepSFX;
+    #endregion
 
     public void Init()
     {
@@ -78,6 +63,21 @@ public class StateManager : MonoBehaviour
             onGround = OnGround();
         }
 
+        //Dodging
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button2)) && internalDashTime == 0 && onGround == true)
+        {
+            //internalDashTime = dashTime;
+            //HandleDodging();
+            //rb.velocity = moveDir * moveSpeed * internalSpeedModifier;
+
+            //transform.position = Vector3.Lerp(player.transform.position, player.transform.position + player.transform.forward * 50, Time.deltaTime);
+            //rb.AddForce(player.transform.position + player.transform.forward * 5, ForceMode.Impulse);
+            //transform.position = Vector3.Slerp(gameObject.transform.position, gameObject.transform.position + (moveDir * 20) + (gameObject.transform.up * 20), Time.deltaTime * 5);
+            //transform.position = Vector3.MoveTowards(transform.position, gameObject.transform.position + moveDir, 5);
+
+            StartCoroutine(Dodging(0));
+        }
+
         dBarrier = DeathBarrier();
 
         leftTrigger = Input.GetAxis("Left Trigger");
@@ -104,7 +104,7 @@ public class StateManager : MonoBehaviour
             rb.drag = 4;
         }
 
-        if (/*healthStamina.value > 0 && */moveAmount > 0)
+        if (stamina.value > 0 && moveAmount > 0)
         {
             if (Input.GetKeyDown(KeyCode.Joystick1Button10))
             {
@@ -136,23 +136,16 @@ public class StateManager : MonoBehaviour
                 rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
             }
 
-            //Dodging
-            if (Input.GetKeyDown(KeyCode.E) && internalDashTime == 0)
+            if (internalDashTime > 0)
             {
-                internalDashTime = dashTime;
-                //rb.velocity = moveDir * moveSpeed * internalSpeedModifier;
+                internalSpeedModifier = speedModifier;
+                internalDashTime--;
             }
 
-            //if (internalDashTime > 0)
-            //{
-            //    internalSpeedModifier = speedModifier;
-            //    internalDashTime--;
-            //}
-
-            //if (internalDashTime <= 0)
-            //{
-            //    internalSpeedModifier = speed;
-            //}
+            if (internalDashTime <= 0)
+            {
+                internalSpeedModifier = speed;
+            }
 
             stepSFX.UnPause();
 
@@ -274,8 +267,6 @@ public class StateManager : MonoBehaviour
         return r;
     }
 
-
-
     public bool DeathBarrier()
     {
         bool r = false;
@@ -326,35 +317,49 @@ public class StateManager : MonoBehaviour
         return r;
     }
 
-    void HandleDodging()
+    IEnumerator Dodging(float delayTime)
     {
-        if (!dodgeInput)
+        yield return new WaitForSeconds(delayTime);
+
+        float startTime = Time.time;
+
+        while (Time.time - startTime <= 0.15f)
         {
-            return;
-        }
+            transform.position = Vector3.Lerp(transform.position, gameObject.transform.position + moveDir * 5, Time.time - startTime);
 
-        float v = vertical;
-        float h = horizontal;
-
-        if (cam.lockOn == false)
-        {
-            v = 1;
-            h = 0;
-        }
-        else
-        {
-            if (Mathf.Abs(v) < 0.3f)
-            {
-                v = 0;
-            }
-
-            if (Mathf.Abs(h) < 0.3f)
-            {
-                h = 0;
-            }
-
-            //anim.SetFloat("vertical", v);
-            //anim.SetFloat("horizontal", h);
+            yield return 1;
         }
     }
+
+    //void HandleDodging()
+    //{
+    //    if (!dodgeInput)
+    //    {
+    //        return;
+    //    }
+
+    //    float v = vertical;
+    //    float h = horizontal;
+
+    //    if (cam.lockOn == false)
+    //    {
+    //        v = 1;
+    //        h = 0;
+    //    }
+    //    else
+    //    {
+    //        if (Mathf.Abs(v) < 0.3f)
+    //        {
+    //            v = 0;
+    //        }
+
+    //        if (Mathf.Abs(h) < 0.3f)
+    //        {
+    //            h = 0;
+    //        }
+
+    //        //anim.SetFloat("vertical", v);
+    //        //anim.SetFloat("horizontal", h);
+    //    }
+    //}
 }

@@ -11,12 +11,15 @@ public class CameraMoveController : MonoBehaviour
     public Transform target, camTransform,
         enemyObj, pivot;
 
-    private float followSpeed = 10, mouseSpeed = 2, controllerSpeed = 5,
+    private float mouseSpeed = 2, controllerSpeed = 5,
         minAngle = -30.0f, maxAngle = 50.0f, turnSmoothing = 0.1f,
         smoothX, smoothY, smoothXVel, smoothYVel,
         lookAngle, checkRadius, cameraAimSpeed;
 
-    public bool lockOn = true, switchLockOn = true, bowAim = false, indicatorShowing = false;
+    [HideInInspector]
+    public float followSpeed = 5;
+
+    public bool lockOn = true, switchLockOn = true, bowAim = false, indicatorShowing = false, controllerBowAim = false;
 
     public float tiltAngle;
 
@@ -79,6 +82,11 @@ public class CameraMoveController : MonoBehaviour
             followSpeed = 15;
         }
 
+        //if (Input.GetKey(KeyCode.Joystick1Button2))
+        //{
+        //    controllerBowAim = !controllerBowAim;
+        //}
+
         //Pivot the camera on the player, muliplied by Time.deltaTime
         PivotCamOnPlayer(Time.deltaTime);
 
@@ -116,8 +124,11 @@ public class CameraMoveController : MonoBehaviour
         {
             bowAim = false;
 
-            if ((Input.GetKey(KeyCode.Q) && !Input.GetMouseButton(1)) || (Input.GetKey(KeyCode.Joystick1Button11)) && !Input.GetKey(KeyCode.Joystick1Button6))
+            
+
+            if ((Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Joystick1Button11)) && (!Input.GetMouseButton(1) || !Input.GetKey(KeyCode.Joystick1Button6)))
             {
+                controllerBowAim = !controllerBowAim;
                 closestEnemy = FindClosestEnemy();
                 intersectedEnemy = IntersectedEnemy();
             }

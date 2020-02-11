@@ -9,7 +9,7 @@ public class EnemyShootScript : MonoBehaviour
     public GameObject projectile, player;
     Rigidbody rb;
     Vector3 playerVelocity;
-    float playerSpeed, distance;
+    float playerSpeed, distance, rand;
 
     void Start()
     {
@@ -22,6 +22,8 @@ public class EnemyShootScript : MonoBehaviour
         playerSpeed = playerVelocity.magnitude;
 
         distance = Vector3.Distance(enemy.transform.position, player.transform.position);
+
+        rand = Random.Range(2.0f, 4.0f);
     }
 
     private void OnTriggerStay(Collider other)
@@ -30,7 +32,7 @@ public class EnemyShootScript : MonoBehaviour
         {
             enemy.transform.LookAt(Vector3.Lerp(Vector3.forward, player.transform.position + player.transform.forward * (playerSpeed * (distance * 0.02f)), 1));
 
-            Invoke("Shoot", Random.Range(2.0F, 4.0F));
+            Invoke("Shoot", rand);
         }
     }
 
