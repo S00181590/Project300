@@ -8,17 +8,15 @@ public class StateManager : MonoBehaviour
     [HideInInspector]
     public float vertical, horizontal, rotateSpeed = 50f, speed = 5f, sprintSpeed = 1.8f, jump = 600, moveAmount = 20,
         DodgeForce = 1000f, JumpForce = 30f, moveSpeed = 2, speedModifier = 1.5f, dashTime = 2;
-    float toGround = 0.76f, internalSpeedModifier, internalDashTime = 3, delta, leftTrigger, rightTrigger;
+    float toGround = 0.76f, internalSpeedModifier, internalDashTime = 3, d, leftTrigger, rightTrigger;
 
     [HideInInspector]
-    public bool onGround, attacking, controllerSprint = false, dBarrier, dodgeInput, isSprinting = false, groundTest;
+    public bool onGround, attacking, controllerSprint = false, dodgeInput, isSprinting = false, groundTest, jumpActive = false;
 
     [HideInInspector]
-    public Vector3 moveDir, origin = Vector3.zero, origin3 = Vector3.zero, targetPos;
+    public Vector3 moveDir;
 
     //public GameObject activeModel;
-
-    int death = 0;
 
     Transform playerObj;
 
@@ -36,7 +34,7 @@ public class StateManager : MonoBehaviour
     RaycastHit hitTest;
     #endregion
 
-    public void Init()
+    public void Start()
     {
         Application.targetFrameRate = 60;
 
@@ -50,35 +48,36 @@ public class StateManager : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         gameObject.layer = 8;
-        //ignoreLayers = ~(1 << 9);
-        //Cursor.visible = false;
     }
 
     public void Update()
     {
-        onGround = OnGround();
+        //onGround = OnGround();
 
         if (!Input.GetKeyDown(KeyCode.Space) || !Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             onGround = OnGround();
         }
 
+        if (onGround)
+        {
+            //Jump
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button1))
+            {
+                jumpActive = true;
+
+            }
+            else if (Input.GetKeyUp(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button1))
+            {
+                jumpActive = false;
+            }
+        }
+
         //Dodging
         if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button2)) && internalDashTime == 0 && onGround == true)
         {
-            //internalDashTime = dashTime;
-            //HandleDodging();
-            //rb.velocity = moveDir * moveSpeed * internalSpeedModifier;
-
-            //transform.position = Vector3.Lerp(player.transform.position, player.transform.position + player.transform.forward * 50, Time.deltaTime);
-            //rb.AddForce(player.transform.position + player.transform.forward * 5, ForceMode.Impulse);
-            //transform.position = Vector3.Slerp(gameObject.transform.position, gameObject.transform.position + (moveDir * 20) + (gameObject.transform.up * 20), Time.deltaTime * 5);
-            //transform.position = Vector3.MoveTowards(transform.position, gameObject.transform.position + moveDir, 5);
-
             StartCoroutine(Dodging(0));
         }
-
-        dBarrier = DeathBarrier();
 
         leftTrigger = Input.GetAxis("Left Trigger");
         rightTrigger = Input.GetAxis("Right Trigger");
@@ -88,12 +87,10 @@ public class StateManager : MonoBehaviour
     {
         rb.isKinematic = false;
 
-        if ((moveDir.x == 0 && moveDir.z == 0) && (Physics.Raycast(transform.position, new Vector3(0, -Vector3.up.y, 0), out hitTest, 0.81f, ignoreLayers)))
+        if ((moveDir.x == 0 && moveDir.z == 0) && /*(Physics.Raycast(transform.position, new Vector3(0, -Vector3.up.y, 0), out hitTest, 0.81f, ignoreLayers)*/ onGround == true)
         {
             rb.isKinematic = true;
         }
-
-        Debug.DrawRay(transform.position, new Vector3(0, -Vector3.up.y, 0) * 0.8f, Color.red);
 
         if (moveAmount > 0 || onGround == false)
         {
@@ -130,9 +127,9 @@ public class StateManager : MonoBehaviour
                 isSprinting = false;
             }
 
-            //Jump
-            if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button1))
+            if (jumpActive == true)
             {
+                rb.isKinematic = false;
                 rb.AddForce(Vector3.up * jump, ForceMode.Impulse);
             }
 
@@ -193,6 +190,7 @@ public class StateManager : MonoBehaviour
         else
         {
             stepSFX.Pause();
+            jumpActive = false;
         }
 
         Vector3 targetDir = moveDir;
@@ -215,7 +213,7 @@ public class StateManager : MonoBehaviour
 
     void HandleMovementAnimations()
     {
-        //anim.SetFloat("vertical", moveAmount, 0.4f, delta);
+        //anim.SetFloat("vertical", moveAmount, 0.4f, d);
     }
 
     public bool OnGround()
@@ -232,23 +230,18 @@ public class StateManager : MonoBehaviour
             dis = 0;
         }
 
-        if ((Physics.Raycast(origin, dir, out hit, dis, ignoreLayers)))
-        {
-            r = true;
-        }
+        //if ((Physics.Raycast(origin, dir, out hit, dis, ignoreLayers)))
+        //{
+        //    r = true;
+        //}
 
-        if (moveDir.x != 0 || moveDir.z != 0)
-        {
-            //if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
-            //{
-            //    dis = 0;
-            //}
-
-            //if (dis != 0)
-            //{
-
-            //}
-        }
+        //if (moveDir.x != 0 || moveDir.z != 0)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button1))
+        //    {
+        //        dis = 0;
+        //    }
+        //}
 
         if (Physics.Raycast(origin, new Vector3(moveDir.x * 0.2f, dir.y, moveDir.z * 0.2f), out hit, 0.8f, ignoreLayers) ||
                     Physics.Raycast(origin, new Vector3(moveDir.x * -0.3f, dir.y, moveDir.z * -0.3f), out hit, 0.9f, ignoreLayers))
@@ -267,56 +260,6 @@ public class StateManager : MonoBehaviour
         return r;
     }
 
-    public bool DeathBarrier()
-    {
-        bool r = false;
-
-        Vector3 origin2 = transform.position;
-
-        Vector3 dir = -Vector3.up;
-        float dis = 3;
-        RaycastHit hit;
-        //Debug.DrawRay(origin2, dir * dis);
-
-        if (onGround)
-        {
-            origin = transform.position - moveDir; //Vector3.Lerp(origin, transform.position, 0.1f);
-            death = 0;
-            origin3 = Vector3.Lerp(origin3, transform.position, 0.1f);
-        }
-
-        if (Physics.Raycast(origin2, dir, out hit, dis, deathBar))
-        {
-            r = true;
-            rb.velocity = Vector3.zero;
-
-            targetPos = origin;
-            transform.position = targetPos;
-
-            death += 1;
-
-            if (death == 2)
-            {
-                targetPos = origin3;
-                transform.position = targetPos;
-                death += 1;
-
-                if (onGround)
-                {
-                    death = 0;
-                }
-            }
-
-            if (death >= 4)
-            {
-                transform.position = Vector3.zero;
-                death = 0;
-            }
-        }
-
-        return r;
-    }
-
     IEnumerator Dodging(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
@@ -330,36 +273,4 @@ public class StateManager : MonoBehaviour
             yield return 1;
         }
     }
-
-    //void HandleDodging()
-    //{
-    //    if (!dodgeInput)
-    //    {
-    //        return;
-    //    }
-
-    //    float v = vertical;
-    //    float h = horizontal;
-
-    //    if (cam.lockOn == false)
-    //    {
-    //        v = 1;
-    //        h = 0;
-    //    }
-    //    else
-    //    {
-    //        if (Mathf.Abs(v) < 0.3f)
-    //        {
-    //            v = 0;
-    //        }
-
-    //        if (Mathf.Abs(h) < 0.3f)
-    //        {
-    //            h = 0;
-    //        }
-
-    //        //anim.SetFloat("vertical", v);
-    //        //anim.SetFloat("horizontal", h);
-    //    }
-    //}
 }

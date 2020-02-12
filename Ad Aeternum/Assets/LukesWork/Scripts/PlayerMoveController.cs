@@ -41,7 +41,7 @@ public class PlayerMoveController : MonoBehaviour
     void Start()
     {
         states = GetComponent<StateManager>();
-        states.Init();
+        //states.Init();
 
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
@@ -49,8 +49,6 @@ public class PlayerMoveController : MonoBehaviour
         camManager = CameraMoveController.singleton;
 
         camManager.Init(this.transform);
-
-        controller = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -78,10 +76,10 @@ public class PlayerMoveController : MonoBehaviour
         //states.FixedTick(delta);
     }
 
-    private bool IsGrounded()
-    {
-        return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * 1.5f, groundLayers);
-    }
+    //private bool IsGrounded()
+    //{
+    //    return Physics.CheckCapsule(col.bounds.center, new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z), col.radius * 1.5f, groundLayers);
+    //}
 
     void GetInput()
     {

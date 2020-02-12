@@ -6,60 +6,54 @@ public class Climbing : MonoBehaviour
 {
     PlayerMoveController player;
     StateManager state;
-
     bool canClimb = false;
-
     public LayerMask climbableLayers;
-
     private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = this.gameObject.GetComponent<PlayerMoveController>();
-        state = this.gameObject.GetComponent<StateManager>();
+        player = GetComponent<PlayerMoveController>();
+        state = GetComponent<StateManager>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         Climb();
     }
 
-    public void Climb()
+    void Climb()
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(new Vector3(
-            player.transform.position.x,
-            player.transform.position.y - 0.4f,
-            player.transform.position.z),
-            new Vector3(state.moveDir.x, state.moveDir.y + 0.2f, state.moveDir.z), 
-            out hit, 0.8f, climbableLayers))
+        if (Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - 0.4f, player.transform.position.z), 
+            new Vector3(state.moveDir.x, state.moveDir.y/* + 0.2f*/, state.moveDir.z), 
+            out hit, 1, climbableLayers))
         {
-            canClimb = true;
             Invoke("JumpClimb", 1);
-            
+            Invoke("WhileClimbing", 1.5f);
+            canClimb = true;
         }
         else
         {
             canClimb = false;
             //CancelInvoke();
         }
-
-        Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y - 0.4f, player.transform.position.z), 
-            new Vector3(state.moveDir.x, state.moveDir.y + 0.2f, state.moveDir.z) * 0.8f, Color.yellow);
     }
 
     public void JumpClimb()
     {
-        Invoke("WhileClimbing", 0.5f);
-
         if (state.onGround && canClimb)
         {
+            state.jumpActive = true;
+            rb.isKinematic = false;
             rb.AddForce(Vector3.up * 600, ForceMode.Impulse);
             rb.AddForce(state.moveDir * 200, ForceMode.Impulse);
+            //canClimb = false;
         }
+
+        Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y - 0.4f, player.transform.position.z),
+            new Vector3(state.moveDir.x, state.moveDir.y + 0.2f, state.moveDir.z) * 1, Color.yellow);
     }
 
     public void WhileClimbing()
@@ -73,11 +67,11 @@ public class Climbing : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(new Vector3(
-            player.transform.position.x, 
-            player.transform.position.y - 0.75f, 
-            player.transform.position.z), state.moveDir, 
+            player.transform.position.x,
+            player.transform.position.y - 0.75f,
+            player.transform.position.z), state.moveDir,
             out hit, 0.8f, climbableLayers)
-            && 
+            &&
             !Physics.Raycast(new Vector3(
             player.transform.position.x,
             player.transform.position.y - 0.4f,
@@ -88,7 +82,7 @@ public class Climbing : MonoBehaviour
             if (!state.onGround)
             {
                 rb.AddForce(state.moveDir * 20, ForceMode.Impulse);
-                rb.AddForce(Vector3.up * 40, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * 50, ForceMode.Impulse);
 
                 player.canMove = false;
             }

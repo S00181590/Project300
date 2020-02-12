@@ -31,6 +31,7 @@ public class EnemyHealthVisibility : MonoBehaviour
     {
         if (collision.gameObject.tag == "Arrow")
         {
+            CancelInvoke();
             healthBar.enabled = true;
             Invoke("Hide", 2);
         }
