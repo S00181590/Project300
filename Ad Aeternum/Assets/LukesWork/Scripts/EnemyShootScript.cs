@@ -10,10 +10,13 @@ public class EnemyShootScript : MonoBehaviour
     Rigidbody rb;
     Vector3 playerVelocity;
     float playerSpeed, distance, rand;
+    public float dist;
+    bool seePlayer = false;
+    RaycastHit hit;
 
     void Start()
     {
-        enemy = this.gameObject;
+        enemy = gameObject;
     }
 
     void Update()
@@ -24,11 +27,17 @@ public class EnemyShootScript : MonoBehaviour
         distance = Vector3.Distance(enemy.transform.position, player.transform.position);
 
         rand = Random.Range(2.0f, 4.0f);
+
+        dist = Vector3.Distance(transform.position, player.transform.position);
+
+        Physics.Raycast(transform.position, player.transform.position, out hit);
+
+        Debug.DrawRay(transform.position, player.transform.position);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && (hit.distance == dist))
         {
             enemy.transform.LookAt(Vector3.Lerp(Vector3.forward, player.transform.position + player.transform.forward * (playerSpeed * (distance * 0.02f)), 1));
 
