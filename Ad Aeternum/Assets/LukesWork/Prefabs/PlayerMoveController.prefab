@@ -152,6 +152,63 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &664637829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 664637830}
+  - component: {fileID: 664637832}
+  - component: {fileID: 664637831}
+  m_Layer: 15
+  m_Name: CullingSphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &664637830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664637829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2035876334146861336}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &664637832
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664637829}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 20
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &664637831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664637829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86922b64953ea4d449b6826104f7690e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1207312583
 GameObject:
   m_ObjectHideFlags: 0
@@ -4965,6 +5022,7 @@ GameObject:
   - component: {fileID: 2035876333417287411}
   - component: {fileID: 2035876333204841529}
   - component: {fileID: -8636210500579299839}
+  - component: {fileID: 1004825380}
   m_Layer: 8
   m_Name: PlayerMoveController
   m_TagString: Player
@@ -4988,6 +5046,7 @@ Transform:
   - {fileID: 537671316}
   - {fileID: 1250713252}
   - {fileID: 3299140743676076956}
+  - {fileID: 664637830}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5085,14 +5144,11 @@ MonoBehaviour:
   onGround: 0
   attacking: 0
   controllerSprint: 0
-  dBarrier: 0
   dodgeInput: 0
   isSprinting: 0
   groundTest: 0
+  jumpActive: 0
   moveDir: {x: 0, y: 0, z: 1}
-  origin: {x: 0, y: 0, z: 0}
-  origin3: {x: 0, y: 0, z: 0}
-  targetPos: {x: 0, y: 0, z: 0}
   cam: {fileID: 0}
   camMove: {fileID: 0}
   stamina: {fileID: 0}
@@ -5145,6 +5201,21 @@ MonoBehaviour:
   climbableLayers:
     serializedVersion: 2
     m_Bits: 8192
+--- !u!114 &1004825380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035876333024037701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf1a6fc996d0174ab0f71a0f480adc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barriers:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &2035876335041560376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5454,15 +5525,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d9cf72bbc4d38248bca0d0c08aaec67, type: 3}
---- !u!1 &2035876334445942661 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
-    type: 3}
-  m_PrefabInstance: {fileID: 8835048780302537144}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2035876334445942658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7411944992729990714, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
+    type: 3}
+  m_PrefabInstance: {fileID: 8835048780302537144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2035876334445942661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
     type: 3}
   m_PrefabInstance: {fileID: 8835048780302537144}
   m_PrefabAsset: {fileID: 0}
