@@ -5458,10 +5458,12 @@ MonoBehaviour:
   enemyObj: {fileID: 4260711010600414337, guid: 3d8ff6d59a3ab5747934324b6ee6949a,
     type: 3}
   pivot: {fileID: 8778989936251270615}
+  followSpeed: 5
   lockOn: 0
   switchLockOn: 1
   bowAim: 0
   indicatorShowing: 0
+  controllerBowAim: 0
   tiltAngle: 0
   enemyList: []
   hit: {fileID: 0}
@@ -5619,7 +5621,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 300
+  far clip plane: 2000
   field of view: 70
   orthographic: 0
   orthographic size: 5

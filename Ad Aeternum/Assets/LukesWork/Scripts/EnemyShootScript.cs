@@ -32,7 +32,7 @@ public class EnemyShootScript : MonoBehaviour
 
         Physics.Raycast(transform.position, player.transform.position, out hit);
 
-        Debug.DrawRay(transform.position, player.transform.position);
+        //Debug.DrawRay(transform.position, player.transform.position);
     }
 
     private void OnTriggerStay(Collider other)

@@ -99,7 +99,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 67dd09c8926f4fb439829983f63443ab,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -45111,12 +45111,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8863980309630569559}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &2075920764 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 8863980309741438113, guid: a5b1610d3ea586f44b9d40b2f76f6aaa,
-    type: 3}
-  m_PrefabInstance: {fileID: 8863980309630569559}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2077625313 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3908852230207250415, guid: ccec6d0baf93da04fb5d8642ed81254b,
@@ -45313,6 +45307,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1940082926}
+    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: count
+      value: 
+      objectReference: {fileID: 1920488683}
+    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 915751109}
+    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: arrowScream
+      value: 
+      objectReference: {fileID: 1162218368}
     - target: {fileID: 2035876333024037701, guid: 70156bdb10c85794eada625c78b77f12,
         type: 3}
       propertyPath: m_Name
@@ -45373,6 +45387,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1752912559679220535, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: Inventory
+      value: 
+      objectReference: {fileID: 1182219981}
+    - target: {fileID: 1752912559679220535, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: TestDisplay
+      value: 
+      objectReference: {fileID: 198530731}
     - target: {fileID: 2035876333417287411, guid: 70156bdb10c85794eada625c78b77f12,
         type: 3}
       propertyPath: cam
@@ -45393,36 +45417,6 @@ PrefabInstance:
       propertyPath: stepSFX
       value: 
       objectReference: {fileID: 664746167}
-    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 1940082926}
-    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: count
-      value: 
-      objectReference: {fileID: 1920488683}
-    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 915751109}
-    - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: arrowScream
-      value: 
-      objectReference: {fileID: 1162218368}
-    - target: {fileID: 1752912559679220535, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: Inventory
-      value: 
-      objectReference: {fileID: 1182219981}
-    - target: {fileID: 1752912559679220535, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: TestDisplay
-      value: 
-      objectReference: {fileID: 198530731}
     - target: {fileID: 205367309, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
       propertyPath: count
       value: 
@@ -45749,36 +45743,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraMoveController
       objectReference: {fileID: 0}
-    - target: {fileID: 8778989935898128429, guid: 71550d5ca3981454daf48cdbdb27f447,
-        type: 3}
-      propertyPath: far clip plane
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 741437277}
-    - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 741437278}
-    - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
-        type: 3}
-      propertyPath: lockOnIndicator
-      value: 
-      objectReference: {fileID: 2064907978}
-    - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
-        type: 3}
-      propertyPath: bowAimCrosshair
-      value: 
-      objectReference: {fileID: 2105014085}
-    - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
-        type: 3}
-      propertyPath: stateManager
-      value: 
-      objectReference: {fileID: 1890949301}
     - target: {fileID: 8778989934739054599, guid: 71550d5ca3981454daf48cdbdb27f447,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45834,6 +45798,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 741437277}
+    - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 741437278}
+    - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
+        type: 3}
+      propertyPath: lockOnIndicator
+      value: 
+      objectReference: {fileID: 2064907978}
+    - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
+        type: 3}
+      propertyPath: bowAimCrosshair
+      value: 
+      objectReference: {fileID: 2105014085}
+    - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
+        type: 3}
+      propertyPath: stateManager
+      value: 
+      objectReference: {fileID: 1890949301}
     - target: {fileID: 250401585, guid: 71550d5ca3981454daf48cdbdb27f447, type: 3}
       propertyPath: player
       value: 
@@ -45842,10 +45831,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1004825374}
-    - target: {fileID: 940304568, guid: 71550d5ca3981454daf48cdbdb27f447, type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 2075920764}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71550d5ca3981454daf48cdbdb27f447, type: 3}
 --- !u!1001 &8863980309630569559
@@ -45860,22 +45845,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1523206277, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: state
-      value: 
-      objectReference: {fileID: 1890949301}
-    - target: {fileID: 1523206277, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1004825374}
-    - target: {fileID: 1674695407, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: state
-      value: 
-      objectReference: {fileID: 1890949301}
-    - target: {fileID: 1674695407, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1004825374}
     - target: {fileID: 8863980308918497523, guid: a5b1610d3ea586f44b9d40b2f76f6aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45993,6 +45962,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1523206277, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: state
+      value: 
+      objectReference: {fileID: 1890949301}
+    - target: {fileID: 1523206277, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1004825374}
     - target: {fileID: 1630837340, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
       propertyPath: iconBlipSFX
       value: 
@@ -46001,6 +45978,18 @@ PrefabInstance:
       propertyPath: poweredUpSFX
       value: 
       objectReference: {fileID: 1390064115}
+    - target: {fileID: 1674695407, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: state
+      value: 
+      objectReference: {fileID: 1890949301}
+    - target: {fileID: 1674695407, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1004825374}
+    - target: {fileID: 1674695408, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: m_MaxValue
+      value: 2000
+      objectReference: {fileID: 0}
     - target: {fileID: 1549060906, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
       propertyPath: player
       value: 
@@ -46009,9 +45998,5 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 915751109}
-    - target: {fileID: 1674695408, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: m_MaxValue
-      value: 2000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
