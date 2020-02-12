@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Ad Aeternum/Assets/LukesWork/Textures/Normal.meta
 guid: c860dda203fbf9549810b9e46eb4a734
 folderAsset: yes
 DefaultImporter:
+=======
+guid: 7c6f222c5eb02044395626c237b88e3c
+PrefabImporter:
+>>>>>>> origin/ScottsBranch:Ad Aeternum/Assets/ScottsWork/prefabs/skull enemy.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -7,8 +7,9 @@ public class EnemytrackinAndFacesPlayer : NavMeshMover
     protected GameObject MainPlayer;
     public float FollowDistance;
     public Vector3 startPoistion;
+    float distance = 0;
 
-    Transform target;
+    public Transform target;
 
     public override void Start()
     {
@@ -31,7 +32,8 @@ public class EnemytrackinAndFacesPlayer : NavMeshMover
             MoveTo(startPoistion);
         }
 
-        float distance = Vector3.Distance(target.position, transform.position);
+        distance = Vector3.Distance(target.position, transform.position);
+
         if (distance <= agent.stoppingDistance)
         {
             FaceTarget();//calling face target to update what the enemy looking at

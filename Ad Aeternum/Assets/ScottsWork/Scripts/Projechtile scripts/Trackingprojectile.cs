@@ -26,7 +26,7 @@ public class Trackingprojectile : NormalProjechtile
             }
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, Direction, speed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(transform.position, Direction, speed * Time.deltaTime);
     }
 
     public void    FireProjechtile(GameObject Shoterobjecht, GameObject target, int damage, float attackspeed)
