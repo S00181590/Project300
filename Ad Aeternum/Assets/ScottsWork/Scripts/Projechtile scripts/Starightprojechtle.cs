@@ -43,7 +43,7 @@ public class Starightprojechtle : BaseProjectile
         if (Shoterobjecht)
         {
             mlaucher = Shoterobjecht;
-            Gametarget = target;
+            Shooter = target;
             Damage = damage;
             AttackSpeed = attackrate;
             Shootertimer = 0.0f;
