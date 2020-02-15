@@ -34,6 +34,16 @@ public class SceneSwitcher : MonoBehaviour
         {
             StartCoroutine(LoadLevel(4));
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            StartCoroutine(LoadLevel(5));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            StartCoroutine(LoadLevel(6));
+        }
     }
 
     private void OnTriggerEnter(Collider other)
