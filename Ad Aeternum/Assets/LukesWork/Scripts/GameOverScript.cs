@@ -31,15 +31,15 @@ public class GameOverScript : MonoBehaviour
 
         if (health.value <= 0)
         {
-            dataHandler.OnDeathSave();
+            //dataHandler.OnDeathSave();
             Time.timeScale = 0;
             gameOverScreen.SetActive(true);
         }
         else
         {
-            dataHandler.data.playerPosition = player.transform.position;
-            dataHandler.data.arrowCount = arrowCount.arrowCount;
-            dataHandler.data.camPosition = cam.transform.position;
+            //dataHandler.data.playerPosition = player.transform.position;
+            //dataHandler.data.arrowCount = arrowCount.arrowCount;
+            //dataHandler.data.camPosition = cam.transform.position;
             Time.timeScale = 1;
         }
 

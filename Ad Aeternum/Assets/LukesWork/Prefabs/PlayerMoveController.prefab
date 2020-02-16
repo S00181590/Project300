@@ -5084,6 +5084,7 @@ GameObject:
   - component: {fileID: -8636210500579299839}
   - component: {fileID: 1004825380}
   - component: {fileID: 1004825375}
+  - component: {fileID: 1004825382}
   m_Layer: 8
   m_Name: PlayerMoveController
   m_TagString: Player
@@ -5292,6 +5293,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 1160440608}
+--- !u!114 &1004825382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035876333024037701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51b9493728b0ccf43bb86e1187026748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  cam: {fileID: 0}
+  savingText: {fileID: 0}
+  arrowCount: {fileID: 0}
+  dataHandler: {fileID: 0}
+  sceneSwitcher: {fileID: 0}
 --- !u!1 &2035876335041560376
 GameObject:
   m_ObjectHideFlags: 0

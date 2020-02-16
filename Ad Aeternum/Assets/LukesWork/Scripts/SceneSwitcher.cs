@@ -56,7 +56,7 @@ public class SceneSwitcher : MonoBehaviour
         }
     }
 
-    IEnumerator LoadLevel(int levelIndex)
+    public IEnumerator LoadLevel(int levelIndex)
     {
         transition.SetTrigger("Start");
 
