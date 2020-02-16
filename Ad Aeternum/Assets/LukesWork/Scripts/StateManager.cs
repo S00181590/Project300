@@ -32,6 +32,8 @@ public class StateManager : MonoBehaviour
     public LayerMask ignoreLayers, climbableLayers, deathBar;
 
     RaycastHit hitTest;
+
+    public DataHandler dataHandler;
     #endregion
 
     public void Start()
@@ -48,6 +50,9 @@ public class StateManager : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         gameObject.layer = 8;
+
+        dataHandler.OnSpawnLoad();
+        transform.position = dataHandler.data.playerPosition;
     }
 
     public void Update()

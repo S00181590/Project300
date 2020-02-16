@@ -38,6 +38,8 @@ public class CameraMoveController : MonoBehaviour
     public Collider cylinderCol;
 
     Quaternion lookOnLook;
+
+    public DataHandler dataHandler;
     #endregion
 
     private void Start()
@@ -46,6 +48,9 @@ public class CameraMoveController : MonoBehaviour
 
         pivot.localPosition = Vector3.zero;
         camTransform.localPosition = new Vector3(0, 0.5f, -4f);
+
+        dataHandler.OnSpawnLoad();
+        transform.position = dataHandler.data.camPosition;
     }
 
     //Essentially a Start method but accepts variables, e.g: t (the player)

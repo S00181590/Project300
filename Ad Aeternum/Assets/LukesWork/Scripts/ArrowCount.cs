@@ -7,10 +7,12 @@ public class ArrowCount : MonoBehaviour
 {
     public Text arrowCountText;
     public int arrowCount;
+    public DataHandler dataHandler;
 
     void Start()
     {
-        arrowCount = 30;
+        dataHandler.OnSpawnLoad();
+        arrowCount = dataHandler.data.arrowCount;
     }
 
     void Update()

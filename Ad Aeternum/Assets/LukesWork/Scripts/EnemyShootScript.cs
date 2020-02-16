@@ -37,7 +37,7 @@ public class EnemyShootScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && (hit.distance == dist))
+        if (other.tag == "Player"/* && (hit.distance == dist)*/)
         {
             enemy.transform.LookAt(Vector3.Lerp(Vector3.forward, player.transform.position + player.transform.forward * (playerSpeed * (distance * 0.02f)), 1));
 

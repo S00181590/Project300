@@ -6,9 +6,12 @@ using UnityEngine.UI;
 
 public class GameOverScript : MonoBehaviour
 {
-    public GameObject gameOverScreen;
+    public GameObject gameOverScreen, player, cam;
     public HealthStaminaScript health;
     public Image gameOverImage;
+    ArrowCount arrowCount;
+
+    public DataHandler dataHandler;
 
     private static float prevRealTime;
     private float thisRealTime;
@@ -18,6 +21,7 @@ public class GameOverScript : MonoBehaviour
         gameOverScreen.SetActive(false);
         gameOverImage.color = new Color(0, 0, 0, 0);
         Time.timeScale = 1;
+        arrowCount = GetComponent<ArrowCount>();
     }
     
     void Update()
@@ -27,11 +31,15 @@ public class GameOverScript : MonoBehaviour
 
         if (health.value <= 0)
         {
+            dataHandler.OnDeathSave();
             Time.timeScale = 0;
             gameOverScreen.SetActive(true);
         }
         else
         {
+            dataHandler.data.playerPosition = player.transform.position;
+            dataHandler.data.arrowCount = arrowCount.arrowCount;
+            dataHandler.data.camPosition = cam.transform.position;
             Time.timeScale = 1;
         }
 
