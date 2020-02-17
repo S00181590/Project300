@@ -10,6 +10,7 @@ public class QuicksaveScript : MonoBehaviour
     public DataHandler dataHandler;
     public SceneSwitcher sceneSwitcher;
     bool savingBool;
+    public float targetTime = 300;
 
     void Start()
     {
@@ -20,8 +21,12 @@ public class QuicksaveScript : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F5))
+        targetTime -= Time.deltaTime;
+
+        if (targetTime <= 0.0f || Input.GetKeyDown(KeyCode.F5))
         {
+            targetTime = 300;
+
             dataHandler.data.playerPosition = player.transform.position;
             dataHandler.data.arrowCount = arrowCount.arrowCount;
             dataHandler.data.camPosition = cam.transform.position;
@@ -39,7 +44,7 @@ public class QuicksaveScript : MonoBehaviour
         if (savingBool == true)
         {
             savingText.SetActive(true);
-            Invoke("Saving", 3);
+            Invoke("Saving", 2);
         }
         else
         {

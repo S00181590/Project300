@@ -18,7 +18,7 @@ public class LoadingSavingMover : MonoBehaviour
             if (GetComponent<RectTransform>().sizeDelta.x < 250)
             {
                 GetComponent<RectTransform>().sizeDelta = Vector2.Lerp(GetComponent<RectTransform>().sizeDelta,
-                    new Vector2(GetComponent<RectTransform>().sizeDelta.x + 10, GetComponent<RectTransform>().sizeDelta.y), Time.deltaTime * 5);
+                    new Vector2(GetComponent<RectTransform>().sizeDelta.x + 15, GetComponent<RectTransform>().sizeDelta.y), Time.deltaTime * 5);
             }
 
             if (GetComponent<RectTransform>().sizeDelta.x >= 250)
