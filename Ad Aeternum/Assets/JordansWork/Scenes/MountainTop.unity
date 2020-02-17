@@ -1559,6 +1559,36 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 180c7a675787e5043944d076d4f184f3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 511752cdf6892b0418438f0141a4a40e, type: 3}
+--- !u!1 &452200721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 511752cdf6892b0418438f0141a4a40e,
+    type: 3}
+  m_PrefabInstance: {fileID: 452200720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!205 &452200722
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452200721}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 2
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1001 &502897567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3840,7 +3870,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1549822676}
   m_HandleRect: {fileID: 1549822675}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
