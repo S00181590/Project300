@@ -12,6 +12,7 @@ public class GameOverScript : MonoBehaviour
     ArrowCount arrowCount;
 
     public DataHandler dataHandler;
+    public SceneSwitcher sceneSwitcher;
 
     private static float prevRealTime;
     private float thisRealTime;
@@ -31,15 +32,11 @@ public class GameOverScript : MonoBehaviour
 
         if (health.value <= 0)
         {
-            //dataHandler.OnDeathSave();
             Time.timeScale = 0;
             gameOverScreen.SetActive(true);
         }
         else
         {
-            //dataHandler.data.playerPosition = player.transform.position;
-            //dataHandler.data.arrowCount = arrowCount.arrowCount;
-            //dataHandler.data.camPosition = cam.transform.position;
             Time.timeScale = 1;
         }
 
@@ -51,8 +48,8 @@ public class GameOverScript : MonoBehaviour
 
     public void Continue()
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(sceneSwitcher.LoadLevel(SceneManager.GetActiveScene().buildIndex));
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Quit()

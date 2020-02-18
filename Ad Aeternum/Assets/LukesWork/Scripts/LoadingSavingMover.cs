@@ -6,22 +6,19 @@ public class LoadingSavingMover : MonoBehaviour
 {
     bool sizeBool;
     public int smallSize = 210;
+    public int bigSize = 260;
 
     void Update()
     {
-        //if (gameObject.activeSelf == true)
-        //    transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(Mathf.PingPong(Time.time, 1f),
-        //        transform.localScale.y, transform.localScale.z), Time.deltaTime * 5);
-
         if (gameObject.activeSelf == true)
         {
-            if (GetComponent<RectTransform>().sizeDelta.x < 250)
+            if (GetComponent<RectTransform>().sizeDelta.x < bigSize)
             {
                 GetComponent<RectTransform>().sizeDelta = Vector2.Lerp(GetComponent<RectTransform>().sizeDelta,
-                    new Vector2(GetComponent<RectTransform>().sizeDelta.x + 15, GetComponent<RectTransform>().sizeDelta.y), Time.deltaTime * 5);
+                    new Vector2(GetComponent<RectTransform>().sizeDelta.x + 15, GetComponent<RectTransform>().sizeDelta.y), Time.deltaTime * 2);
             }
 
-            if (GetComponent<RectTransform>().sizeDelta.x >= 250)
+            if (GetComponent<RectTransform>().sizeDelta.x >= bigSize)
             {
                 GetComponent<RectTransform>().sizeDelta = new Vector2(smallSize, GetComponent<RectTransform>().sizeDelta.y);
             }
