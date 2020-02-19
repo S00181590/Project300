@@ -13,6 +13,7 @@ public class AdditiveSceneLoading : MonoBehaviour
         SceneManager.LoadScene("Forest", LoadSceneMode.Additive);
         SceneManager.LoadScene("CoastSea", LoadSceneMode.Additive);
         SceneManager.LoadScene("Mines", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Player", LoadSceneMode.Additive);
     }
 
     // Start is called before the first frame update
