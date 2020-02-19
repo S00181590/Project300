@@ -16,6 +16,8 @@ public class ReaperMvementController : EnemyMover
     {
         PlayerIsHere = false;
 
+        State = ReaperBossState.BossState.Idle;
+
         startPosition = transform.position;
 
         PlayerCharacter = GameObject.FindGameObjectWithTag("Player");
@@ -26,9 +28,13 @@ public class ReaperMvementController : EnemyMover
     //Update is called once per frame
     void Update()
     {
+        
         if(State == ReaperBossState.BossState.Idle)
         {
-
+            if (PlayerIsHere)
+            {
+                State = ReaperBossState.BossState.Evade;
+            }
         }
         else if(State == ReaperBossState.BossState.ForwardAttack)
         {
@@ -41,6 +47,11 @@ public class ReaperMvementController : EnemyMover
             agent.stoppingDistance = EvadeDistance;
 
             MoveTo(PlayerCharacter);
+
+            if(!PlayerIsHere)
+            {
+                State = ReaperBossState.BossState.Idle;
+            }
         }
         else if(State == ReaperBossState.BossState.BackAttack)
         {
