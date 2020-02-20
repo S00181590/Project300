@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class UIMover : MonoBehaviour
 {
-    public GameObject player;
-    public Camera cam;
-
     void Start()
     {
         gameObject.transform.localPosition = new Vector3(-300, 0, 0);

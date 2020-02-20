@@ -5,18 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class QuicksaveScript : MonoBehaviour
 {
-    public GameObject player, cam, savingText;
-    public ArrowCount arrowCount;
-    public DataHandler dataHandler;
-    public SceneSwitcher sceneSwitcher;
+    GameObject player, cam, savingText;
+    ArrowCount arrowCount;
+    DataHandler dataHandler;
+    SceneSwitcher sceneSwitcher;
     bool savingBool;
+
+    [HideInInspector]
     public float targetTime = 300;
 
     void Start()
     {
-        savingText.SetActive(false);
         player = gameObject;
-        dataHandler = GetComponent<DataHandler>();
+        cam = GameObject.Find("Main Camera");
+        savingText = GameObject.Find("SavingText");
+        arrowCount = GameObject.Find("UICanvas").GetComponent<ArrowCount>();
+        dataHandler = GameObject.Find("DataHandler").GetComponent<DataHandler>();
+        sceneSwitcher = GameObject.Find("LoadTransition").GetComponent<SceneSwitcher>();
+
+        savingText.SetActive(false);
     }
     
     void Update()

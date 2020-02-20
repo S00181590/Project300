@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class Arrow : MonoBehaviour
 {
-    public ArrowShooter arrow;
-    public ArrowCount count;
-    public bool collectable;
-    public TrailRenderer trail;
+    ArrowShooter arrow;
+    ArrowCount count;
+    TrailRenderer trail;
 
-    public Camera cam;
+    [HideInInspector]
+    public bool collectable;
+
     public GameObject arrowObj;
     public Text arrowPickupText;
 
@@ -18,9 +19,11 @@ public class Arrow : MonoBehaviour
 
     private void Start()
     {
-        arrow = gameObject.GetComponent<ArrowShooter>();
+        arrow = GetComponent<ArrowShooter>();
+        count = GameObject.Find("ArrowCount").GetComponent<ArrowCount>();
+        trail = GetComponent<TrailRenderer>();
+
         collectable = false;
-        trail = this.gameObject.GetComponent<TrailRenderer>();
         trail.enabled = false;
     }
 

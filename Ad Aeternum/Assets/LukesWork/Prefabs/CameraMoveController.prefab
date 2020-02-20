@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &529404244
 Transform:
   m_ObjectHideFlags: 0
@@ -606,7 +606,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.005
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4984,7 +4984,7 @@ GameObject:
   - component: {fileID: 1162218367}
   - component: {fileID: 1162218368}
   m_Layer: 0
-  m_Name: SFX_ArrowSxream
+  m_Name: SFX_ArrowScream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5451,12 +5451,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af471c03bc86bf740904c20b7555c394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  cam: {fileID: 8778989935898128429}
   target: {fileID: 0}
   camTransform: {fileID: 8778989934739054599}
-  enemyObj: {fileID: 4260711010600414337, guid: 3d8ff6d59a3ab5747934324b6ee6949a,
-    type: 3}
   pivot: {fileID: 8778989936251270615}
   followSpeed: 5
   lockOn: 0
@@ -5465,16 +5461,6 @@ MonoBehaviour:
   indicatorShowing: 0
   controllerBowAim: 0
   tiltAngle: 0
-  enemyList: []
-  hit: {fileID: 0}
-  lockOnIndicator: {fileID: 0}
-  bowAimCrosshair: {fileID: 0}
-  stateManager: {fileID: 0}
-  checkLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  cylinderCol: {fileID: 8778989935445768775}
-  dataHandler: {fileID: 0}
 --- !u!114 &250401585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5487,10 +5473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708f47f70f578874ea2f09730535f468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  player: {fileID: 0}
 --- !u!1 &8778989935445768772
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,8 +5604,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 2000
-  field of view: 70
+  far clip plane: 1500
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5724,12 +5706,7 @@ MonoBehaviour:
   minDistance: 0
   maxDistance: 4
   smooth: 10
-  dirAdjusted: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
   distance: 0
-  ignore:
-    serializedVersion: 2
-    m_Bits: 9729
 --- !u!1 &8778989936251270614
 GameObject:
   m_ObjectHideFlags: 0

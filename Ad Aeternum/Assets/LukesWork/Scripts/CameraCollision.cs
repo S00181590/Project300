@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class CameraCollision : MonoBehaviour
 {
-    public float minDistance = 1f;
-    public float maxDistance = 4f;
-    public float smooth = 15f;
-    Vector3 dir;
-    public Vector3 dirAdjusted;
-    public GameObject player;
-    public float distance;
-    public LayerMask ignore;
+    GameObject player;
 
-    private Vector2 zoomClamp = new Vector2(0, 4f);
-    private float zoomDamp = 0.075f;
-    private float vel = 0f;
-    private float zoom;
-    private float rad = 0.5f;
+    Vector3 dir, dirAdjusted;
+    Vector2 zoomClamp = new Vector2(0, 4f);
 
-    Ray ray;
-    Ray ray2;
+    LayerMask ignore;
+
+    public float minDistance = 0, maxDistance = 4, smooth = 10, distance = 0;
+    float zoomDamp = 0.075f, vel = 0f, zoom, rad = 0.5f;
+
+    Ray ray, ray2;
 
     void Start()
     {
+        player = GameObject.Find("PlayerMoveController");
+        ignore = LayerMask.GetMask("Default", "Enemy", "Ground", "Climbable");
+
         dir = transform.localPosition.normalized;
         distance = transform.localPosition.magnitude;
     }

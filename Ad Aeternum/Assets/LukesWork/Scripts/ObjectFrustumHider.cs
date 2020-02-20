@@ -26,8 +26,14 @@ public class ObjectFrustumHider : MonoBehaviour
     {
         if (other.gameObject.layer != 10)
         {
-            if (other.GetComponent<MeshRenderer>() != null)
+            //if (other.GetComponent<MeshRenderer>() != null)
+            //    other.GetComponent<MeshRenderer>().enabled = true;
+
+            if (other.gameObject != null/* && other.GetComponent<MeshRenderer>() != null*/)
+            {
                 other.GetComponent<MeshRenderer>().enabled = true;
+                //other.enabled = true;
+            }
         }
     }
 
@@ -35,8 +41,14 @@ public class ObjectFrustumHider : MonoBehaviour
     {
         if (other.gameObject.layer != 10)
         {
-            if (other.GetComponent<MeshRenderer>() != null)
+            //if (other.GetComponent<MeshRenderer>() != null)
+            //    other.GetComponent<MeshRenderer>().enabled = false;
+
+            if (other.gameObject != null/* && other.GetComponent<MeshRenderer>() != null*/)
+            {
                 other.GetComponent<MeshRenderer>().enabled = false;
+                //other.enabled = false;
+            }
         }
     }
 }

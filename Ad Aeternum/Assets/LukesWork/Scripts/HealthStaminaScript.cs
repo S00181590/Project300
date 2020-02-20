@@ -6,16 +6,19 @@ using UnityEngine.UI;
 public class HealthStaminaScript : MonoBehaviour
 {
     public float value;
-    float icreaseValue = 3;
-    float decreaseValue = 5;
-    GameObject gameObj;
-    public bool isHealth = false, canSprint, canIncrease = true;
-    public StateManager state;
+    float icreaseValue = 3, decreaseValue = 5;
 
-    public GameObject player;
+    [HideInInspector]
+    public bool canSprint, canIncrease = true;
+
+    StateManager state;
+    GameObject player, gameObj;
 
     void Start()
     {
+        state = GameObject.Find("PlayerMoveController").GetComponent<StateManager>();
+        player = GameObject.Find("PlayerMoveController");
+
         gameObj = this.gameObject;
         value = gameObj.GetComponent<Slider>().maxValue;
     }
@@ -24,7 +27,7 @@ public class HealthStaminaScript : MonoBehaviour
     {
         gameObj.GetComponent<Slider>().value = value;
 
-        if (isHealth == true)
+        if (gameObject.name == "PlayerHealthSlider")
         {
             if (value < gameObj.GetComponent<Slider>().maxValue && canIncrease)
             {

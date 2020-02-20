@@ -21,28 +21,26 @@ public class StateManager : MonoBehaviour
     Transform playerObj;
 
     PlayerMoveController player;
-    public Camera cam;
-    public CameraMoveController camMove;
-    public HealthStaminaScript stamina;
-    public AudioSource stepSFX;
+    Rigidbody rb;
+
+    Camera cam;
+    CameraMoveController camMove;
+    HealthStaminaScript stamina;
+    AudioSource stepSFX;
 
     private Animator anim;
-    private Rigidbody rb;
 
-    public LayerMask ignoreLayers, climbableLayers, deathBar;
+    LayerMask ignoreLayers, climbableLayers, deathBar;
 
     RaycastHit hitTest;
 
-    public DataHandler dataHandler;
+    DataHandler dataHandler;
     #endregion
 
     public void Start()
     {
         Application.targetFrameRate = 60;
-
-        player = GetComponent<PlayerMoveController>();
-        playerObj = GetComponent<Transform>();
-
+        
         //SetupAnimator();
         rb = GetComponent<Rigidbody>();
         rb.angularDrag = 1000;
@@ -50,6 +48,17 @@ public class StateManager : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
         gameObject.layer = 8;
+        ignoreLayers = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Water", "UI", "Ground", "Climbable");
+        climbableLayers = LayerMask.GetMask("Climbable");
+        deathBar = LayerMask.GetMask("deathBar");
+
+        player = GetComponent<PlayerMoveController>();
+        playerObj = GetComponent<Transform>();
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        camMove = GameObject.Find("CameraMoveController").GetComponent<CameraMoveController>();
+        stamina = GameObject.Find("PlayerStaminaSlider").GetComponent<HealthStaminaScript>();
+        dataHandler = GameObject.Find("DataHandler").GetComponent<DataHandler>();
+        stepSFX = GameObject.Find("SFX_Step").GetComponent<AudioSource>();
 
         dataHandler.OnSpawnLoad();
         transform.position = dataHandler.data.playerPosition;
@@ -57,8 +66,6 @@ public class StateManager : MonoBehaviour
 
     public void Update()
     {
-        //onGround = OnGround();
-
         if (!Input.GetKeyDown(KeyCode.Space) || !Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             onGround = OnGround();

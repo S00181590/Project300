@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class DataHandler : MonoBehaviour
 {
+    [HideInInspector]
     public PlayerData data;
 
     private string file = "player_data.txt";
+
+    private void Start()
+    {
+        data = GetComponent<PlayerData>();
+    }
 
     public void OnDeathSave()
     {

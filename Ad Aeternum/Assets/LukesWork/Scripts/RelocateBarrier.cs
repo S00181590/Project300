@@ -7,12 +7,13 @@ public class RelocateBarrier : MonoBehaviour
     StateManager state;
     Rigidbody rb;
     int relocations = 0;
-    public LayerMask barriers;
+    LayerMask barriers;
     Vector3 origin = Vector3.zero, origin3 = Vector3.zero, targetPos;
     bool barrierBool;
 
     void Start()
     {
+        barriers = LayerMask.GetMask("deathBar");
         state = GetComponent<StateManager>();
         rb = GetComponent<Rigidbody>();
     }

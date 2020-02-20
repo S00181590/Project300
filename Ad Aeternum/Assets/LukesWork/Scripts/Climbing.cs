@@ -7,7 +7,7 @@ public class Climbing : MonoBehaviour
     PlayerMoveController player;
     StateManager state;
     bool canClimb = false;
-    public LayerMask climbableLayers;
+    LayerMask climbableLayers;
     private Rigidbody rb;
 
     void Start()
@@ -15,6 +15,7 @@ public class Climbing : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         player = GetComponent<PlayerMoveController>();
         state = GetComponent<StateManager>();
+        climbableLayers = LayerMask.GetMask("Climbable");
     }
     
     void Update()

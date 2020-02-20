@@ -5,14 +5,17 @@ using UnityEngine.UI;
 
 public class ArrowCount : MonoBehaviour
 {
-    public Text arrowCountText;
+    Text arrowCountText;
     public int arrowCount;
-    public DataHandler dataHandler;
+    DataHandler dataHandler;
 
     void Start()
     {
-        dataHandler.OnSpawnLoad();
+        arrowCountText = GameObject.Find("ArrowCountText").GetComponent<Text>();
+        dataHandler = GameObject.Find("DataHandler").GetComponent<DataHandler>();
+
         arrowCount = dataHandler.data.arrowCount;
+        dataHandler.OnSpawnLoad();
     }
 
     void Update()

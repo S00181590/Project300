@@ -4,60 +4,52 @@ using UnityEngine;
 
 public class PlayerMoveController : MonoBehaviour
 {
-    public Vector3 moveDir;
-    private float horizontal;
-    private float vertical;
-
-    private float delta;
+    #region Variables
+    Vector3 moveDir;
 
     StateManager states;
 
     CameraMoveController camManager;
 
-    public bool switchLockOn = false;
+    [HideInInspector]
+    public bool switchLockOn = false, attackRange = false, canMove = true;
 
-    public bool attackRange = false;
-    public enum attackRangeType { shortRange, longRange };
+    public enum attackType { Melee, LongRange };
 
     private CapsuleCollider col = null;
     Transform cam;
-
-    public float speed;
-    public float turnSpeed = 100;
 
     Animator animator;
     Rigidbody rigidBody;
 
     private CharacterController controller;
 
-    private float verticalVel;
-    public float jump = 10.0f;
+    private float verticalVel, jump = 400.0f, speed = 10, turnSpeed = 100, horizontal, vertical, delta;
 
-    public LayerMask groundLayers;
-
-    public bool canMove = true;
-    public StateManager stateManager;
+    LayerMask groundLayers;
+    #endregion
 
     void Start()
     {
-        states = GetComponent<StateManager>();
         //states.Init();
 
+        groundLayers = LayerMask.GetMask("Default", "Ground");
+
+        states = GetComponent<StateManager>();
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
         cam = Camera.main.transform;
-        camManager = CameraMoveController.singleton;
 
-        camManager.Init(this.transform);
+        camManager = CameraMoveController.singleton;
     }
 
     void Update()
     {
-        if (stateManager.onGround)
+        if (states.onGround)
         {
             canMove = true;
         }
-        else if (!stateManager.onGround || stateManager.attacking || stateManager.dodgeInput)
+        else if (!states.onGround || states.attacking || states.dodgeInput)
         {
             canMove = false;
         }
@@ -112,8 +104,6 @@ public class PlayerMoveController : MonoBehaviour
             switchLockOn = !switchLockOn;
             attackRange = !attackRange;
         }
-
-        camManager.Init(this.transform);
     }
 
     Transform GetClosestEnemy(Transform[] enemies)

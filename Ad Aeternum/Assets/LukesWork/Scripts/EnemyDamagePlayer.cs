@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class EnemyDamagePlayer : MonoBehaviour
 {
-    public HealthStaminaScript health;
+    HealthStaminaScript health;
     public float damage = 50;
+
+    void Start()
+    {
+        health = GameObject.Find("PlayerHealthSlider").GetComponent<HealthStaminaScript>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {

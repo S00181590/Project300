@@ -57,10 +57,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18f04057678b9c4f9614321f3b1f016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: {fileID: 0}
-  target: {fileID: 2035876334146861336}
-  arrowPickupText: {fileID: 0}
-  cam: {fileID: 0}
 --- !u!1 &537671315
 GameObject:
   m_ObjectHideFlags: 0
@@ -5076,15 +5072,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2035876334146861336}
   - component: {fileID: 2035876333024037699}
-  - component: {fileID: 1752912559679220535}
-  - component: {fileID: 2035876333024037698}
   - component: {fileID: 2035876334146861339}
   - component: {fileID: 2035876333417287411}
   - component: {fileID: 2035876333204841529}
   - component: {fileID: -8636210500579299839}
   - component: {fileID: 1004825380}
-  - component: {fileID: 1004825375}
   - component: {fileID: 1004825382}
+  - component: {fileID: 1752912559679220535}
   m_Layer: 8
   m_Name: PlayerMoveController
   m_TagString: Player
@@ -5129,34 +5123,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1752912559679220535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035876333024037701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44f9dc6859d74a6468cb1c79bb09a225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Inventory: {fileID: 0}
-  TestDisplay: {fileID: 0}
---- !u!136 &2035876333024037698
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035876333024037701}
-  m_Material: {fileID: 13400000, guid: 61744d5824eb98f449582ec00513f3f7, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.4
-  m_Height: 1.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2035876334146861339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5169,17 +5135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02d4d216a37657c4e94430b9eaed0c7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDir: {x: 0, y: 0, z: 0}
   switchLockOn: 0
   attackRange: 0
-  speed: 10
-  turnSpeed: 100
-  jump: 400
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 1025
   canMove: 1
-  stateManager: {fileID: 2035876333417287411}
 --- !u!114 &2035876333417287411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5212,20 +5170,6 @@ MonoBehaviour:
   groundTest: 0
   jumpActive: 0
   moveDir: {x: 0, y: 0, z: 1}
-  cam: {fileID: 0}
-  camMove: {fileID: 0}
-  stamina: {fileID: 0}
-  stepSFX: {fileID: 0}
-  ignoreLayers:
-    serializedVersion: 2
-    m_Bits: 9271
-  climbableLayers:
-    serializedVersion: 2
-    m_Bits: 8192
-  deathBar:
-    serializedVersion: 2
-    m_Bits: 2048
-  dataHandler: {fileID: 1160440609}
 --- !u!114 &2035876333204841529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5239,17 +5183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 6060035579112468244, guid: 2d6487bab6c5066488e7b3a5b5cbd864, type: 3}
-  spawnPoint: {fileID: 2035876334445942661}
-  cam: {fileID: 0}
-  player: {fileID: 2035876334146861339}
-  count: {fileID: 0}
-  arr: {fileID: -3020706730090524790, guid: 2d6487bab6c5066488e7b3a5b5cbd864, type: 3}
-  target: {fileID: 2035876334146861336}
-  spawnedArrow: {fileID: 0}
-  obj: {fileID: 0}
-  camera: {fileID: 0}
-  movecam: {fileID: 0}
-  arrowScream: {fileID: 0}
 --- !u!114 &-8636210500579299839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5262,9 +5195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c2ff51bb2e09bf44a08195fefac4f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbableLayers:
-    serializedVersion: 2
-    m_Bits: 8192
 --- !u!114 &1004825380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5277,22 +5207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf1a6fc996d0174ab0f71a0f480adc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barriers:
-    serializedVersion: 2
-    m_Bits: 2048
---- !u!114 &1004825375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035876333024037701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12301df1e453f85428493ab75fd2a26a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 1160440608}
 --- !u!114 &1004825382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5305,13 +5219,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b9493728b0ccf43bb86e1187026748, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  cam: {fileID: 0}
-  savingText: {fileID: 0}
-  arrowCount: {fileID: 0}
-  dataHandler: {fileID: 0}
-  sceneSwitcher: {fileID: 0}
   targetTime: 300
+--- !u!114 &1752912559679220535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035876333024037701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f9dc6859d74a6468cb1c79bb09a225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory: {fileID: 0}
+  TestDisplay: {fileID: 0}
 --- !u!1 &2035876335041560376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5435,7 +5357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23f399546b8f0214e8d91818b20d94c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
   damage: 100
 --- !u!1001 &7544184445789341830
 PrefabInstance:
@@ -5624,12 +5545,6 @@ PrefabInstance:
 --- !u!4 &2035876334445942658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7411944992729990714, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
-    type: 3}
-  m_PrefabInstance: {fileID: 8835048780302537144}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2035876334445942661 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
     type: 3}
   m_PrefabInstance: {fileID: 8835048780302537144}
   m_PrefabAsset: {fileID: 0}

@@ -5,14 +5,22 @@ using UnityEngine.UI;
 
 public class PickupScript : MonoBehaviour
 {
-    public ArrowCount count;
+    ArrowCount count;
     GameObject closestArrow;
 
-    private Vector3 position, diff;
-    public Transform target;
+    Vector3 position, diff;
+    Transform target;
 
-    public Text arrowPickupText = null;
-    public Camera cam;
+    Text arrowPickupText = null;
+    Camera cam;
+
+    private void Start()
+    {
+        count = GameObject.Find("UICanvas").GetComponent<ArrowCount>();
+        target = GameObject.Find("PlayerMoveController").transform;
+        arrowPickupText = GameObject.Find("ArrowPickup").GetComponent<Text>();
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+    }
 
     private void Update()
     {

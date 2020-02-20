@@ -5,11 +5,11 @@ using UnityEngine;
 public class CameraMoveController : MonoBehaviour
 {
     #region Variables
-    public PlayerMoveController player;
-    public Camera cam;
+    PlayerMoveController player;
+    Camera cam;
 
-    public Transform target, camTransform,
-        enemyObj, pivot;
+    [HideInInspector]
+    public Transform target, camTransform, pivot;
 
     private float mouseSpeed = 2, controllerSpeed = 5,
         minAngle = -30.0f, maxAngle = 50.0f, turnSmoothing = 0.1f,
@@ -19,44 +19,48 @@ public class CameraMoveController : MonoBehaviour
     [HideInInspector]
     public float followSpeed = 5;
 
+    [HideInInspector]
     public bool lockOn = true, switchLockOn = true, bowAim = false, indicatorShowing = false, controllerBowAim = false;
 
+    [HideInInspector]
     public float tiltAngle;
 
     private GameObject closestEnemy = null, intersectedEnemy = null;
 
-    public GameObject[] enemyList;
+    GameObject[] enemyList;
 
-    public GameObject hit = null, lockOnIndicator, bowAimCrosshair;
+    GameObject lockOnIndicator, bowAimCrosshair;
+    GameObject hit = null;
 
     private Vector3 distance, targetPosition, position, diff, screenPos;
 
-    public StateManager stateManager;
+    StateManager stateManager;
 
-    public LayerMask checkLayers;
-
-    public Collider cylinderCol;
+    Collider cylinderCol;
 
     Quaternion lookOnLook;
 
-    public DataHandler dataHandler;
+    DataHandler dataHandler;
     #endregion
 
     private void Start()
     {
+        player = GameObject.Find("PlayerMoveController").GetComponent<PlayerMoveController>();
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        target = GameObject.Find("PlayerMoveController").transform;
         camTransform = Camera.main.transform;
+        pivot = GameObject.Find("Pivot").transform;
+        stateManager = GameObject.Find("PlayerMoveController").GetComponent<StateManager>();
+        cylinderCol = GameObject.Find("TestLockOnCylinder").GetComponent<Collider>();
+        dataHandler = GameObject.Find("DataHandler").GetComponent<DataHandler>();
+        lockOnIndicator = GameObject.Find("LockOnIndicator");
+        bowAimCrosshair = GameObject.Find("BowIndicator");
 
         pivot.localPosition = Vector3.zero;
         camTransform.localPosition = new Vector3(0, 0.5f, -4f);
 
         dataHandler.OnSpawnLoad();
         transform.position = dataHandler.data.camPosition;
-    }
-
-    //Essentially a Start method but accepts variables, e.g: t (the player)
-    public void Init(Transform t)
-    {
-        target = t;
     }
 
     private void FixedUpdate()

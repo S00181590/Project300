@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ScottsWork/Scenes/Settings.unity
     guid: c00cec66dd4ad54438db7198a11e3b96
+  - enabled: 1
+    path: Assets/HubScene/Player.unity
+    guid: 3e7310476fc53e94d89402263f572d07
   m_configObjects: {}

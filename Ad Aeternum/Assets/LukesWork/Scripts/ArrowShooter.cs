@@ -6,30 +6,30 @@ using UnityEngine.SceneManagement;
 public class ArrowShooter : MonoBehaviour
 {
     float speed = 2f;
-    public GameObject arrow;
-    public GameObject spawnPoint;
-    public CameraMoveController cam;
-    public PlayerMoveController player;
+    
     Rigidbody rb = null;
-    public ArrowCount count;
-    public Arrow arr;
+    ArrowCount count;
+    
+    public GameObject arrow;
+    GameObject spawnPoint, spawnedArrow = null;
+    Vector3 position, diff;
+    Transform target;
+    
+    CameraCollision movecam;
+    CameraMoveController cam;
 
-    private Vector3 position, diff;
-    public Transform target;
+    AudioSource arrowScream;
 
-    public GameObject spawnedArrow = null;
-    bool active = false;
-    public GameObject obj = null;
-
-    public Camera camera;
-    public CameraCollision movecam;
-    bool moveCamBool = false;
-
-    public AudioSource arrowScream;
+    bool active = false, moveCamBool = false;
 
     private void Start()
     {
-        movecam = camera.gameObject.GetComponent<CameraCollision>();
+        cam = GameObject.Find("CameraMoveController").GetComponent<CameraMoveController>();
+        count = GameObject.Find("UICanvas").GetComponent<ArrowCount>();
+        spawnPoint = GameObject.Find("ArrowSpawn");
+        movecam = GameObject.Find("Main Camera").GetComponent<Camera>().gameObject.GetComponent<CameraCollision>();
+        arrowScream = GameObject.Find("SFX_ArrowScream").GetComponent<AudioSource>();
+        target = gameObject.transform;
     }
 
     private void Update()

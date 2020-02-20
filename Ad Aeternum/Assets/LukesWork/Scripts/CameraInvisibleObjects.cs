@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class CameraInvisibleObjects : MonoBehaviour
 {
-    public LayerMask LayerMask;
+    LayerMask layers;
     RaycastHit[] hitResults;
     List<string> objectsBlockingView = new List<string>();
-    public GameObject player;
+    GameObject player;
+
+    private void Start()
+    {
+        layers = LayerMask.GetMask("Player");
+        player = GameObject.Find("Player");
+    }
 
     void Update()
     {
-        hitResults = Physics.RaycastAll(Camera.main.transform.position, Camera.main.transform.forward, 1.5f, LayerMask);
+        hitResults = Physics.RaycastAll(Camera.main.transform.position, Camera.main.transform.forward, 1.5f, layers);
 
         if (hitResults.Length > 0)
         {
             //Hide all blocking objects
-
             ShowAllObjects();
 
             for (int i = 0; i < hitResults.Length; i++)
@@ -31,7 +36,6 @@ public class CameraInvisibleObjects : MonoBehaviour
         else
         {
             //Show all previously hidden objects
-
             ShowAllObjects();
         }
     }

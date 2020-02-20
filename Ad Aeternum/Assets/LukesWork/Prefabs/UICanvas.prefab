@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 916338921}
   - component: {fileID: 916338920}
   m_Layer: 5
-  m_Name: Glow
+  m_Name: PowerUpGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 1523206278}
   - component: {fileID: 1523206277}
   m_Layer: 5
-  m_Name: HealthSlider
+  m_Name: PlayerHealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1174,11 +1174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
-  isHealth: 1
   canSprint: 1
   canIncrease: 1
-  state: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &1630837339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,11 +1221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 522805af0dfdcc64489b699cd5537d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconImage: {fileID: 314666554}
-  glowImage: {fileID: 916338920}
-  iconBlipSFX: {fileID: 0}
-  poweredUpSFX: {fileID: 0}
-  colourListAmount: 0
   colourList:
   - {r: 1, g: 0.18, b: 0.81, a: 1}
   - {r: 0.8396226, g: 0.7870897, b: 0.13069598, a: 1}
@@ -1236,7 +1228,6 @@ MonoBehaviour:
   - {r: 0, g: 0.5019608, b: 0.050980393, a: 1}
   - {r: 0.12646852, g: 0.22104374, b: 0.9245283, a: 1}
   - {r: 0.5188679, g: 0.28849325, b: 0, a: 1}
-  i: 0
 --- !u!1 &1674695405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,7 +1240,7 @@ GameObject:
   - component: {fileID: 1674695408}
   - component: {fileID: 1674695407}
   m_Layer: 5
-  m_Name: StaminaSlider
+  m_Name: PlayerStaminaSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1339,11 +1330,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
-  isHealth: 0
   canSprint: 1
   canIncrease: 1
-  state: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &1756380976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,7 +1346,7 @@ GameObject:
   - component: {fileID: 1756380980}
   - component: {fileID: 1756380981}
   m_Layer: 5
-  m_Name: Saving
+  m_Name: SavingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1381,7 +1369,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 775, y: -460}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 260, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1756380979
 CanvasRenderer:
@@ -1450,7 +1438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc36c3a95f90b774f8dfac499ab021a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallSize: 220
+  smallSize: 230
   bigSize: 260
 --- !u!1 &1806592440
 GameObject:
@@ -1667,7 +1655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smallSize: 150
-  bigSize: 260
+  bigSize: 180
 --- !u!1 &1597636547498625536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,8 +1706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902e271cb2da2804eb0c0835d7586303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  cam: {fileID: 0}
 --- !u!1 &6632645261231124438
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,7 +1803,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6632645261231124438}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d571f39ee4d66442b14402d0e6f4a15, type: 3}
   m_Name: 
@@ -2109,7 +2095,7 @@ GameObject:
   - component: {fileID: 8863980308297857763}
   - component: {fileID: 2030275043}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ArrowCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2522,9 +2508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e275441219b8534ebeb0e174263fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowCountText: {fileID: 8863980308297857763}
   arrowCount: 30
-  dataHandler: {fileID: 0}
 --- !u!114 &1117051846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2537,13 +2521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea5e5b7b6af76e748af2991770aba3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverScreen: {fileID: 392476695}
-  player: {fileID: 0}
-  cam: {fileID: 0}
-  health: {fileID: 1523206277}
-  gameOverImage: {fileID: 688053094}
-  dataHandler: {fileID: 0}
-  sceneSwitcher: {fileID: 0}
 --- !u!1001 &9173662589733137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2668,13 +2645,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9121085629195735109, guid: a64205f0ff950f04886e263614d9053b,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121085629195735109, guid: a64205f0ff950f04886e263614d9053b,
+        type: 3}
       propertyPath: m_SizeDelta.y
       value: 50
       objectReference: {fileID: 0}
-    - target: {fileID: 6411474731173264718, guid: a64205f0ff950f04886e263614d9053b,
+    - target: {fileID: 841743022111731581, guid: a64205f0ff950f04886e263614d9053b,
         type: 3}
-      propertyPath: m_Alpha
-      value: 0
+      propertyPath: m_Name
+      value: LoadingText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a64205f0ff950f04886e263614d9053b, type: 3}

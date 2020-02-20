@@ -5,10 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public Animator transition;
-    public float transitionTime = 1f;
-    public GameObject player;
-    public QuicksaveScript quickSave;
+    Animator transition;
+    float transitionTime = 1f;
+    GameObject player;
+    QuicksaveScript quickSave;
+
+    private void Start()
+    {
+        transition = GetComponent<Animator>();
+        player = GameObject.Find("PlayerMoveController");
+        quickSave = GameObject.Find("PlayerMoveController").GetComponent<QuicksaveScript>();
+    }
 
     void Update()
     {

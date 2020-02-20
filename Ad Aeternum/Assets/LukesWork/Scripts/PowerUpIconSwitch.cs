@@ -5,13 +5,11 @@ using UnityEngine.UI;
 
 public class PowerUpIconSwitch : MonoBehaviour
 {
-    public Image iconImage;
-    public Image glowImage;
-    public AudioSource iconBlipSFX;
-    public AudioSource poweredUpSFX;
-    float rotateSpeed = 50;
-    public int colourListAmount;
-    bool dpadActive = false;
+    Image iconImage, glowImage;
+    AudioSource iconBlipSFX, poweredUpSFX;
+    float rotateSpeed = 50, n;
+    int i = 0;
+    bool dpadActive = false, active = true, numBool = true;
 
     public List<Color> colourList = new List<Color>()
     {
@@ -20,12 +18,14 @@ public class PowerUpIconSwitch : MonoBehaviour
         //new Color(0, 0.5f, 0.05f)
     };
 
-    public int i = 0;
+    private void Start()
+    {
+        iconImage = GameObject.Find("PowerUpImage").GetComponent<Image>();
+        glowImage = GameObject.Find("PowerUpGlow").GetComponent<Image>();
 
-    bool numBool = true;
-    float n;
-
-    bool active = true;
+        iconBlipSFX = GameObject.Find("SFX_Blip").GetComponent<AudioSource>();
+        poweredUpSFX = GameObject.Find("SFX_PoweredUp").GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -89,10 +89,10 @@ public class PowerUpIconSwitch : MonoBehaviour
                 {
                     dpadActive = true;
 
-                    if (i < colourList.Count - 1)
-                        i++;
+                    if (i > 0)
+                        i--;
                     else
-                        i = 0;
+                        i = colourList.Count - 1;
 
                     iconBlipSFX.Play();
                 }

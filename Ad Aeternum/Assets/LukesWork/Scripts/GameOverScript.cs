@@ -6,23 +6,31 @@ using UnityEngine.UI;
 
 public class GameOverScript : MonoBehaviour
 {
-    public GameObject gameOverScreen, player, cam;
-    public HealthStaminaScript health;
-    public Image gameOverImage;
+    GameObject gameOverScreen, player, cam;
+    HealthStaminaScript health;
+    Image gameOverImage;
     ArrowCount arrowCount;
 
-    public DataHandler dataHandler;
-    public SceneSwitcher sceneSwitcher;
+    DataHandler dataHandler;
+    SceneSwitcher sceneSwitcher;
 
     private static float prevRealTime;
     private float thisRealTime;
 
     void Start()
     {
+        gameOverScreen = GameObject.Find("GameOverScreen");
+        player = GameObject.Find("PlayerMoveController");
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
+        health = GameObject.Find("PlayerHealthSlider").GetComponent<HealthStaminaScript>();
+        gameOverImage = GameObject.Find("BackgroundImage").GetComponent<Image>();
+        arrowCount = GetComponent<ArrowCount>();
+        dataHandler = GameObject.Find("DataHandler").GetComponent<DataHandler>();
+        sceneSwitcher = GameObject.Find("LoadTransition").GetComponent<SceneSwitcher>();
+
         gameOverScreen.SetActive(false);
         gameOverImage.color = new Color(0, 0, 0, 0);
         Time.timeScale = 1;
-        arrowCount = GetComponent<ArrowCount>();
     }
     
     void Update()
