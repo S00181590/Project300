@@ -5,79 +5,91 @@ using UnityEngine;
 public class Shotting : MonoBehaviour
 {
     public float attackrate;
-    public bool beam;
+    public bool beam, canAttack = false;
     public GameObject projechtile;
     public float fielOfView;
     public GameObject Target;
     public int damage;
     public List<GameObject> ProjechtileSpawner;
-    
+
     List<GameObject> lastProjechtiles = new List<GameObject>();
 
     float fireTimer = 0.0f;
     // Update is called once per frame
     void Update()
     {
-
-        if(!Target)
+        if (canAttack)
         {
-            if (beam)
-                removeLastProjetiles();
-            return;
-                
-        }
-
-
-        if(beam && lastProjechtiles.Count <= 0)
-        {
-            float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(Target.transform.position - transform.position));
-            //if (angle < fielOfView)
-            //{
-            //    SpawnProjectiles();
-            //}
-            if (angle> fielOfView)
+            if (!Target)
             {
-                removeLastProjetiles();
-            }
-        }
+                if (beam)
+                    removeLastProjetiles();
+                return;
 
-        else if (beam && lastProjechtiles.Count > 0)
-        {
-            float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(Target.transform.position - transform.position));
-
-            //if (angle > fielOfView)
-            //{
-            //    while(lastProjechtiles.Count > 0) //checking if we are in line of sitr if not wont fire the projecthile 
-            //    {
-            //        Destroy(lastProjechtiles[0]);lastProjechtiles.RemoveAt(0);
-            //    }
-            //}
-            if (angle < fielOfView)
-            {
-                //checking if we are in line of sitr if not wont fire the projecthile 
-
-                SpawnProjectiles();
-                fireTimer = 0.0f;
-                
             }
 
-        }
-        else
-        {
-            fireTimer += Time.deltaTime;
-            if (fireTimer >= attackrate)
+            if (beam && lastProjechtiles.Count <= 0)
             {
-
+                float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(Target.transform.position - transform.position));
+                //if (angle < fielOfView)
+                //{
+                //    SpawnProjectiles();
+                //}
+                if (angle > fielOfView)
+                {
+                    removeLastProjetiles();
+                }
+            }
+            else if (beam && lastProjechtiles.Count > 0)
+            {
                 float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(Target.transform.position - transform.position));
 
+                //if (angle > fielOfView)
+                //{
+                //    while(lastProjechtiles.Count > 0) //checking if we are in line of sitr if not wont fire the projecthile 
+                //    {
+                //        Destroy(lastProjechtiles[0]);lastProjechtiles.RemoveAt(0);
+                //    }
+                //}
                 if (angle < fielOfView)
                 {
-                    SpawnProjectiles();
+                    //checking if we are in line of sitr if not wont fire the projecthile 
 
+                    SpawnProjectiles();
                     fireTimer = 0.0f;
+
+                }
+            }
+            else
+            {
+                fireTimer += Time.deltaTime;
+
+                if (fireTimer >= attackrate)
+                {
+
+                    float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(Target.transform.position - transform.position));
+
+                    if (angle < fielOfView)
+                    {
+                        SpawnProjectiles();
+
+                        fireTimer = 0.0f;
+                    }
                 }
             }
         }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+            canAttack = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+            canAttack = false;
     }
 
     void SpawnProjectiles()
@@ -94,7 +106,7 @@ public class Shotting : MonoBehaviour
             {
                 GameObject proj = Instantiate(projechtile, ProjechtileSpawner[i].transform.position,
                     Quaternion.Euler(ProjechtileSpawner[i].transform.forward)) as GameObject;
-                proj.GetComponent<BaseProjectile>().fireProjechtile(ProjechtileSpawner[i], Target, damage , attackrate);//used in the tracking script 
+                proj.GetComponent<BaseProjectile>().fireProjechtile(ProjechtileSpawner[i], Target, damage, attackrate);//used in the tracking script 
 
                 lastProjechtiles.Add(proj);
             }
@@ -105,9 +117,9 @@ public class Shotting : MonoBehaviour
     {
         Target = target;
     }
-    void removeLastProjetiles ()
+    void removeLastProjetiles()
     {
-        while(lastProjechtiles.Count>0)
+        while (lastProjechtiles.Count > 0)
         {
             Destroy(lastProjechtiles[0]);
             lastProjechtiles.RemoveAt(0);

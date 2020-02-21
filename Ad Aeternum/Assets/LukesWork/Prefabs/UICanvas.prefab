@@ -2508,7 +2508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e275441219b8534ebeb0e174263fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowCount: 30
+  arrowCount: 100
 --- !u!114 &1117051846
 MonoBehaviour:
   m_ObjectHideFlags: 0

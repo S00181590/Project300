@@ -95,7 +95,7 @@ public class SceneSwitcher : MonoBehaviour
             quickSave.targetTime = 0;
             yield return new WaitForSecondsRealtime(1);
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

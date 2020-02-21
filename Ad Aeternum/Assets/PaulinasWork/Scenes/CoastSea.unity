@@ -5050,6 +5050,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1752912559679220535, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: TestDisplay
+      value: 
+      objectReference: {fileID: 907407521}
+    - target: {fileID: 1752912559679220535, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: Inventory
+      value: 
+      objectReference: {fileID: 712764574}
     - target: {fileID: 2035876333417287411, guid: 70156bdb10c85794eada625c78b77f12,
         type: 3}
       propertyPath: healthStamina
@@ -5097,16 +5107,10 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1057619693}
-    - target: {fileID: 1752912559679220535, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: TestDisplay
-      value: 
-      objectReference: {fileID: 907407521}
-    - target: {fileID: 1752912559679220535, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: Inventory
-      value: 
-      objectReference: {fileID: 712764574}
+    - target: {fileID: 1207312584, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 205367309, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
       propertyPath: count
       value: 
@@ -5127,10 +5131,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1207312584, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
@@ -6126,11 +6126,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 8778989935898128429, guid: 71550d5ca3981454daf48cdbdb27f447,
-        type: 3}
-      propertyPath: far clip plane
-      value: 2000
-      objectReference: {fileID: 0}
     - target: {fileID: 8778989934739054598, guid: 71550d5ca3981454daf48cdbdb27f447,
         type: 3}
       propertyPath: lockOnIndicator
@@ -6211,11 +6206,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 250401585, guid: 71550d5ca3981454daf48cdbdb27f447, type: 3}
+    - target: {fileID: 8778989935898128429, guid: 71550d5ca3981454daf48cdbdb27f447,
+        type: 3}
+      propertyPath: far clip plane
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 819230352, guid: 71550d5ca3981454daf48cdbdb27f447, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 599179964}
-    - target: {fileID: 819230352, guid: 71550d5ca3981454daf48cdbdb27f447, type: 3}
+    - target: {fileID: 250401585, guid: 71550d5ca3981454daf48cdbdb27f447, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 599179964}
@@ -6504,22 +6504,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 1523206277, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: state
-      value: 
-      objectReference: {fileID: 370180597}
-    - target: {fileID: 1523206277, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 599179964}
-    - target: {fileID: 1674695407, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: state
-      value: 
-      objectReference: {fileID: 370180597}
-    - target: {fileID: 1674695407, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 599179964}
     - target: {fileID: 8863980308918497523, guid: a5b1610d3ea586f44b9d40b2f76f6aaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6637,14 +6621,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1630837340, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: iconBlipSFX
-      value: 
-      objectReference: {fileID: 1286500288}
-    - target: {fileID: 1630837340, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
-      propertyPath: poweredUpSFX
-      value: 
-      objectReference: {fileID: 662999535}
     - target: {fileID: 8863980309741438114, guid: a5b1610d3ea586f44b9d40b2f76f6aaa,
         type: 3}
       propertyPath: m_ReferenceResolution.x
@@ -6676,6 +6652,30 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1523206277, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: state
+      value: 
+      objectReference: {fileID: 370180597}
+    - target: {fileID: 1523206277, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 599179964}
+    - target: {fileID: 1630837340, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: iconBlipSFX
+      value: 
+      objectReference: {fileID: 1286500288}
+    - target: {fileID: 1630837340, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: poweredUpSFX
+      value: 
+      objectReference: {fileID: 662999535}
+    - target: {fileID: 1674695407, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: state
+      value: 
+      objectReference: {fileID: 370180597}
+    - target: {fileID: 1674695407, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 599179964}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5b1610d3ea586f44b9d40b2f76f6aaa, type: 3}
 --- !u!1 &510735286
@@ -14376,7 +14376,7 @@ Terrain:
   m_Enabled: 1
   serializedVersion: 5
   m_TerrainData: {fileID: 15600000, guid: 76bfb3ffde89af6429f31329d6dff069, type: 2}
-  m_TreeDistance: 5000
+  m_TreeDistance: 300
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
@@ -14385,9 +14385,9 @@ Terrain:
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
   m_HeightmapMaximumLOD: 0
-  m_ShadowCastingMode: 0
+  m_ShadowCastingMode: 1
   m_DrawHeightmap: 1
-  m_DrawInstanced: 0
+  m_DrawInstanced: 1
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
   m_MaterialTemplate: {fileID: 2100000, guid: 6d2c1abc4b8103e4d9aad92af333750c, type: 2}
