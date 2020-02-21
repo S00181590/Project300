@@ -87,13 +87,13 @@ public class SceneSwitcher : MonoBehaviour
 
         if (obj is Vector3)
         {
-            transition.SetTrigger("Start");
+            //transition.SetTrigger("Start");
 
-            yield return new WaitForSecondsRealtime(transitionTime);
+            //yield return new WaitForSecondsRealtime(transitionTime);
 
             player.transform.position = (Vector3)obj;
             quickSave.targetTime = 0;
-            yield return new WaitForSecondsRealtime(1);
+            //yield return new WaitForSecondsRealtime(1);
 
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
