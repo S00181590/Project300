@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: InvalidStudios();
   productName: Ad Aeternum
-  defaultCursor: {fileID: 2800000, guid: 2a384b59391827548909628dd0fec270, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 6d5e44d7090361346bd26bcb8ebc3980, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_ShowUnitySplashScreen: 1
