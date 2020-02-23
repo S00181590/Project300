@@ -15,9 +15,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public Transform slotIcon;
     public Sprite icon;
 
+    public GameObject itemDisplayer;
+
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        UseItem();
+        DisplayItem();
     }
 
     private void Start()
@@ -33,5 +35,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public void UseItem()
     {
         item.GetComponent<Item>().ItemUsage();
+    }
+
+    public void DisplayItem()
+    {
+        Debug.Log(item.GetComponent<Item>().description);
     }
 }
