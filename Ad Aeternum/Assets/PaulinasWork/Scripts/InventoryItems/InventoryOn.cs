@@ -6,6 +6,12 @@ public class InventoryOn : MonoBehaviour
 {
     public Canvas canvas;
 
+    private int allSlots;
+    private int enabledSlots;
+    private GameObject[] slots;
+
+    public GameObject slotHolder;
+
     void Start()
     {
         canvas.enabled = false;
