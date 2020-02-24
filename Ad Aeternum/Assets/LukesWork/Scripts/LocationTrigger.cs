@@ -50,7 +50,7 @@ public class LocationTrigger : MonoBehaviour
 
     public IEnumerator ImageDelete(Image locImage)
     {
-        locationImage = Instantiate(image.GetComponent<Image>(), new Vector3(Screen.width / 2, 375, 0), Quaternion.identity, canvas.transform);
+        locationImage = Instantiate(image.GetComponent<Image>(), new Vector3(Screen.width / 2, Screen.height / 1.35f, 0), Quaternion.identity, canvas.transform);
         locationImage.color = new Color(1, 1, 1, 0);
 
         imageBool = true;
