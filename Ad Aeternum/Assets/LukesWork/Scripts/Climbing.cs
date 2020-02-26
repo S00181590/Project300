@@ -31,8 +31,8 @@ public class Climbing : MonoBehaviour
             new Vector3(state.moveDir.x, state.moveDir.y/* + 0.2f*/, state.moveDir.z), 
             out hit, 1, climbableLayers))
         {
-            Invoke("JumpClimb", 1);
-            Invoke("WhileClimbing", 1.5f);
+            Invoke("JumpClimb", 0.5f);
+            Invoke("WhileClimbing", 1);
             canClimb = true;
         }
         else
