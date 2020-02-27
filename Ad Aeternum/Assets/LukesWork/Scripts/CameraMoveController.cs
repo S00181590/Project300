@@ -133,8 +133,6 @@ public class CameraMoveController : MonoBehaviour
         {
             bowAim = false;
 
-            
-
             if ((Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Joystick1Button11)) && (!Input.GetMouseButton(1) || !Input.GetKey(KeyCode.Joystick1Button6)))
             {
                 controllerBowAim = !controllerBowAim;
