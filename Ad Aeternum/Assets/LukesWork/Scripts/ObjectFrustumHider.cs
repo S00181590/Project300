@@ -10,17 +10,18 @@ public class ObjectFrustumHider : MonoBehaviour
     void Start()
     {
         scale = new Vector3(100000, 100000, 100000);
+        scale = new Vector3(1, 1, 1);
     }
 
-    private void Update()
-    {
-        transform.localScale = scale;
+    //private void Update()
+    //{
+    //    transform.localScale = scale;
 
-        if (transform.localScale == scale)
-        {
-            scale = new Vector3(1, 1, 1);
-        }
-    }
+    //    if (transform.localScale == scale)
+    //    {
+    //        scale = new Vector3(1, 1, 1);
+    //    }
+    //}
 
     private void OnTriggerStay(Collider other)
     {
@@ -33,6 +34,12 @@ public class ObjectFrustumHider : MonoBehaviour
             {
                 other.GetComponent<MeshRenderer>().enabled = true;
                 //other.enabled = true;
+            }
+
+            if  (other.GetComponent<ParticleSystem>() != null)
+            {
+                var emission = other.GetComponent<ParticleSystem>().emission;
+                emission.enabled = true;
             }
         }
     }
@@ -48,6 +55,12 @@ public class ObjectFrustumHider : MonoBehaviour
             {
                 other.GetComponent<MeshRenderer>().enabled = false;
                 //other.enabled = false;
+            }
+
+            if (other.GetComponent<ParticleSystem>() != null)
+            {
+                var emission = other.GetComponent<ParticleSystem>().emission;
+                emission.enabled = false;
             }
         }
     }
