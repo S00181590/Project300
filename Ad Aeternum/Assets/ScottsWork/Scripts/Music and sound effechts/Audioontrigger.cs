@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class Audioontrigger : MonoBehaviour
 {
-    public float num;
-    public GameObject trigger;
-    public AudioSource audioclip;
+      public AudioClip audiotriggerclip;
+     AudioSource audioSource;
 
-    void OnTriggerEnter(Collider collider)
+
+     void Start()
     {
-        if (collider.tag == "Ground")
+        audioSource = GetComponent<AudioSource>();
+    }
+     void Update()
+    {
+        
+    }
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (audiotriggerclip != null)
         {
-            trigger.SetActive(true);
-            audioclip.Play();
+            audioSource.PlayOneShot(audiotriggerclip, 0.5f);
+           
         }
     }
 }

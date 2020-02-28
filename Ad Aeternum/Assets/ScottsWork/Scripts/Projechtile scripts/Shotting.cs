@@ -31,10 +31,10 @@ public class Shotting : MonoBehaviour
             if (beam && lastProjechtiles.Count <= 0)
             {
                 float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(Target.transform.position - transform.position));
-                //if (angle < fielOfView)
-                //{
-                //    SpawnProjectiles();
-                //}
+                if (angle < fielOfView)
+                {
+                    SpawnProjectiles();
+                }
                 if (angle > fielOfView)
                 {
                     removeLastProjetiles();
@@ -44,13 +44,13 @@ public class Shotting : MonoBehaviour
             {
                 float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(Target.transform.position - transform.position));
 
-                //if (angle > fielOfView)
-                //{
-                //    while(lastProjechtiles.Count > 0) //checking if we are in line of sitr if not wont fire the projecthile 
-                //    {
-                //        Destroy(lastProjechtiles[0]);lastProjechtiles.RemoveAt(0);
-                //    }
-                //}
+                if (angle > fielOfView)
+                {
+                    while (lastProjechtiles.Count > 0) //checking if we are in line of sitr if not wont fire the projecthile 
+                    {
+                        Destroy(lastProjechtiles[0]); lastProjechtiles.RemoveAt(0);
+                    }
+                }
                 if (angle < fielOfView)
                 {
                     //checking if we are in line of sitr if not wont fire the projecthile 
