@@ -15,6 +15,7 @@ TagManager:
   - Projectile
   - ArrowArea
   - Camera
+  - Weapons
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - Obstacles
   - Projectile
   - Terrain
-  - 
+  - Weapons
   - 
   - 
   - 

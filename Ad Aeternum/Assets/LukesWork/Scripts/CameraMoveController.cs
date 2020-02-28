@@ -25,7 +25,7 @@ public class CameraMoveController : MonoBehaviour
     [HideInInspector]
     public float tiltAngle;
 
-    private GameObject closestEnemy = null, intersectedEnemy = null;
+    private GameObject closestEnemy = null, intersectedEnemy = null, playerObj;
 
     GameObject[] enemyList;
 
@@ -46,6 +46,7 @@ public class CameraMoveController : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("PlayerMoveController").GetComponent<PlayerMoveController>();
+        playerObj = GameObject.Find("PlayerMoveController");
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         target = GameObject.Find("PlayerMoveController").transform;
         camTransform = Camera.main.transform;
@@ -140,10 +141,13 @@ public class CameraMoveController : MonoBehaviour
                 intersectedEnemy = IntersectedEnemy();
             }
 
-            if (Input.GetMouseButton(1) || (Input.GetKey(KeyCode.JoystickButton6)))
+            if (playerObj.GetComponent<WeaponSwitch>().weaponBool == false)
             {
-                player.switchLockOn = false;
-                bowAim = true;
+                if (Input.GetMouseButton(1) || (Input.GetKey(KeyCode.JoystickButton6)))
+                {
+                    player.switchLockOn = false;
+                    bowAim = true;
+                }
             }
 
             //Locks on to the enemy you're looking at
@@ -158,12 +162,12 @@ public class CameraMoveController : MonoBehaviour
                 lookAngle = camTransform.rotation.eulerAngles.y;
 
                 lockOnIndicator.SetActive(true);
-                
+
                 if (intersectedEnemy != null)
                 {
                     screenPos = cam.WorldToScreenPoint(intersectedEnemy.transform.position);
                 }
-                else if(closestEnemy != null)
+                else if (closestEnemy != null)
                 {
                     screenPos = cam.WorldToScreenPoint(closestEnemy.transform.position);
                 }
@@ -181,7 +185,7 @@ public class CameraMoveController : MonoBehaviour
             //    lookAngle = camTransform.rotation.eulerAngles.y;
 
             //    lockOnIndicator.SetActive(true);
-                
+
             //    lockOnIndicator.transform.position = screenPos;
             //}
             else
@@ -195,28 +199,31 @@ public class CameraMoveController : MonoBehaviour
             //Bow aim in
             if (Input.GetMouseButton(1) || (Input.GetKey(KeyCode.JoystickButton6)))
             {
-                camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1, 0.5f, -3f), 0.1f);
-                //camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(-20, 0, 0), 0.1f);
-                cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 35, 0.1f);
+                if (playerObj.GetComponent<WeaponSwitch>().weaponBool == false)
+                {
+                    camTransform.localPosition = Vector3.Lerp(camTransform.localPosition, new Vector3(1, 0.5f, -3f), 0.1f);
+                    //camTransform.localRotation = Quaternion.Slerp(camTransform.localRotation, Quaternion.Euler(-20, 0, 0), 0.1f);
+                    cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, 35, 0.1f);
 
-                player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
+                    player.transform.localRotation = Quaternion.Euler(0, camTransform.rotation.eulerAngles.y, 0);
 
-                stateManager.speed = 2;
-                cameraAimSpeed = 0.15f;
+                    stateManager.speed = 2;
+                    cameraAimSpeed = 0.15f;
 
-                bowAimCrosshair.SetActive(true);
-                bowAim = true;
+                    bowAimCrosshair.SetActive(true);
+                    bowAim = true;
 
-                lockOnIndicator.SetActive(false);
+                    lockOnIndicator.SetActive(false);
 
-                //if (stateManager.onGround == false)
-                //{
-                //    Time.timeScale = 0.2f;
-                //}
-                //else
-                //{
-                //    Time.timeScale = 1f;
-                //}
+                    //if (stateManager.onGround == false)
+                    //{
+                    //    Time.timeScale = 0.2f;
+                    //}
+                    //else
+                    //{
+                    //    Time.timeScale = 1f;
+                    //}
+                }
             }
             //Bow aim out
             else
