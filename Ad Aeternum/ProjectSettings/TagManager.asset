@@ -15,6 +15,9 @@ TagManager:
   - Projectile
   - ArrowArea
   - Camera
+  - Fire
+  - Item
+  - WeaponManager
   - Weapons
   layers:
   - Default
