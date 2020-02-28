@@ -22,6 +22,7 @@ public class EnemyMovent : NavMeshMover
         if(Vector3.Distance(transform.position,Player.transform.position) <= FollowAmount)
         {
             agent.stoppingDistance = 3.0f;
+            transform.LookAt(2 * transform.position + startPoistion);
             MoveTo(Player);
         }
         else
