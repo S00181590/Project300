@@ -1,5 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7631135762949936377
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f6f3f7c722b4544b97e3c75840aa33, type: 3}
+  m_Name: AutoExposure
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  filtering:
+    overrideState: 1
+    value: {x: 26.454546, y: 99}
+  minLuminance:
+    overrideState: 1
+    value: -9
+  maxLuminance:
+    overrideState: 1
+    value: -2
+  keyValue:
+    overrideState: 1
+    value: 0.5
+  eyeAdaptation:
+    overrideState: 0
+    value: 0
+  speedUp:
+    overrideState: 0
+    value: 1
+  speedDown:
+    overrideState: 0
+    value: 2
 --- !u!114 &-5608506122167631068
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -922,8 +959,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.29395604
-          value: 0.85465115
+          time: 0.28138527
+          value: 0.7420814
           inSlope: 0.043188944
           outSlope: 0.043188944
           tangentMode: 0
@@ -949,8 +986,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.5576923
-          value: 0.9127907
+          time: 0.5670996
+          value: 0.7647059
           inSlope: -0.45065314
           outSlope: -0.45065314
           tangentMode: 0
@@ -991,30 +1028,30 @@ MonoBehaviour:
       - 0.60345703
       - 0.60537004
       - 0.60923845
-      - 0.615469
-      - 0.62389255
-      - 0.6342452
-      - 0.6462675
-      - 0.6596997
-      - 0.6742824
-      - 0.6897559
-      - 0.70586073
-      - 0.72233737
-      - 0.7389261
-      - 0.7553675
-      - 0.771402
-      - 0.7867699
-      - 0.80121183
-      - 0.81446815
-      - 0.82627916
-      - 0.8363855
-      - 0.84452754
-      - 0.8504457
-      - 0.8538804
-      - 0.84631366
-      - 0.75984985
-      - 0.62812275
-      - 0.5119723
+      - 0.6150695
+      - 0.6218432
+      - 0.62938106
+      - 0.6375461
+      - 0.6462012
+      - 0.65520924
+      - 0.6644333
+      - 0.6737362
+      - 0.68298095
+      - 0.6920305
+      - 0.70074767
+      - 0.7089955
+      - 0.716637
+      - 0.72353494
+      - 0.7295523
+      - 0.73455215
+      - 0.7383973
+      - 0.7409507
+      - 0.7420753
+      - 0.72187304
+      - 0.6698696
+      - 0.60244
+      - 0.5359661
+      - 0.48682988
       - 0.47093278
       - 0.47110546
       - 0.47157168
@@ -1038,24 +1075,24 @@ MonoBehaviour:
       - 0.5666093
       - 0.57872796
       - 0.59177965
-      - 0.60590625
-      - 0.63888544
-      - 0.69519013
-      - 0.76269495
-      - 0.8292745
-      - 0.8828033
-      - 0.91115594
-      - 0.90804505
-      - 0.89046794
-      - 0.8629531
-      - 0.8281123
-      - 0.7885568
-      - 0.7468983
-      - 0.7057482
-      - 0.66771805
-      - 0.6354194
-      - 0.61146384
-      - 0.59846276
+      - 0.6058234
+      - 0.62522686
+      - 0.65095776
+      - 0.67986953
+      - 0.7088153
+      - 0.73464835
+      - 0.7542218
+      - 0.76438904
+      - 0.7625324
+      - 0.7518088
+      - 0.7348685
+      - 0.7135662
+      - 0.6897565
+      - 0.6652943
+      - 0.64203423
+      - 0.621831
+      - 0.6065393
+      - 0.59801394
       - 0.5964993
       - 0.5960213
       - 0.5957932
@@ -1400,6 +1437,7 @@ MonoBehaviour:
   - {fileID: 3834328043157308219}
   - {fileID: 2900429362397859924}
   - {fileID: -5608506122167631068}
+  - {fileID: -7631135762949936377}
 --- !u!114 &2900429362397859924
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1484,7 +1522,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 3
+    value: 2
   threshold:
     overrideState: 1
     value: 1
