@@ -27,9 +27,9 @@ public class HealthStaminaScript : MonoBehaviour
     {
         gameObj.GetComponent<Slider>().value = value;
 
-        if (gameObject.name == "PlayerHealthSlider")
+        if (gameObject.name == "PlayerHealthSlider") //Health
         {
-            if (value < gameObj.GetComponent<Slider>().maxValue && canIncrease)
+            if (value < gameObj.GetComponent<Slider>().maxValue && canIncrease && Time.timeScale != 0)
             {
                 value += icreaseValue;
             }
@@ -39,26 +39,9 @@ public class HealthStaminaScript : MonoBehaviour
                 value = 0;
             }
         }
-        else
+        else //Stamina
         {
-            //if (Input.GetKey(KeyCode.LeftShift))
-            //{
-            //    if (state.moveAmount == 0)
-            //    {
-            //        CancelInvoke();
-            //        InvokeRepeating("Increase", 2, 2000);
-            //    }
-            //    else
-            //    {
-            //        if (value > gameObj.GetComponent<Slider>().minValue)
-            //        {
-            //            canIncrease = false;
-            //            value -= decreaseValue;
-            //        }
-            //    }
-            //}
-
-            if (state.moveAmount > 0)
+            if (state.moveAmount > 0 && state.onGround)
             {
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
@@ -73,7 +56,7 @@ public class HealthStaminaScript : MonoBehaviour
                 InvokeRepeating("Increase", 2, 2000);
             }
 
-            if (value < gameObj.GetComponent<Slider>().maxValue && canIncrease)
+            if (value < gameObj.GetComponent<Slider>().maxValue && canIncrease && Time.timeScale != 0)
             {
                 value += icreaseValue;
             }

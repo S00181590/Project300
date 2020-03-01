@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7794645146303902952}
   - component: {fileID: 2665275865346322727}
-  m_Layer: 9
+  m_Layer: 20
   m_Name: EnemyRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 15
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7750461360626452398
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4da0220226d1b4aa063e1b7d1f9c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
 --- !u!1 &7750461361127575232
 GameObject:
   m_ObjectHideFlags: 0

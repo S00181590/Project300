@@ -221,7 +221,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 100
+  m_Radius: 150
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &664637831
 MonoBehaviour:
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 909954009}
   - component: {fileID: 909954008}
   m_Layer: 8
-  m_Name: Sphere
+  m_Name: InventorySphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5173,7 +5173,7 @@ GameObject:
   - component: {fileID: 1536283002}
   - component: {fileID: 1536283001}
   - component: {fileID: 1536283000}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5284,6 +5284,7 @@ GameObject:
   - component: {fileID: 1752912559679220535}
   - component: {fileID: 1004825383}
   - component: {fileID: 1004825384}
+  - component: {fileID: 1004825385}
   m_Layer: 8
   m_Name: PlayerMoveController
   m_TagString: Player
@@ -5469,6 +5470,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponBool: 1
   sword: {fileID: 6352457372579161049}
+--- !u!114 &1004825385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035876333024037701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552f19fa73d8a79439cc68cc1cac85fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2035876335041560376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5609,7 +5622,7 @@ PrefabInstance:
     - target: {fileID: 8953059075588581529, guid: 436e60b761736a047973e0388e1fd28a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.408
+      value: 0.468
       objectReference: {fileID: 0}
     - target: {fileID: 8953059075588581529, guid: 436e60b761736a047973e0388e1fd28a,
         type: 3}
@@ -5777,6 +5790,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2035876335041560519}
     m_Modifications:
+    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
+        type: 3}
+      propertyPath: m_Name
+      value: ArrowSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7411944992729990714, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5846,16 +5869,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
-        type: 3}
-      propertyPath: m_Name
-      value: ArrowSpawn
-      objectReference: {fileID: 0}
-    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
-        type: 3}
-      propertyPath: m_Layer
-      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d9cf72bbc4d38248bca0d0c08aaec67, type: 3}

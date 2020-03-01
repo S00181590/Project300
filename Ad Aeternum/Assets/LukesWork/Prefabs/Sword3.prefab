@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5672448163812336367}
   - component: {fileID: 4733072285649999996}
   - component: {fileID: 71459977251431006}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: pasted__pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 6e61115a19985764787593623c86304b, type: 3}
+  - {fileID: 2100000, guid: 512e9df6619ed384f839f5335052bb6f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4209230049211075729}
   - component: {fileID: 7341666940298738999}
   - component: {fileID: 1522096545175669139}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 6e61115a19985764787593623c86304b, type: 3}
+  - {fileID: 2100000, guid: ea1bf8c546719db4886851fdc3b4ad8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 486508170248120799}
   - component: {fileID: 3056934932981749685}
   - component: {fileID: 8496341265150535008}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: pasted__pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 6e61115a19985764787593623c86304b, type: 3}
+  - {fileID: 2100000, guid: d279e59d4b3e90a4c988f60830a6ba63, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 2930999807393424260}
   - component: {fileID: 1895973159670559029}
   - component: {fileID: 154696882633852173}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: pasted__pCube2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +291,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 6e61115a19985764787593623c86304b, type: 3}
+  - {fileID: 2100000, guid: ea1bf8c546719db4886851fdc3b4ad8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 6595325848824063810}
   - component: {fileID: 8970641833265296783}
   - component: {fileID: -5496841897401976538}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: Sword3
   m_TagString: Weapons
   m_Icon: {fileID: 0}
@@ -337,9 +337,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7916224452449981777}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 648.507, y: 21.017, z: 1236.413}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.075, y: 0.075, z: 0.075}
   m_Children:
   - {fileID: 543062670261600942}
   - {fileID: 486508170248120799}
@@ -384,7 +384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543062670261600942}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: pasted__curve1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

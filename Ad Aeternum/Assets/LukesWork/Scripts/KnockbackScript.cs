@@ -18,12 +18,14 @@ public class KnockbackScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "Projectile")
+        if (collision.gameObject.tag == "Projectile")
         {
             rb.isKinematic = false;
-            rb.AddForce(other.transform.position * 50, ForceMode.Impulse);
+            Vector3 dir = collision.contacts[0].point - transform.position;
+            dir = -dir.normalized;
+            GetComponent<Rigidbody>().AddForce(dir * 5000);
         }
     }
 }

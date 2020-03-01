@@ -39,7 +39,7 @@ public class StateManager : MonoBehaviour
 
     public void Start()
     {
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
         
         //SetupAnimator();
         rb = GetComponent<Rigidbody>();
@@ -49,7 +49,6 @@ public class StateManager : MonoBehaviour
 
         gameObject.layer = 8;
         ignoreLayers = LayerMask.GetMask("Default", "TransparentFX", "Ignore Raycast", "Water", "UI", "Ground", "Climbable");
-        climbableLayers = LayerMask.GetMask("Climbable");
         deathBar = LayerMask.GetMask("deathBar");
 
         player = GetComponent<PlayerMoveController>();
@@ -101,7 +100,9 @@ public class StateManager : MonoBehaviour
 
         if ((moveDir.x == 0 && moveDir.z == 0) && /*(Physics.Raycast(transform.position, new Vector3(0, -Vector3.up.y, 0), out hitTest, 0.81f, ignoreLayers)*/ onGround == true)
         {
-            rb.isKinematic = true;
+            //rb.isKinematic = true;
+            speed = 0;
+            rb.velocity = new Vector3(0, 0, 0);
         }
 
         if (moveAmount > 0 || onGround == false)

@@ -14,12 +14,12 @@ public class CameraCollision : MonoBehaviour
     public float minDistance = 0, maxDistance = 4, smooth = 10, distance = 0;
     float zoomDamp = 0.075f, vel = 0f, zoom, rad = 0.5f;
 
-    Ray ray, ray2;
+    Ray ray;
 
     void Start()
     {
         player = GameObject.Find("PlayerMoveController");
-        ignore = LayerMask.GetMask("Default", "Enemy", "Ground", "Climbable");
+        ignore = LayerMask.GetMask("Default", "Ground", "Climbable");
 
         dir = transform.localPosition.normalized;
         distance = transform.localPosition.magnitude;
@@ -28,7 +28,6 @@ public class CameraCollision : MonoBehaviour
     void FixedUpdate()
     {
         ray = new Ray(player.transform.position, -transform.parent.forward);
-        ray2 = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, ignore))
@@ -43,10 +42,4 @@ public class CameraCollision : MonoBehaviour
         zoom = Mathf.Clamp(zoom, zoomClamp.x, zoomClamp.y);
         transform.localPosition = new Vector3(0, 0.125f, -1) * zoom;
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.DrawRay(ray);
-    //    Gizmos.DrawRay(ray2);
-    //}
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8625969117015335981}
   - component: {fileID: 748064817746060323}
   - component: {fileID: 8495408867366928322}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: pCylinder1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2149019996015493962}
   - component: {fileID: 4781201086678266604}
   - component: {fileID: 3650018647597696584}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 6464260809653463790}
   - component: {fileID: 6469124659463306729}
   - component: {fileID: 4938858554535912123}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: pCube3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 8953059075588581529}
   - component: {fileID: 8563017037527042242}
   - component: {fileID: 4929353549531821473}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: Sword1
   m_TagString: Weapons
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ Transform:
   m_GameObject: {fileID: 5360688817560722058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 648.39, y: 21.103, z: 1237.126}
-  m_LocalScale: {x: 0.050000016, y: 0.05, z: 0.050000016}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 4936663445847943733}
   - {fileID: 2149019996015493962}
@@ -306,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4936663445847943733}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: curve1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 9207007857348420352}
   - component: {fileID: 8382400607686761955}
   - component: {fileID: 415433168492760501}
-  m_Layer: 19
+  m_Layer: 2
   m_Name: pCube2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -6,6 +6,7 @@ public class ObjectFrustumHider : MonoBehaviour
 {
     bool active;
     Vector3 scale;
+    public bool terrainCull;
 
     void Start()
     {
@@ -25,21 +26,42 @@ public class ObjectFrustumHider : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer != 10)
+        if (terrainCull == false)
         {
-            //if (other.GetComponent<MeshRenderer>() != null)
-            //    other.GetComponent<MeshRenderer>().enabled = true;
-
-            if (/*other.gameObject != null && */other.GetComponent<MeshRenderer>() != null)
+            if (other.gameObject.layer != 10)
             {
-                other.GetComponent<MeshRenderer>().enabled = true;
-                //other.enabled = true;
+                //if (other.GetComponent<MeshRenderer>() != null)
+                //    other.GetComponent<MeshRenderer>().enabled = true;
+
+                if (/*other.gameObject != null && */other.GetComponent<MeshRenderer>() != null)
+                {
+                    other.GetComponent<MeshRenderer>().enabled = true;
+                    //other.enabled = true;
+                }
+
+                if (other.GetComponent<ParticleSystem>() != null)
+                {
+                    var emission = other.GetComponent<ParticleSystem>().emission;
+                    emission.enabled = true;
+                }
             }
-
-            if  (other.GetComponent<ParticleSystem>() != null)
+        }
+        else
+        {
+            if (other.gameObject.layer == 10)
             {
-                var emission = other.GetComponent<ParticleSystem>().emission;
-                emission.enabled = true;
+                if (other.GetComponent<MeshRenderer>() != null)
+                {
+                    other.GetComponent<MeshRenderer>().enabled = true;
+                }
+            }
+            
+            if (other.gameObject.layer == 10)
+            {
+                if (other.GetComponent<MeshRenderer>() != null)
+                {
+                    other.GetComponent<MeshRenderer>().enabled = true;
+                }
             }
         }
     }
