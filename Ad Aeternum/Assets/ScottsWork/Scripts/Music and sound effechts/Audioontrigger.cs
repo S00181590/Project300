@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Audioontrigger : MonoBehaviour
 {
+    GameObject Player;
       public AudioClip audiotriggerclip;
-     AudioSource audioSource;
+       AudioSource audioSource;
 
 
      void Start()
