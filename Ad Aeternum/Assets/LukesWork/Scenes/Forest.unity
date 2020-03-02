@@ -24793,7 +24793,7 @@ Terrain:
   m_ShadowCastingMode: 2
   m_DrawHeightmap: 1
   m_DrawInstanced: 1
-  m_DrawTreesAndFoliage: 1
+  m_DrawTreesAndFoliage: 0
   m_ReflectionProbeUsage: 1
   m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
@@ -49930,6 +49930,10 @@ PrefabInstance:
       propertyPath: TestDisplay
       value: 
       objectReference: {fileID: 198530731}
+    - target: {fileID: 537671315, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1004825383, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
       propertyPath: gate
       value: 
@@ -49942,9 +49946,35 @@ PrefabInstance:
       propertyPath: slotHolder
       value: 
       objectReference: {fileID: 641271694}
-    - target: {fileID: 537671315, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 6352457372579161049, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267046859468425283, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 6144983189481196349, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260438800046008614, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1313274725111723165, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701346294066649511, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: m_Layer
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
