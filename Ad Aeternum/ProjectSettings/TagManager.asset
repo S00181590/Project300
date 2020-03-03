@@ -19,6 +19,7 @@ TagManager:
   - Item
   - WeaponManager
   - Weapons
+  - PHealth
   layers:
   - Default
   - TransparentFX
