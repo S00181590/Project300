@@ -46,7 +46,7 @@ public class OpenGateScript : MonoBehaviour
         //}
 
         if (enemy1 == null & enemy2 == null && enemy3 == null && enemy4 == null && enemy5 == null
-            && enemy6 == null && enemy7 == null && enemy8 == null && enemy9 == null)
+            && enemy6 == null && enemy7 == null && enemy8 == null && enemy9 == null || Input.GetKeyDown(KeyCode.O))
         {
             Particle(barrier.transform.position);
             Destroy(barrier);
