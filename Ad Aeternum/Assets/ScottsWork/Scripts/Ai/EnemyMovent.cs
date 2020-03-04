@@ -8,6 +8,7 @@ public class EnemyMovent : NavMeshMover
     public GameObject Player;
     public float FollowAmount;
     public Vector3 startPoistion;
+    public float Distance;
     // Start is called before the first frame update
   public override  void Start()
     {
@@ -21,13 +22,13 @@ public class EnemyMovent : NavMeshMover
     {
         if(Vector3.Distance(transform.position,Player.transform.position) <= FollowAmount)
         {
-            agent.stoppingDistance = 3.0f;
+            agent.stoppingDistance = Distance;
             transform.LookAt(2 * transform.position + startPoistion);
             MoveTo(Player);
         }
         else
         {
-            agent.stoppingDistance = 5;
+            agent.stoppingDistance =  Distance;
             MoveTo(startPoistion);
         }
     }

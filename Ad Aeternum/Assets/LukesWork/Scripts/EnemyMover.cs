@@ -7,6 +7,7 @@ public class EnemyMover : NavMeshMover {
     protected GameObject PlayerCharacter;
     public float FollowDistance;
     public Vector3 startPosition;
+    public float dis = 2.5f;
 
     public override void Start()
     {
@@ -19,7 +20,7 @@ public class EnemyMover : NavMeshMover {
     {
         if (Vector3.Distance(transform.position, PlayerCharacter.transform.position) <= FollowDistance)
         {
-            agent.stoppingDistance = 2.5f;
+            agent.stoppingDistance = dis;
             MoveTo(PlayerCharacter);
         }
         else
