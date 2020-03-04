@@ -82,8 +82,8 @@ public class Climbing : MonoBehaviour
         {
             if (!state.onGround)
             {
-                rb.AddForce(state.moveDir * 20, ForceMode.Impulse);
-                rb.AddForce(Vector3.up * 50, ForceMode.Impulse);
+                rb.AddForce(state.moveDir * 80, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * 60, ForceMode.Impulse);
 
                 player.canMove = false;
             }
