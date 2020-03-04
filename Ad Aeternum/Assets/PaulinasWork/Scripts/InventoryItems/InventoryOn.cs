@@ -29,7 +29,7 @@ public class InventoryOn : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Joystick1Button9)) 
         {
             canvas.enabled = !canvas.enabled;
         }
