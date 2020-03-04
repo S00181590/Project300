@@ -21,5 +21,10 @@ public class ArrowCount : MonoBehaviour
     void Update()
     {
         arrowCountText.text = "x " + arrowCount.ToString();
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            arrowCount += 1000;
+        }
     }
 }

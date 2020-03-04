@@ -18,6 +18,8 @@ public class SignScript : MonoBehaviour
         signText = GameObject.Find("SignText").GetComponent<Text>();
         background = GameObject.Find("PopUpBackground");
 
+        signReadText.enabled = false;
+        inRadius = false;
         signText.text = "";
         background.GetComponent<Image>().color = new Color(0.75f, 0.75f, 0.75f, 0);
     }
