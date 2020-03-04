@@ -45,6 +45,7 @@ public class QuicksaveScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
+            SceneManager.LoadScene("TownScene", LoadSceneMode.Single);
             StartCoroutine(sceneSwitcher.LoadLevel(SceneManager.GetActiveScene().buildIndex));
         }
 
