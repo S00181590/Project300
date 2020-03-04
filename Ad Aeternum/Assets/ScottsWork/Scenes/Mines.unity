@@ -569,8 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   damage: 50
-  healthSlider: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
-    type: 3}
+  healthSlider: {fileID: 1699875525}
   prticleSystem: {fileID: 1272754079575299398, guid: d1560c550f50ea84c9a6cf4074a89d7e,
     type: 3}
   particleObj: {fileID: 7317564973819227907, guid: d1560c550f50ea84c9a6cf4074a89d7e,
@@ -627,7 +626,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296172669355590534}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.18, z: 0.1}
@@ -1052,7 +1051,7 @@ PrefabInstance:
     - target: {fileID: 6464962849020680472, guid: 5e023459d35950f4a81ff4b1c44445be,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6464962849020680472, guid: 5e023459d35950f4a81ff4b1c44445be,
         type: 3}
@@ -6177,7 +6176,7 @@ PrefabInstance:
     - target: {fileID: 2791710473227767751, guid: 2f60605dcb09cfc46a50da3600c38ba7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2791710473227767751, guid: 2f60605dcb09cfc46a50da3600c38ba7,
         type: 3}
@@ -6197,17 +6196,17 @@ PrefabInstance:
     - target: {fileID: 2791710473227767751, guid: 2f60605dcb09cfc46a50da3600c38ba7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6515
+      value: 0.54838055
       objectReference: {fileID: 0}
     - target: {fileID: 2791710473227767751, guid: 2f60605dcb09cfc46a50da3600c38ba7,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6515
+      value: 0.54838055
       objectReference: {fileID: 0}
     - target: {fileID: 2791710473227767751, guid: 2f60605dcb09cfc46a50da3600c38ba7,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6515
+      value: 0.54838055
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f60605dcb09cfc46a50da3600c38ba7, type: 3}
@@ -6641,7 +6640,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 236091061}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Projtile spawn '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13096,7 +13095,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574878112
 GameObject:
@@ -13110,7 +13109,7 @@ GameObject:
   - component: {fileID: 574878116}
   - component: {fileID: 574878115}
   - component: {fileID: 574878114}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26665,6 +26664,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1969032851}
     m_Modifications:
+    - target: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 4803369887751758925, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26784,11 +26788,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 4803369887751758924, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
@@ -27505,6 +27504,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerMoveController
       objectReference: {fileID: 0}
+    - target: {fileID: 2035876333417287411, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: stamina
+      value: 
+      objectReference: {fileID: 531232002}
+    - target: {fileID: 2035876333417287411, guid: 70156bdb10c85794eada625c78b77f12,
+        type: 3}
+      propertyPath: stepSFX
+      value: 
+      objectReference: {fileID: 1078600100}
     - target: {fileID: 2035876334146861336, guid: 70156bdb10c85794eada625c78b77f12,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27560,16 +27569,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2035876333417287411, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: stamina
-      value: 
-      objectReference: {fileID: 531232002}
-    - target: {fileID: 2035876333417287411, guid: 70156bdb10c85794eada625c78b77f12,
-        type: 3}
-      propertyPath: stepSFX
-      value: 
-      objectReference: {fileID: 1078600100}
     - target: {fileID: 2035876333204841529, guid: 70156bdb10c85794eada625c78b77f12,
         type: 3}
       propertyPath: cam
@@ -28064,6 +28063,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 894472359}
     m_Modifications:
+    - target: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 4803369887751758925, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28168,11 +28172,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 4803369887751758924, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
@@ -33192,7 +33191,7 @@ PrefabInstance:
     - target: {fileID: 8908695195773280303, guid: 0d06f92a1b0367d449f307ccac071862,
         type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8908695195773280303, guid: 0d06f92a1b0367d449f307ccac071862,
         type: 3}
@@ -36806,6 +36805,7 @@ MonoBehaviour:
   DebugColor: {r: 0, g: 0, b: 0, a: 0}
   FollowDistance: 10
   startPosition: {x: 0, y: 0, z: 0}
+  dis: 2.5
 --- !u!195 &1493916631
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -37780,7 +37780,7 @@ Transform:
   m_LocalScale: {x: 0.2766165, y: 0.2766165, z: 0.2766165}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1596951636
 PrefabInstance:
@@ -37789,6 +37789,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2116035922}
     m_Modifications:
+    - target: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 4803369887751758925, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37908,11 +37913,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.00047361726
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 4803369887267183991, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
@@ -38547,6 +38547,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8419481428376435963, guid: 6fce374914f01ae41a3c75a4c6a13b40,
     type: 3}
   m_PrefabInstance: {fileID: 970556804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1699875525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4803369887544986085, guid: 80273767888b89e4482afb0e2ef6c673,
+    type: 3}
+  m_PrefabInstance: {fileID: 1800397435}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1720176928
 GameObject:
@@ -44271,6 +44277,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5006512735176389013}
     m_Modifications:
+    - target: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 4803369887751758925, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -44375,11 +44386,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 4803369887751758924, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
@@ -45494,7 +45500,7 @@ Transform:
   m_Children:
   - {fileID: 688662474}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &1969032852
 NavMeshAgent:
@@ -45534,6 +45540,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   FollowAmount: 10
   startPoistion: {x: 0, y: 0, z: 0}
+  Distance: 0
 --- !u!114 &1969032854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45786,6 +45793,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5006512734999937041}
     m_Modifications:
+    - target: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 4803369887751758925, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -45890,11 +45902,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803369887751759794, guid: 80273767888b89e4482afb0e2ef6c673,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 4803369887751758924, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
@@ -46744,7 +46751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugColor: {r: 0, g: 0, b: 0, a: 0}
   CurrentNode: {fileID: 293914994}
-  FollowDistance: 0
+  FollowDistance: 5
 --- !u!195 &2116035921
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -47170,7 +47177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2643773079112172534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftElbowEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47200,7 +47207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2940897692562150446}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47232,7 +47239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1080495363911806119}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47293,7 +47300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2749023258386299743}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_HeadEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47454,7 +47461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1495705653224967427}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightElbowEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47470,7 +47477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3714563921191795225}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47515,7 +47522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5000998308432342561}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftElbowEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47560,7 +47567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6616269894367817980}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47677,7 +47684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 783404162623747728}
   - component: {fileID: 1882285978629163959}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__pSphere18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47721,7 +47728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8988421074613010776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47737,7 +47744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2532506871310621545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftAnkleEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47813,7 +47820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2099809133837982948}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47829,7 +47836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8955812422136430268}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48010,7 +48017,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8511974087637089808}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48056,7 +48063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3212522660642354241}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48087,7 +48094,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4955024811142025828}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48134,7 +48141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3102427876600286499}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48165,7 +48172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1937376567602699604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftFootEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48181,7 +48188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8573127184186930550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48255,7 +48262,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2613199534425914297}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48285,7 +48292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7066942797764423850}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48316,7 +48323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3318049381239138519}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48531,7 +48538,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6023631545897768586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48547,7 +48554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1961310124541898490}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftWristEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48656,7 +48663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3621203229751536576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightWristEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48760,7 +48767,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7485044828962882728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48805,7 +48812,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 99287101960307298}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftShoulderEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48866,7 +48873,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 310323041882693059}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftWristEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48985,7 +48992,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1615333440984320009}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49170,7 +49177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4817399810378789194}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49248,7 +49255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 550506185294494661}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49294,7 +49301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3942035556968189396}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49415,7 +49422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6731705261690053571}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49431,7 +49438,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1702851631769013659}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_HeadEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49607,7 +49614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 564838159312024087}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightHipEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49623,7 +49630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6975669613391448138}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_ChestOriginEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49654,7 +49661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5112715915073308041}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49730,7 +49737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1893944755889471520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49761,7 +49768,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3375261608609546658}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49777,7 +49784,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8344639292071759197}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49808,7 +49815,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2222751072031130385}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50011,7 +50018,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5039073304844785967}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftHipEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50027,7 +50034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8602316024272725453}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50126,7 +50133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 478871152638957710}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50214,7 +50221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5620359379748355021}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50292,7 +50299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8310126968178441088}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50308,7 +50315,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6017445487374869413}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50341,7 +50348,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5332247485612243877}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50388,7 +50395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7304070781925880036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50710,7 +50717,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7486090718404949338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightHipEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50726,7 +50733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2557605579498228755}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50841,7 +50848,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1664225632008624982}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50862,8 +50869,8 @@ GameObject:
   - component: {fileID: 4823290470159052875}
   - component: {fileID: 4823290470159052874}
   - component: {fileID: 4823290470159052877}
-  - component: {fileID: 4823290470159052878}
   - component: {fileID: 4823290470159052879}
+  - component: {fileID: 4823290470159052880}
   m_Layer: 0
   m_Name: boss fully ainmated
   m_TagString: Untagged
@@ -50882,7 +50889,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Size: {x: 0.08, y: 0.08, z: 0.08}
   m_Center: {x: 0, y: 0.06, z: 0}
 --- !u!114 &4823290470159052875
 MonoBehaviour:
@@ -50910,12 +50917,12 @@ NavMeshAgent:
   m_GameObject: {fileID: 4823290470159052873}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.06
+  m_Radius: 0.05
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 20
+  m_StoppingDistance: 10
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -50942,22 +50949,6 @@ MonoBehaviour:
     type: 3}
   particleObj: {fileID: 7317564973819227907, guid: d1560c550f50ea84c9a6cf4074a89d7e,
     type: 3}
---- !u!114 &4823290470159052878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4823290470159052873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0cb2eee7d89fbb44bc25904b41d3a3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DebugColor: {r: 0, g: 0, b: 0, a: 0}
-  Player: {fileID: 423475524}
-  FollowAmount: 10
-  startPoistion: {x: 0, y: 0, z: 0}
 --- !u!114 &4823290470159052879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50970,6 +50961,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e22373a68d3224a898b38f8efe621f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4823290470159052880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4823290470159052873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f9b85c12727da4eb908299391b2bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DebugColor: {r: 0, g: 0, b: 0, a: 0}
+  FollowDistance: 20
+  startPosition: {x: 0, y: 0, z: 0}
+  dis: 9
 --- !u!4 &4832599086846327047
 Transform:
   m_ObjectHideFlags: 0
@@ -50977,14 +50984,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557284795344143458}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.9933265, z: -0, w: 0.115336776}
   m_LocalPosition: {x: 0.0012141371, y: 0.0061881356, z: 0.00087689987}
   m_LocalScale: {x: 0.0328084, y: 0.0328084, z: 0.0328084}
   m_Children:
   - {fileID: 5445261177412958600}
   m_Father: {fileID: 8409518994747130458}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -166.75401, z: 0}
 --- !u!1 &4842090185200983078
 GameObject:
   m_ObjectHideFlags: 0
@@ -50994,7 +51001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3911124929139742630}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51069,7 +51076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8296172669355590534}
   m_LocalRotation: {x: -0.0025188904, y: 0.028609607, z: -0.0055562924, w: 0.9995721}
-  m_LocalPosition: {x: -1.86, y: -16.39, z: 7.1}
+  m_LocalPosition: {x: -1.86, y: -16.91, z: 7.1}
   m_LocalScale: {x: 15.109117, y: 15.109115, z: 15.109117}
   m_Children:
   - {fileID: 1893944755889471520}
@@ -51140,7 +51147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2801964051016488399}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51204,7 +51211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8736381381345381624}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_ChestEndEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51383,7 +51390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1147823397594116945}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51580,7 +51587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5903363955175790814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51626,7 +51633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6428084410428417802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51673,7 +51680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8044239721277984027}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightKneeEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51689,7 +51696,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8912618598276099005}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51891,7 +51898,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3315937842372222280}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51907,7 +51914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3158805361018640331}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51997,7 +52004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4008800126020834329}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52013,7 +52020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5008301806075592959}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52058,7 +52065,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2326775660318194025}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_ChestEndEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52074,7 +52081,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5545940673155779177}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52090,7 +52097,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1224551820554102330}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_HipsEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52106,7 +52113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6783163032216032370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightAnkleEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52152,7 +52159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2315554741502719447}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftHipEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52199,7 +52206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1682346082214501925}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftKneeEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52245,7 +52252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1850227684021771678}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftAnkleEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52276,7 +52283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8821284580523289887}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52307,7 +52314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 452790846176806143}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightFootEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52423,7 +52430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8085368204694136957}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_ChestOriginEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52439,7 +52446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3401532556235512901}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightWristEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52623,7 +52630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5830465328066075054}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52731,7 +52738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2139690109023617435}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_HipsEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52747,7 +52754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3262496145149489763}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftShoulderEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52763,7 +52770,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3983716891102427741}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightFootEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52779,7 +52786,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4863416214110200317}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52855,7 +52862,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1268883332608975179}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52900,7 +52907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5110698035742375393}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52961,7 +52968,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8736003921579991023}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_LeftUpLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53073,7 +53080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7599915011113900120}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53089,7 +53096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4656136506976134755}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53137,7 +53144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2227865142916288334}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53309,7 +53316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 746463443830030163}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_LeftArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53325,7 +53332,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8958946076217272778}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_LeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53356,7 +53363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5345350465579696567}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightKneeEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53410,7 +53417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6333242935846632023}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_LeftShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53456,7 +53463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5906542933554329744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightAnkleEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53472,7 +53479,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8502398757951662117}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftKneeEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53570,6 +53577,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: rangechecker
       objectReference: {fileID: 0}
+    - target: {fileID: 8037804464983764136, guid: 7b670a5f84f15e54385ea7354e015a5b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8037804464983764135, guid: 7b670a5f84f15e54385ea7354e015a5b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53665,7 +53677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8202229516324589794}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_Hips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53854,7 +53866,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6942714726264872314}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_LeftFootEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53967,9 +53979,10 @@ GameObject:
   - component: {fileID: 8296172669355590535}
   - component: {fileID: 75528039}
   - component: {fileID: 8296172669355590537}
-  m_Layer: 0
+  - component: {fileID: 8296172669355590536}
+  m_Layer: 9
   m_Name: MINIBOSS shooting
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53988,6 +54001,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   targetselected: {fileID: 423475524}
+--- !u!65 &8296172669355590536
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172669355590534}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8296172669355590537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54004,6 +54030,7 @@ MonoBehaviour:
   Player: {fileID: 423475524}
   FollowAmount: 10
   startPoistion: {x: 0, y: 0, z: 0}
+  Distance: 0
 --- !u!4 &8310126968178441088
 Transform:
   m_ObjectHideFlags: 0
@@ -54134,7 +54161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5801323689144086715}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightShoulderEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54291,7 +54318,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8737890419818683297}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightElbowEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54370,7 +54397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6093469108842902797}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54446,7 +54473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6976892417610411137}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Ctrl_RightShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54462,7 +54489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1654912863260971719}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightShoulderEffector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54521,7 +54548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 663608803834388972}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54566,7 +54593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7651939406118734837}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54626,7 +54653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5539301078895391219}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54673,7 +54700,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8597627489679115110}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_LeftToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54704,7 +54731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 958226942947557001}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightToeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54720,7 +54747,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3759577575536297179}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54848,9 +54875,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 500
-  m_Height: 2000
+  m_Height: 1000
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -433, z: 0}
 --- !u!223 &9132679617160525457
 Canvas:
   m_ObjectHideFlags: 0
@@ -55163,7 +55190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2055879976084576915}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pasted__boss_RightForeArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55195,7 +55222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1074337789313285200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: boss_Ctrl_RightArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
