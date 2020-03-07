@@ -131,13 +131,21 @@ public class StateManager : MonoBehaviour
             //Sprint
             if ((Input.GetKey(KeyCode.LeftShift) || controllerSprint == true) && stamina.canSprint)
             {
-                rb.velocity = moveDir * (speed * sprintSpeed);
                 isSprinting = true;
             }
             else
             {
-                rb.velocity = moveDir * (speed * moveAmount);
                 isSprinting = false;
+            }
+
+            if (isSprinting)
+            {
+                rb.velocity = moveDir * (speed * sprintSpeed);
+
+            }
+            else
+            {
+                rb.velocity = moveDir * (speed * moveAmount);
             }
 
             if (jumpActive == true)

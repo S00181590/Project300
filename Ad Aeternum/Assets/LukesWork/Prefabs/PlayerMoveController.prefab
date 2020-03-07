@@ -10778,6 +10778,7 @@ GameObject:
   - component: {fileID: 1004825383}
   - component: {fileID: 1004825384}
   - component: {fileID: 1004825385}
+  - component: {fileID: 450473832770540351}
   m_Layer: 8
   m_Name: PlayerMoveController
   m_TagString: Player
@@ -10975,6 +10976,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552f19fa73d8a79439cc68cc1cac85fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &450473832770540351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035876333024037701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2447061a1e6534c4d8d9b0f5e7ae9aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2035876335041560376
 GameObject:
   m_ObjectHideFlags: 0
@@ -11028,7 +11041,7 @@ Animator:
   m_GameObject: {fileID: 2035876335041560376}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 77f11831d030f7c4088466a1eb08b16c, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec9a95398f99b984ba27610a964d3a3d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -13750,11 +13763,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2035876334146861336}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 0a6386d6be5604642b82f9ba9fef63c6,
-        type: 3}
-      propertyPath: m_Name
-      value: HaloSmooth
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a6386d6be5604642b82f9ba9fef63c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13825,6 +13833,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.034718543
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0a6386d6be5604642b82f9ba9fef63c6,
+        type: 3}
+      propertyPath: m_Name
+      value: HaloSmooth
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 0a6386d6be5604642b82f9ba9fef63c6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13845,16 +13858,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2035876335041560519}
     m_Modifications:
-    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
-        type: 3}
-      propertyPath: m_Name
-      value: ArrowSpawn
-      objectReference: {fileID: 0}
-    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 7411944992729990714, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13925,6 +13928,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 6.2500005
       objectReference: {fileID: 0}
+    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
+        type: 3}
+      propertyPath: m_Name
+      value: ArrowSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d9cf72bbc4d38248bca0d0c08aaec67, type: 3}
 --- !u!4 &2035876334445942658 stripped
@@ -13940,16 +13953,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1873643873475375288}
     m_Modifications:
-    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
-        type: 3}
-      propertyPath: m_Name
-      value: ArrowSpawn
-      objectReference: {fileID: 0}
-    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
-        type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 7411944992729990714, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14019,6 +14022,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
+        type: 3}
+      propertyPath: m_Name
+      value: ArrowSpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411944992729990717, guid: 8d9cf72bbc4d38248bca0d0c08aaec67,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d9cf72bbc4d38248bca0d0c08aaec67, type: 3}
