@@ -10,6 +10,13 @@ public class TrackingSystem : MonoBehaviour
 
     Quaternion lookAtRotation;
     // Update is called once per frame
+
+    private void Start()
+    {
+        targetselected = GameObject.Find("PlayerMoveController");
+        LastKnownPoistion = GameObject.Find("PlayerMoveController").transform.position;
+    }
+
     void Update()
     {
         if (targetselected)

@@ -15,6 +15,11 @@ public class Shotting : MonoBehaviour
     List<GameObject> lastProjechtiles = new List<GameObject>();
 
     float fireTimer = 0.0f;
+
+    private void Start()
+    {
+        Target = GameObject.Find("PlayerMoveController");
+    }
     // Update is called once per frame
     void Update()
     {

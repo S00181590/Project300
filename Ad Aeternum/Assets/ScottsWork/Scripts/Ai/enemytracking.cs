@@ -12,6 +12,7 @@ public class enemytracking : NavMeshMover
    public override void Start()
     {
         startingPoistion = transform.position;
+        PlayerChacther = GameObject.Find("PlayerMoveController");
         base.Start();
     }
 

@@ -11,6 +11,7 @@ public class Enemytacking : NavMeshMover
    public override void Start()
     {
         startPoistion = transform.position;
+        PlayerChracther = GameObject.Find("PlayerMoveController");
         base.Start();
     }
 

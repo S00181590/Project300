@@ -17,6 +17,7 @@ public class EnemyShootScript : MonoBehaviour
     void Start()
     {
         enemy = gameObject;
+        player = GameObject.Find("PlayerMoveController");
     }
 
     void Update()

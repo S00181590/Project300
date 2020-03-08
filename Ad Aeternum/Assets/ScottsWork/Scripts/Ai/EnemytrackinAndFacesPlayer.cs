@@ -14,7 +14,7 @@ public class EnemytrackinAndFacesPlayer : NavMeshMover
     public override void Start()
     {
         startPoistion = transform.position;
-        MainPlayer = GameObject.FindGameObjectWithTag("Player");
+        MainPlayer = GameObject.Find("PlayerMoveController");
          
         base.Start();
     }

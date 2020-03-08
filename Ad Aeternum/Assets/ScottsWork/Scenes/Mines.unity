@@ -99,7 +99,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 5fb0f1725a49b7040b41587f2f08ba95,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -788,8 +788,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101323492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.638, y: 4.23, z: -16.888}
-  m_LocalScale: {x: 62.286484, y: 1, z: 101.14101}
+  m_LocalPosition: {x: -11.1, y: 4.23, z: -18.1}
+  m_LocalScale: {x: 60, y: 1, z: 96.1}
   m_Children:
   - {fileID: 5006512736490705234}
   - {fileID: 784662437}
@@ -18643,7 +18643,7 @@ PrefabInstance:
     - target: {fileID: 3870682774420239111, guid: 6bfc0765a562d5d4b9a2cee5a6ecffd8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.7194157
+      value: -7.87
       objectReference: {fileID: 0}
     - target: {fileID: 3870682774420239111, guid: 6bfc0765a562d5d4b9a2cee5a6ecffd8,
         type: 3}
@@ -24032,7 +24032,6 @@ GameObject:
   - component: {fileID: 996083974}
   - component: {fileID: 996083973}
   - component: {fileID: 996083972}
-  - component: {fileID: 996083975}
   m_Layer: 10
   m_Name: Terrain
   m_TagString: Ground
@@ -24097,19 +24096,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &996083975
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996083971}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3593254, y: 0.72084427, z: 0}
-  m_Center: {x: 1.1796628, y: 0.13957787, z: 0.5}
 --- !u!1 &1020112468
 GameObject:
   m_ObjectHideFlags: 0
