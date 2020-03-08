@@ -17,6 +17,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public GameObject itemDisplayer;
 
+    public Sprite hoverSprite;
+    Text hoverName;
+
     public void OnPointerClick(PointerEventData pointerEventData)
     {
         DisplayItem();
@@ -24,6 +27,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
+        hoverName = GameObject.Find("itemName").GetComponent<Text>();
         slotIcon = transform.GetChild(0);
     }
 
@@ -40,5 +44,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     public void DisplayItem()
     {
         Debug.Log(item.GetComponent<Item>().description);
+        hoverName.text = "Name: " + item.GetComponent<Item>().name.ToString(); ;
     }
 }

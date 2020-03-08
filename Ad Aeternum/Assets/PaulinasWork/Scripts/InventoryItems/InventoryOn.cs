@@ -65,9 +65,9 @@ public class InventoryOn : MonoBehaviour
 
                 slot[i].GetComponent<Slot>().UpdateSlot();
                 slot[i].GetComponent<Slot>().empty = false;
-            return;
+            
+                return;
             }
-
         }
     }
 }
