@@ -17,8 +17,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public GameObject itemDisplayer;
 
-    public Sprite hoverSprite;
+    public GameObject hoverSprite;
     Text hoverName;
+    Text hoverDescription;
+
+    InventoryOn inventoryOn;
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
@@ -28,7 +31,22 @@ public class Slot : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         hoverName = GameObject.Find("itemName").GetComponent<Text>();
+        hoverSprite = GameObject.Find("itemIcon");
+        hoverDescription = GameObject.Find("itemStats").GetComponent<Text>();
         slotIcon = transform.GetChild(0);
+        hoverSprite.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        inventoryOn = GameObject.Find("InventorySphere").GetComponent<InventoryOn>();
+    }
+
+    void Update()
+    {
+        if (inventoryOn.isOpen == false)
+        {
+            hoverName.text = "";
+            hoverDescription.text = "";
+            hoverSprite.GetComponent<Image>().sprite = null;
+            hoverSprite.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        }
     }
 
     public void UpdateSlot()
@@ -43,7 +61,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler
 
     public void DisplayItem()
     {
-        Debug.Log(item.GetComponent<Item>().description);
-        hoverName.text = "Name: " + item.GetComponent<Item>().name.ToString(); ;
+        hoverName.text = item.GetComponent<Item>().name.ToString();
+        hoverDescription.text = "Description: " + item.GetComponent<Item>().description.ToString();
+        hoverSprite.GetComponent<Image>().sprite = item.GetComponent<Item>().Icon;
+        hoverSprite.GetComponent<Image>().color = new Color(1, 1, 1, 1);
     }
 }
