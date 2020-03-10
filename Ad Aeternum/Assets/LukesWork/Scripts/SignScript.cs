@@ -11,7 +11,7 @@ public class SignScript : MonoBehaviour
     bool signActive = false, inRadius = false;
     public string textOnSign = "";
 
-    void Awake()
+    void Start()
     {
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
         signReadText = GameObject.Find("SignReadText").GetComponent<Text>();
@@ -41,6 +41,7 @@ public class SignScript : MonoBehaviour
     {
         if (other.tag == "Interactive")
         {
+            Debug.Log("COLLIDE");
             signReadText.transform.position = cam.WorldToScreenPoint(transform.position + new Vector3(0, 2.8f, 0));
             signReadText.text = "Press F To Read Sign";
             signReadText.enabled = true;

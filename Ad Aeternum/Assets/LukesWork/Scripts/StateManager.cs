@@ -6,9 +6,12 @@ public class StateManager : MonoBehaviour
 {
     #region Variables
     [HideInInspector]
-    public float vertical, horizontal, rotateSpeed = 50f, speed = 5f, sprintSpeed = 1.8f, jump = 600, moveAmount = 20,
+    public float vertical, horizontal, rotateSpeed = 50f, sprintSpeed = 1.8f, jump = 600, moveAmount = 20,
         DodgeForce = 1000f, JumpForce = 30f, moveSpeed = 2, speedModifier = 1.5f, dashTime = 2;
+
     float toGround = 0.76f, internalSpeedModifier, internalDashTime = 3, d, leftTrigger, rightTrigger;
+
+    public float speed = 50f, speedMult = 1;
 
     [HideInInspector]
     public bool onGround, attacking, controllerSprint = false, dodgeInput, isSprinting = false, groundTest, jumpActive = false;
@@ -140,12 +143,11 @@ public class StateManager : MonoBehaviour
 
             if (isSprinting)
             {
-                rb.velocity = moveDir * (speed * sprintSpeed);
-
+                rb.velocity = moveDir * (speed * speedMult * sprintSpeed);
             }
             else
             {
-                rb.velocity = moveDir * (speed * moveAmount);
+                rb.velocity = moveDir * (speed * speedMult * moveAmount);
             }
 
             if (jumpActive == true)

@@ -29,7 +29,7 @@ public class UIMover : MonoBehaviour
             //gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.localPosition,
             //    new Vector3(2000, 135, 0), Time.deltaTime * 20);
 
-            gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.localPosition, new Vector3(-310, 0, 0), Time.deltaTime * 5);
+            gameObject.transform.localPosition = Vector3.Lerp(gameObject.transform.localPosition, new Vector3(-320, 0, 0), Time.deltaTime * 5);
         }
     }
 }

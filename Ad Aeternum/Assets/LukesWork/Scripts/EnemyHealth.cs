@@ -14,6 +14,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        healthSlider = transform.Find("Canvas").Find("EnemyHealthSlider").gameObject;
         prticleSystem.Stop();
     }
 
