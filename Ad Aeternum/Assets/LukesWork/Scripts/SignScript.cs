@@ -42,7 +42,7 @@ public class SignScript : MonoBehaviour
         if (other.tag == "Interactive")
         {
             Debug.Log("COLLIDE");
-            signReadText.transform.position = cam.WorldToScreenPoint(transform.position + new Vector3(0, 2.8f, 0));
+            signReadText.transform.position = cam.WorldToScreenPoint(transform.position + new Vector3(0, 2f, 0));
             signReadText.text = "Press F To Read Sign";
             signReadText.enabled = true;
             inRadius = true;
