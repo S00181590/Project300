@@ -8043,6 +8043,10 @@ PrefabInstance:
       propertyPath: particleObj
       value: 
       objectReference: {fileID: 120331330}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -9790,6 +9794,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 4743086087292582697, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10610,6 +10618,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230468512756523394, guid: 0d06f92a1b0367d449f307ccac071862,
+        type: 3}
+      propertyPath: m_Name
+      value: Poof Particle System
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d06f92a1b0367d449f307ccac071862, type: 3}

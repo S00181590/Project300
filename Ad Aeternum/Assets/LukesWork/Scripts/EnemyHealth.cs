@@ -15,23 +15,28 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         healthSlider = transform.Find("Canvas").Find("EnemyHealthSlider").gameObject;
+        prticleSystem = GameObject.Find("Poof Particle System").GetComponent<ParticleSystem>();
+        particleObj = GameObject.Find("PoofParticles");
         prticleSystem.Stop();
     }
 
     void Update()
     {
-        healthSlider.GetComponent<Slider>().value = health;
-
-        if (healthSlider.GetComponent<Slider>().value <= 0)
+        if (healthSlider != null)
         {
-            letPlay = true;
+            healthSlider.GetComponent<Slider>().value = health;
 
-            if (gameObject != null)
+            if (healthSlider.GetComponent<Slider>().value <= 0)
             {
-                particleObj.transform.position = gameObject.transform.position;
-            }
+                letPlay = true;
 
-            Destroy(this.gameObject, 0.5f);
+                if (gameObject != null)
+                {
+                    particleObj.transform.position = gameObject.transform.position;
+                }
+
+                Destroy(this.gameObject, 0.5f);
+            }
         }
 
         if (letPlay)

@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -801,8 +801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 620c503049f3b4f49b3ed5c96dfcd456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 587478050}
-  slotHolder: {fileID: 0}
+  canvas: {fileID: 1456374090}
+  slotHolder: {fileID: 2115160612}
   isOpen: 0
 --- !u!114 &587478048
 MonoBehaviour:
@@ -4125,11 +4125,11 @@ PrefabInstance:
     - target: {fileID: 909954008, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
       propertyPath: canvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1456374090}
     - target: {fileID: 909954008, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
       propertyPath: slotHolder
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2115160612}
     - target: {fileID: 6659137067079040016, guid: 70156bdb10c85794eada625c78b77f12,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

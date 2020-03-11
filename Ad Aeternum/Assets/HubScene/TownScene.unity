@@ -172,7 +172,7 @@ PrefabInstance:
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
@@ -188,6 +188,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2845,7 +2849,7 @@ PrefabInstance:
     - target: {fileID: 916978966002063066, guid: d756814bc754c7942b8bbe381868680e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 916978966002063066, guid: d756814bc754c7942b8bbe381868680e,
         type: 3}
@@ -3030,7 +3034,7 @@ PrefabInstance:
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
@@ -3046,6 +3050,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3113,7 +3121,7 @@ PrefabInstance:
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
@@ -3129,6 +3137,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3916,7 +3928,7 @@ PrefabInstance:
     - target: {fileID: 916978966002063066, guid: d756814bc754c7942b8bbe381868680e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 916978966002063066, guid: d756814bc754c7942b8bbe381868680e,
         type: 3}
@@ -4734,7 +4746,7 @@ PrefabInstance:
     - target: {fileID: 916978966002063066, guid: d756814bc754c7942b8bbe381868680e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 916978966002063066, guid: d756814bc754c7942b8bbe381868680e,
         type: 3}
@@ -5264,7 +5276,7 @@ PrefabInstance:
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
@@ -5280,6 +5292,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6770,7 +6786,7 @@ PrefabInstance:
     - target: {fileID: 916978966002063066, guid: d756814bc754c7942b8bbe381868680e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 916978966002063066, guid: d756814bc754c7942b8bbe381868680e,
         type: 3}
@@ -6994,7 +7010,7 @@ PrefabInstance:
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
@@ -7010,6 +7026,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7146,7 +7166,7 @@ PrefabInstance:
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
@@ -7162,6 +7182,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10317,7 +10341,7 @@ PrefabInstance:
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
@@ -10333,6 +10357,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14866,7 +14894,7 @@ PrefabInstance:
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
@@ -14882,6 +14910,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_AnchorMax.x
@@ -14949,7 +14981,7 @@ PrefabInstance:
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2504909201974106577, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
@@ -14965,6 +14997,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_AnchorMax.x
@@ -15009,7 +15045,6 @@ Transform:
   m_LocalPosition: {x: 507.16614, y: 158.4956, z: 428.7634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 830492021}
   - {fileID: 1434849734}
   - {fileID: 623381826}
   - {fileID: 332947282}
@@ -15017,11 +15052,12 @@ Transform:
   - {fileID: 319120014}
   - {fileID: 21863786}
   - {fileID: 857386940}
-  - {fileID: 499520610}
   - {fileID: 2111666557}
   - {fileID: 849506342}
   - {fileID: 292846698}
   - {fileID: 573163001}
+  - {fileID: 499520610}
+  - {fileID: 830492021}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
