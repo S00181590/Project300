@@ -99,7 +99,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: d8509bd48b501b545a233e5c3a02db52,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -12115,6 +12115,7 @@ Transform:
   - {fileID: 1564018250}
   - {fileID: 224506650}
   - {fileID: 1421267294}
+  - {fileID: 5006512736051686133}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14087,6 +14088,91 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8068173291611987386, guid: 9f6db6a9b5e86bc4893b4a75d367bd13,
     type: 3}
   m_PrefabInstance: {fileID: 5693735279572916426}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2631541669509942653
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1737547188}
+    m_Modifications:
+    - target: {fileID: 6315436608758076827, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_Name
+      value: house4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -55.516006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -34.753048
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -452.75198
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.703938
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7102615
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 121
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.48801
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 12.58501
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12.58501
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f1e0a31fd556383478a6ec09889dee5b, type: 3}
+--- !u!4 &5006512736051686133 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7061549634045552520, guid: f1e0a31fd556383478a6ec09889dee5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2631541669509942653}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5693735279572916426
 PrefabInstance:
