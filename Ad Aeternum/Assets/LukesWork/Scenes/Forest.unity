@@ -99,7 +99,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 67dd09c8926f4fb439829983f63443ab,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -121,7 +121,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 00f57283b20a69841b4c6edcef68ebef, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c28d25188f80afa41855353577e835ec, type: 2}
 --- !u!1001 &13768189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9778,17 +9778,13 @@ PrefabInstance:
       propertyPath: particleObj
       value: 
       objectReference: {fileID: 120331330}
-    - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
+    - target: {fileID: 1956065853, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: FollowDistance
+      value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 445389313, guid: ea32faf203424e64e9825592b21cfada, type: 3}
-      propertyPath: cam
-      value: 
+    - target: {fileID: 690042792, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 445389311, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9809,9 +9805,17 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 690042792, guid: ea32faf203424e64e9825592b21cfada, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 18
+    - target: {fileID: 445389313, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 965878586, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3656402899926694076, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
@@ -9936,6 +9940,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 965878585, guid: ea32faf203424e64e9825592b21cfada, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 7496730659102479739, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9988,10 +9996,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 375735099929919363, guid: ea32faf203424e64e9825592b21cfada,
         type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 965878585, guid: ea32faf203424e64e9825592b21cfada, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 18
       objectReference: {fileID: 0}
@@ -10274,10 +10278,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 1956065853, guid: ea32faf203424e64e9825592b21cfada, type: 3}
-      propertyPath: FollowDistance
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea32faf203424e64e9825592b21cfada, type: 3}
