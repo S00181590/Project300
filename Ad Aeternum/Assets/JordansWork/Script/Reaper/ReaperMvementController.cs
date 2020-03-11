@@ -34,6 +34,10 @@ public class ReaperMvementController : EnemyMover
     //Update is called once per frame
     void Update()
     {
+        if(Vector3.Distance(gameObject.transform.position, PlayerCharacter.transform.position) > 20)
+        {
+            PlayerIsHere = false;
+        };
         
         if(State == ReaperBossState.BossState.Idle)
         {
@@ -56,7 +60,7 @@ public class ReaperMvementController : EnemyMover
         }
         else if(State == ReaperBossState.BossState.Evade)
         {
-            agent.stoppingDistance = 4f;
+            agent.stoppingDistance = 10f;
 
             MoveTo(PlayerCharacter);
 
@@ -64,14 +68,16 @@ public class ReaperMvementController : EnemyMover
             {
                 Invoke("IdleAction", 0);
             }
-
-            if(pattern == 1)
+            else
             {
-                Invoke("ForwardAttackAction", 4);
-            }
-            else if(pattern == 2)
-            {
-                Invoke("BackAttackAction", 6);
+                if (pattern == 1)
+                {
+                    Invoke("ForwardAttackAction", 4);
+                }
+                else if (pattern == 2)
+                {
+                    Invoke("BackAttackAction", 6);
+                }
             }
 
         }
@@ -80,7 +86,7 @@ public class ReaperMvementController : EnemyMover
             CapsuleCollider reaper = gameObject.GetComponent<CapsuleCollider>();
             NavMeshAgent nav = gameObject.GetComponent<NavMeshAgent>();
 
-            reaper.enabled = false;
+            //reaper.enabled = false;
 
             nav.Warp(PlayerCharacter.transform.position += new Vector3(2, 0, -2));
 
@@ -88,7 +94,7 @@ public class ReaperMvementController : EnemyMover
 
             pattern = 1;
 
-            Invoke("EvadeAction", 0);
+            Invoke("AvoidAction", 0);
 
         }
     }
