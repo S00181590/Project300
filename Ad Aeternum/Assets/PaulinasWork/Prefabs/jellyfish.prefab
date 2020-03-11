@@ -110,7 +110,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 6f558925d2244e147a3e5ef825f0d597, type: 3}
+  - {fileID: 2100000, guid: 176e9f0e712d5a24ab64b1bc2650cd4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -392,7 +392,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 6f558925d2244e147a3e5ef825f0d597, type: 3}
+  - {fileID: 2100000, guid: 176e9f0e712d5a24ab64b1bc2650cd4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -485,7 +485,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 6f558925d2244e147a3e5ef825f0d597, type: 3}
+  - {fileID: 2100000, guid: 176e9f0e712d5a24ab64b1bc2650cd4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -816,7 +816,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 6f558925d2244e147a3e5ef825f0d597, type: 3}
+  - {fileID: 2100000, guid: 176e9f0e712d5a24ab64b1bc2650cd4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -902,7 +902,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 6f558925d2244e147a3e5ef825f0d597, type: 3}
+  - {fileID: 2100000, guid: 176e9f0e712d5a24ab64b1bc2650cd4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1316,7 +1316,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1360991219368177298, guid: 6f558925d2244e147a3e5ef825f0d597, type: 3}
+  - {fileID: 2100000, guid: 176e9f0e712d5a24ab64b1bc2650cd4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1646,16 +1646,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803369887267183991, guid: 80273767888b89e4482afb0e2ef6c673,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4803369887267183991, guid: 80273767888b89e4482afb0e2ef6c673,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4803369887267183988, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
