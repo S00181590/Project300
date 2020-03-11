@@ -43,7 +43,7 @@ public class SignScript : MonoBehaviour
         {
             Debug.Log("COLLIDE");
             signReadText.transform.position = cam.WorldToScreenPoint(transform.position + new Vector3(0, 2f, 0));
-            signReadText.text = "Press F To Read Sign";
+            signReadText.text = "Press F To Read " + gameObject;
             signReadText.enabled = true;
             inRadius = true;
 

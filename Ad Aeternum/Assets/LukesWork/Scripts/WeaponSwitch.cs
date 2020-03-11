@@ -6,11 +6,11 @@ public class WeaponSwitch : MonoBehaviour
 {
     [HideInInspector]
     public bool weaponBool = true;
-    public GameObject sword;
+    public GameObject sword, bow;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
             weaponBool = !weaponBool;
         }
@@ -20,12 +20,14 @@ public class WeaponSwitch : MonoBehaviour
             //Sword
             GetComponent<ArrowShooter>().enabled = false;
             sword.SetActive(true);
+            bow.SetActive(false);
         }
         else
         {
             //Bow
             GetComponent<ArrowShooter>().enabled = true;
             sword.SetActive(false);
+            bow.SetActive(true);
         }
     }
 }

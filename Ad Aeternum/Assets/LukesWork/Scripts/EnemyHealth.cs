@@ -31,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
                 particleObj.transform.position = gameObject.transform.position;
             }
 
-            Destroy(this.gameObject, 1.5f);
+            Destroy(this.gameObject, 0.5f);
         }
 
         if (letPlay)
