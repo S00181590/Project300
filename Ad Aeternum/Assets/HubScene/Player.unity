@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -459,8 +459,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1680564233}
   m_HandleRect: {fileID: 1680564232}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3675,11 +3675,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3594773190274377331, guid: 4fbd9db56b9295440ae846a38d21a830,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3594773190274377334, guid: 4fbd9db56b9295440ae846a38d21a830,
         type: 3}
       propertyPath: Options
       value: 
       objectReference: {fileID: 603946170}
+    - target: {fileID: 3594773190274377334, guid: 4fbd9db56b9295440ae846a38d21a830,
+        type: 3}
+      propertyPath: IsPaused
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3594773190274377335, guid: 4fbd9db56b9295440ae846a38d21a830,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4893,7 +4903,7 @@ PrefabInstance:
     - target: {fileID: 7301148036698282220, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7301148036698282192, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
@@ -5013,7 +5023,7 @@ PrefabInstance:
     - target: {fileID: 7301148035748010587, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 435.95
       objectReference: {fileID: 0}
     - target: {fileID: 7301148035748010587, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
@@ -5033,7 +5043,7 @@ PrefabInstance:
     - target: {fileID: 7301148035948029740, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 435.95
       objectReference: {fileID: 0}
     - target: {fileID: 7301148035948029740, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
@@ -5128,7 +5138,7 @@ PrefabInstance:
     - target: {fileID: 7301148035582273277, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7301148035582273277, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
@@ -5138,12 +5148,12 @@ PrefabInstance:
     - target: {fileID: 7301148036210897216, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7301148036210897216, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7301148036210897216, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
@@ -5153,6 +5163,56 @@ PrefabInstance:
     - target: {fileID: 7301148035590317694, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301148035761278892, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d2111ff774cced042a1fb68f938d3e25,
+        type: 3}
+    - target: {fileID: 7301148035761278892, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301148036210897217, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d2111ff774cced042a1fb68f938d3e25,
+        type: 3}
+    - target: {fileID: 7301148036859947039, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d2111ff774cced042a1fb68f938d3e25,
+        type: 3}
+    - target: {fileID: 7301148036859947039, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301148036796801957, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d2111ff774cced042a1fb68f938d3e25,
+        type: 3}
+    - target: {fileID: 7301148036796801957, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7301148036693777441, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d2111ff774cced042a1fb68f938d3e25,
+        type: 3}
+    - target: {fileID: 7301148036693777441, guid: 63ae4730d28cd6f4dbdadfc0aabdc61b,
+        type: 3}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5322,6 +5382,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 909954008, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1995337604}
+    - target: {fileID: 909954008, guid: 70156bdb10c85794eada625c78b77f12, type: 3}
+      propertyPath: slotHolder
+      value: 
+      objectReference: {fileID: 240483697}
     - target: {fileID: 6659137067079040016, guid: 70156bdb10c85794eada625c78b77f12,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
