@@ -88,7 +88,7 @@ public class ReaperMvementController : EnemyMover
 
             //reaper.enabled = false;
 
-            nav.Warp(PlayerCharacter.transform.position += new Vector3(2, 0, -2));
+            //nav.Warp(PlayerCharacter.transform.position += new Vector3(2, 0, -2));
 
             //MoveTo(PlayerCharacter);
 
