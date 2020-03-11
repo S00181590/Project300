@@ -1066,6 +1066,7 @@ MonoBehaviour:
   DebugColor: {r: 0, g: 0, b: 0, a: 0}
   FollowDistance: 10
   startPosition: {x: 0, y: 0, z: 0}
+  dis: 2.5
 --- !u!136 &-1914545376529946456
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1636,12 +1637,12 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 4803369887632665752, guid: 80273767888b89e4482afb0e2ef6c673,
+    - target: {fileID: 4803369887802547886, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 16
       objectReference: {fileID: 0}
-    - target: {fileID: 4803369887802547886, guid: 80273767888b89e4482afb0e2ef6c673,
+    - target: {fileID: 4803369887632665752, guid: 80273767888b89e4482afb0e2ef6c673,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 16
