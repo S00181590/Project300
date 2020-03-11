@@ -12,35 +12,36 @@ public class CinematicCamMover : MonoBehaviour
     {
         cam = GameObject.Find("CameraMoveController");
         player = GameObject.Find("Player");
+        gate = GameObject.Find("VGate");
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             moving = !moving;
         }
     }
 
-    void FixedUpdate()
-    {
-        if (moving)
-        {
-            MoveCam();
-            StartCoroutine(Cancel());
-        }
-        else
-        {
-            CancelInvoke();
-        }
-    }
+    //void FixedUpdate()
+    //{
+    //    if (moving)
+    //    {
+    //        MoveCam();
+    //        StartCoroutine(Cancel());
+    //    }
+    //    else
+    //    {
+    //        CancelInvoke();
+    //    }
+    //}
 
-    void MoveCam()
-    {
-        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(650, 50, 1250), Time.fixedDeltaTime);
-        //cam.transform.LookAt(gate.transform);
-        cam.transform.LookAt(gate.transform.position);
-    }
+    //void MoveCam()
+    //{
+    //    cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(650, 50, 1250), Time.fixedDeltaTime);
+    //    //cam.transform.LookAt(gate.transform);
+    //    cam.transform.LookAt(gate.transform.position);
+    //}
 
     public IEnumerator Cancel()
     {

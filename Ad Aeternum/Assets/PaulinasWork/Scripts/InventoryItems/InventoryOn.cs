@@ -11,6 +11,7 @@ public class InventoryOn : MonoBehaviour
     private GameObject[] slot;
 
     public GameObject slotHolder;
+    public bool isOpen = false;
 
     void Start()
     {
@@ -32,6 +33,15 @@ public class InventoryOn : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Joystick1Button9)) 
         {
             canvas.enabled = !canvas.enabled;
+        }
+
+        if (canvas.enabled == true)
+        {
+            isOpen = true;
+        }
+        else
+        {
+            isOpen = false;
         }
     }
 
@@ -65,9 +75,9 @@ public class InventoryOn : MonoBehaviour
 
                 slot[i].GetComponent<Slot>().UpdateSlot();
                 slot[i].GetComponent<Slot>().empty = false;
-            return;
+            
+                return;
             }
-
         }
     }
 }
