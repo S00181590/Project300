@@ -13,6 +13,6 @@ public class CloudScript : MonoBehaviour
     
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, player.transform.position.x + 200, player.transform.position.z);
+        transform.position = new Vector3(player.transform.position.x, player.transform.position.y + 400, player.transform.position.z);
     }
 }
