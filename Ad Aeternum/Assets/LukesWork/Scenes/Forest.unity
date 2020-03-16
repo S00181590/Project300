@@ -99,7 +99,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 67dd09c8926f4fb439829983f63443ab,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -110,7 +110,7 @@ NavMeshSettings:
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: 0.4
+    agentClimb: 0.5
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -12578,6 +12578,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LocationNameTriggerCube
       objectReference: {fileID: 0}
+    - target: {fileID: 6464962849020680477, guid: 5e023459d35950f4a81ff4b1c44445be,
+        type: 3}
+      propertyPath: m_Layer
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 6464962849020680472, guid: 5e023459d35950f4a81ff4b1c44445be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12648,7 +12653,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 422.7471
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6464962849020680473, guid: 5e023459d35950f4a81ff4b1c44445be, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5e023459d35950f4a81ff4b1c44445be, type: 3}
 --- !u!1001 &7750461361134449429
 PrefabInstance:

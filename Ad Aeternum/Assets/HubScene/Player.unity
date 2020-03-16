@@ -3233,6 +3233,11 @@ PrefabInstance:
       propertyPath: InitialModule.maxNumParticles
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8778989935898128429, guid: 71550d5ca3981454daf48cdbdb27f447,
+        type: 3}
+      propertyPath: far clip plane
+      value: 1400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71550d5ca3981454daf48cdbdb27f447, type: 3}
 --- !u!1 &1599774341

@@ -41,21 +41,21 @@ public class SceneSwitcher : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             //Paulina's Level
-            StartCoroutine(LoadLevel(new Vector3(245, -17, -15)));
+            StartCoroutine(LoadLevel(new Vector3(245.7f, -3.2f, -4)));
             //StartCoroutine(LoadLevel(4));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             //Scott's Level
-            StartCoroutine(LoadLevel(new Vector3(-76.5f, 6.4f, 620)));
+            StartCoroutine(LoadLevel(new Vector3(-10.5f, 6.6f, 624)));
             //StartCoroutine(LoadLevel(5));
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             //Jordan's Level
-            StartCoroutine(LoadLevel(new Vector3(1713, 275, 556)));
+            StartCoroutine(LoadLevel(new Vector3(1710, 273, 550)));
             //StartCoroutine(LoadLevel(3));
         }
 
@@ -63,6 +63,12 @@ public class SceneSwitcher : MonoBehaviour
         {
             //Settings Scene
             StartCoroutine(LoadLevel(6));
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
         }
     }
 

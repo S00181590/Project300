@@ -43,12 +43,6 @@ public class QuicksaveScript : MonoBehaviour
             savingBool = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SceneManager.LoadScene("TownScene", LoadSceneMode.Single);
-            StartCoroutine(sceneSwitcher.LoadLevel(SceneManager.GetActiveScene().buildIndex));
-        }
-
         if (savingBool == true)
         {
             savingText.SetActive(true);
