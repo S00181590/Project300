@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class AdditiveSceneLoading : MonoBehaviour
 {
-    
+    public GameObject water;
 
     private void Awake()
     {
@@ -14,15 +14,19 @@ public class AdditiveSceneLoading : MonoBehaviour
         SceneManager.LoadScene("CoastSea", LoadSceneMode.Additive);
         SceneManager.LoadScene("Mines", LoadSceneMode.Additive);
         SceneManager.LoadScene("Player", LoadSceneMode.Additive);
+
+        
+
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        //SceneManager.LoadScene("TownScene", LoadSceneMode.Additive);
-        //SceneManager.LoadScene("MountainTop", LoadSceneMode.Additive);
-        //SceneManager.LoadScene("CoastSea", LoadSceneMode.Additive);
-        //SceneManager.LoadScene("Mines", LoadSceneMode.Additive);
+        //water = GameObject.Find("HubWater");
+
+        water.SetActive(true);
+        
     }
 
     // Update is called once per frame
